@@ -1,5 +1,5 @@
 
-var CT = require('./modules/country-list');
+var CT = require('./modules/state-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
@@ -48,7 +48,7 @@ module.exports = function(app) {
 	    }   else{
 			res.render('home', {
 				title : 'Control Panel',
-				countries : CT,
+				states : CT,
 				udata : req.session.user
 			});
 	    }
@@ -60,7 +60,7 @@ module.exports = function(app) {
 				user 		: req.param('user'),
 				name 		: req.param('name'),
 				email 		: req.param('email'),
-				country 	: req.param('country'),
+				state 		: req.param('state'),
 				pass		: req.param('pass')
 			}, function(e, o){
 				if (e){
@@ -85,7 +85,7 @@ module.exports = function(app) {
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
-		res.render('signup', {  title: 'Signup', countries : CT });
+		res.render('signup', {  title: 'Signup', states : CT });
 	});
 	
 	app.post('/signup', function(req, res){
@@ -94,7 +94,7 @@ module.exports = function(app) {
 			email 	: req.param('email'),
 			user 	: req.param('user'),
 			pass	: req.param('pass'),
-			country : req.param('country')
+			state 	: req.param('state')
 		}, function(e){
 			if (e){
 				res.send(e, 400);
