@@ -32,7 +32,7 @@ $(document).ready(function(){
 	
 // customize the account signup form //
 	
-	$('#account-form h1').text('Signup');
+	//$('#account-form h1').text('Signup');
 	$('#account-form #sub1').text('Please fill in the nursing home details');
 	$('#account-form #sub2').text('Choose your username & password');
 	$('#account-form-btn1').html('Cancel');
