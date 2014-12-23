@@ -48,6 +48,10 @@ body {
   width: 460px;
   margin: 100px auto;
 }
+#account-dashboard {
+  width: 460px;
+  margin: 100px auto;
+}
 #state-list {
   width: 280px;
 }
@@ -118,7 +122,7 @@ body {
   margin-left: 120px;
 }
 .form-horizontal .form-actions {
-  padding: 17px 0 0 270px;
+  padding: 15px 0 0 270px;
 }
 label {
   color: #808080;
