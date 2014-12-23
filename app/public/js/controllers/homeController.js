@@ -12,7 +12,7 @@ function HomeController()
 		$.ajax({
 			url: "/home",
 			type: "POST",
-			data: {logout : false},
+			data: {logout : true},
 			success: function(data){
 	 			that.showLockedAlert('Redirecting you back to the homepage.');
 			},
