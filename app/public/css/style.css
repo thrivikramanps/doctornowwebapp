@@ -58,14 +58,7 @@ body {
   padding: 6px 40px 6px 40px;
   float: center;
   margin-top: 15px;
-  margin-left: 100px;
-}
-#account-dashboard button {
-  width: 250px;
-  height: 300px;
-  padding: 6px 40px 6px 40px;
-  float: center;
-  margin-top: 15px;
+  margin-left: 50px;
 }
 
 #state-list {
