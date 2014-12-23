@@ -5,6 +5,24 @@ function HomeController()
 // bind event listeners to button clicks //
 	var that = this;
 
+//handle user home button click
+	$('#btn-home').click(function(){ 
+
+		var that = this;
+		$.ajax({
+			url: "/home",
+			type: "POST",
+			data: {logout : false},
+			success: function(data){
+	 			that.showLockedAlert('Redirecting you back to the homepage.');
+			},
+			error: function(jqXHR){
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
+		
+	});
+
 // handle user logout //
 	$('#btn-logout').click(function(){ that.attemptLogout(); });
 
