@@ -7,20 +7,7 @@ function HomeController()
 
 //handle user home button click
 	$('#btn-home').click(function(){ 
-
-		var that = this;
-		$.ajax({
-			url: "/home",
-			type: "POST",
-			data: {logout : true},
-			success: function(data){
-	 			that.showLockedAlert('Redirecting you back to the homepage.');
-			},
-			error: function(jqXHR){
-				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-			}
-		});
-		
+		window.location.href = '/home';		
 	});
 
 // handle user logout //
