@@ -14,17 +14,18 @@ $(document).ready(function(){
 		error : function(e){
 			if (e.responseText == 'email-taken'){
 			    av.showInvalidEmail();
-			}	else if (e.responseText == 'username-taken'){
+			}	
+			else if (e.responseText == 'username-taken'){
 			    av.showInvalidUserName();
-			    else if (e.responseText == 'phone-taken'){
+			}
+			else if (e.responseText == 'phone-taken'){
 			    av.showInvalidPhone();
-			    }
-			    else if (e.responseText == 'name-taken'){
+			}
+			else if (e.responseText == 'name-taken'){
 			    av.showInvalidName();	
-			    }
-			    else if (e.responseText == 'address-taken'){
+			}
+			else if (e.responseText == 'address-taken'){
 			    av.showInvalidAddress();
-			    }
 			}
 		}
 	});
