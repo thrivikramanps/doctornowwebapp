@@ -49,9 +49,17 @@ body {
   margin: 100px auto;
 }
 #account-dashboard {
-  width: 460px;
+  width: 1800px;
   margin: 100px auto;
 }
+#account-dashboard button {
+  width: 500px;
+  height: 500px;
+  padding: 6px 40px 6px 40px;
+  float: left;
+  margin-top: 15px;
+}
+
 #state-list {
   width: 280px;
 }
