@@ -47,8 +47,6 @@ module.exports = function(app) {
 	        res.redirect('/');
 	    }   else{
 			res.render('home', {
-				title : 'Control Panel',
-				states : CT,
 				udata : req.session.user
 			});
 	    }
