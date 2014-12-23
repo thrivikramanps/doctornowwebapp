@@ -55,38 +55,23 @@ exports.manualLogin = function(user, pass, callback)
 exports.addNewAccount = function(newData, callback)
 {
 	accounts.findOne({user:newData.user}, function(e, o) {
-								if (o){
-									callback('username-taken');
-								}
+		if (o){
+			callback('username-taken');
+		}	else{
+			accounts.findOne({email:newData.email}, function(e, o) {
+				if (o){
+					callback('email-taken');
+				}	else{
+					saltAndHash(newData.pass, function(hash){
+						newData.pass = hash;
+					// append date stamp when record was created //
+						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+						accounts.insert(newData, {safe: true}, callback);
+					});
+				}
+			});
+		}
 	});
-	
-	accounts.findOne({email:newData.email}, function(e, o) {
-								if (o){
-									callback('email-taken');
-								}
-	});	
-
-	accounts.findOne({phone:newData.phone}, function(e, o) {
-								if (o){
-									callback('phone-taken');
-								}
-	});
-
-	accounts.findOne({address:newData.address}, function(e, o) {
-								if (o){
-									callback('address-taken');
-								}
-	});
-
-	console.log("now inserting new record");
-
-	saltAndHash(newData.pass, function(hash){
-										newData.pass = hash;
-									// append date stamp when record was created //
-										newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
-										accounts.insert(newData, {safe: true}, callback);
-	});
-
 }
 
 exports.updateAccount = function(newData, callback)
@@ -95,9 +80,9 @@ exports.updateAccount = function(newData, callback)
 		o.name 		= newData.name;
 		o.email 	= newData.email;
 		o.state 	= newData.state;
-		o.phone     = newData.phone;
 		o.address   = newData.address;
-
+		o.phone		= newData.phone;
+		
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {
 				if (err) callback(err);

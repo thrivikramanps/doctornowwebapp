@@ -94,7 +94,9 @@ module.exports = function(app) {
 			email 	: req.param('email'),
 			user 	: req.param('user'),
 			pass	: req.param('pass'),
-			state 	: req.param('state')
+			state 	: req.param('state'),
+			phone	: req.param('phone'),
+			address	: req.param('address')
 		}, function(e){
 			if (e){
 				res.send(e, 400);
