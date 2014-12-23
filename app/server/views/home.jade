@@ -1,14 +1,7 @@
 
 extends layout
 
-block content
-	div.navbar.navbar-fixed-top
-		div.navbar-inner
-				ul#global-nav.nav.pull-left
-					a(href='#').brand Control Panel
-				button#btn-logout.btn.btn-primary
-					i.icon-lock.icon-white
-					| Sign Out
+block content	
 
 	include dashboard
 	include modals/alert
