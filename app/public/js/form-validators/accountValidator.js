@@ -3,8 +3,8 @@ function AccountValidator(){
 
 // build array maps of the form inputs & control groups //
 
-	this.formFields = [$('#name-tf'), $('address-tf'), $('phone-tf'), $('#email-tf'), $('#user-tf'), $('#pass-tf')];
-	this.controlGroups = [$('#name-cg'), $('address-cg'), $('phone-cg'), $('#email-cg'), $('#user-cg'), $('#pass-cg')];
+	this.formFields = [$('#name-tf'), $('#email-tf'), $('#user-tf'), $('#pass-tf'), $('address-tf'), $('phone-tf')];
+	this.controlGroups = [$('#name-cg'), $('#email-cg'), $('#user-cg'), $('#pass-cg'), $('address-cg'), $('phone-cg')];
 	
 // bind the form-error modal window to this controller to display any errors //
 	
