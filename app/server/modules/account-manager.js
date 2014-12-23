@@ -58,17 +58,11 @@ exports.addNewAccount = function(newData, callback)
 		if (o){
 			callback('username-taken');
 		}	else{
-			accounts.findOne({email:newData.email}, function(e, o) {
-				if (o){
-					callback('email-taken');
-				}	else{
-					saltAndHash(newData.pass, function(hash){
+			saltAndHash(newData.pass, function(hash){
 						newData.pass = hash;
 					// append date stamp when record was created //
 						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
 						accounts.insert(newData, {safe: true}, callback);
-					});
-				}
 			});
 		}
 	});
@@ -82,7 +76,7 @@ exports.updateAccount = function(newData, callback)
 		o.state 	= newData.state;
 		o.address   = newData.address;
 		o.phone		= newData.phone;
-		
+
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {
 				if (err) callback(err);
