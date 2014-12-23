@@ -62,11 +62,23 @@ exports.addNewAccount = function(newData, callback)
 				if (o){
 					callback('email-taken');
 				}	else{
-					saltAndHash(newData.pass, function(hash){
-						newData.pass = hash;
-					// append date stamp when record was created //
-						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
-						accounts.insert(newData, {safe: true}, callback);
+					accounts.findOne({phone:newData.phone}, function(e, o) {
+						if (o){
+							callback('phone-taken');
+						}	else{
+							accounts.findOne({address:newData.address}, function(e, o) {
+								if (o){
+									callback('address-taken');
+								}	else{
+									saltAndHash(newData.pass, function(hash){
+										newData.pass = hash;
+									// append date stamp when record was created //
+										newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+										accounts.insert(newData, {safe: true}, callback);
+									});
+								}
+							});
+						}
 					});
 				}
 			});
@@ -80,6 +92,10 @@ exports.updateAccount = function(newData, callback)
 		o.name 		= newData.name;
 		o.email 	= newData.email;
 		o.state 	= newData.state;
+		o.phone     = newData.phone;
+		o.address   = newData.address;
+		o.zipcode	= newData.zipcode;
+
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {
 				if (err) callback(err);

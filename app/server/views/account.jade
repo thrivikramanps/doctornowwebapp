@@ -18,12 +18,24 @@ input(type='hidden', value= user._id)#userId
 				label.control-label(for='email-tf') Email
 				.controls
 					input#email-tf.input-xlarge(type='text', name='Email', value= user.email)
+			#address-cg.control-group
+				label.control-label(for='address-tf') Address
+				.controls
+					input#address-tf.input-xlarge(type='text', name='Address', value= user.address)
 			#slist-cg.control-group
 				label.control-label(for='state-list') Location
 				.controls
 					select#state-list(name='state')
 						each item in states
 							option(selected=item.name == user.state)= item.name
+			#zipcode-cg.control-group
+				label.control-label(for='zipcode-tf') Zipcode
+				.controls
+					input#zipcode-tf.input-xlarge(type='number', name='Zipcode', value= user.zipcode)
+			#phone-cg.control-group
+				label.control-label(for='phone-tf') Phone
+				.controls
+					input#phone-tf.input-xlarge(type='number', name='Phone', value= user.phone)
 			hr
 			p#sub2.subheading
 			#user-cg.control-group

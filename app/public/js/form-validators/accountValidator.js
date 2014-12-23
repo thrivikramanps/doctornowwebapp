@@ -3,8 +3,8 @@ function AccountValidator(){
 
 // build array maps of the form inputs & control groups //
 
-	this.formFields = [$('#name-tf'), $('#email-tf'), $('#user-tf'), $('#pass-tf')];
-	this.controlGroups = [$('#name-cg'), $('#email-cg'), $('#user-cg'), $('#pass-cg')];
+	this.formFields = [$('#name-tf'), $('address-tf'), $('phone-tf'), $('#email-tf'), $('#user-tf'), $('#pass-tf')];
+	this.controlGroups = [$('#name-cg'), $('address-cg'), $('phone-cg'), $('#email-cg'), $('#user-cg'), $('#pass-cg')];
 	
 // bind the form-error modal window to this controller to display any errors //
 	
@@ -55,15 +55,29 @@ AccountValidator.prototype.showInvalidUserName = function()
 	this.showErrors(['That username is already in use.']);
 }
 
+AccountValidator.prototype.showInvalidPhone = function()
+{
+	this.controlGroups[3].addClass('error');
+	this.showErrors(['That phone number is already in use']);
+}
+
+AccountValidator.prototype.showInvalidAddress = function()
+{
+	this.controlGroups[4].addClass('error');
+	this.showErrors(['That address is already in use']);
+}
+
 AccountValidator.prototype.validateForm = function()
 {
 	var e = [];
 	for (var i=0; i < this.controlGroups.length; i++) this.controlGroups[i].removeClass('error');
 	if (this.validateName(this.formFields[0].val()) == false) {
-		this.controlGroups[0].addClass('error'); e.push('Please Enter Your Name');
+		this.controlGroups[0].addClass('error'); 
+		e.push('Please Enter Your Name');
 	}
 	if (this.validateEmail(this.formFields[1].val()) == false) {
-		this.controlGroups[1].addClass('error'); e.push('Please Enter A Valid Email');
+		this.controlGroups[1].addClass('error'); 
+		e.push('Please Enter A Valid Email');
 	}
 	if (this.validateName(this.formFields[2].val()) == false) {
 		this.controlGroups[2].addClass('error');
