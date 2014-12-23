@@ -53,9 +53,9 @@ body {
   margin: 100px auto;
 }
 #button-panel button {
-  width: 100px;
+  width: 150px;
   padding: 6px 40px 6px 40px;
-  float: left;
+  float: center;
   margin-top: 15px;
   margin-left: 15px;
 }
