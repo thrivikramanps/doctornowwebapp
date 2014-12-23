@@ -94,7 +94,6 @@ exports.updateAccount = function(newData, callback)
 		o.state 	= newData.state;
 		o.phone     = newData.phone;
 		o.address   = newData.address;
-		o.zipcode	= newData.zipcode;
 
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {
