@@ -15,7 +15,8 @@ html
 			})();
 
 block content
-	#header-banner.well.span12
+	#header-banner-container
+		#header-banner.well.span12
 
 	#login-container
 		form( method="post")#login-form.well.span4
@@ -35,7 +36,8 @@ block content
 				a(href='#')#forgot-password Forgot Your Password?
 				a(href='/signup')#create-account Create An Account
 
-	#footer-banner.well.span12
+	#footer-banner-container
+		#footer-banner.well.span12
 
 	include modals/alert
 	include modals/lost-password

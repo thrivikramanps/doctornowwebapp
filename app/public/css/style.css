@@ -16,10 +16,20 @@ body {
   background: radial-gradient(center, ellipse cover, #f2f9fe 0%, #d6f0fd 100%);
 /* W3C */
 }
+#header-banner-container {
+  width: 980px;
+  margin: 20px auto;
+}
 #login-container {
   width: 340px;
-  margin: 160px auto;
+  margin: 20px;
 }
+
+#footer-banner-container {
+  width: 980px;
+  margin: 20px auto;
+}
+
 #login-container label {
   margin: 15px 0 5px 5px;
 }
@@ -126,6 +136,7 @@ body {
 .clear-fix {
   clear: both;
 }
+
 .well {
   margin-left: 0;
   border: 1px solid #ccc;
