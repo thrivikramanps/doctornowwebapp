@@ -17,12 +17,12 @@ html
 block content
 	#header-banner
 	#login-container
-		form( method="post")#login-form.well.span6
+		form( method="post")#login-form.well.span7
 			h3 Please Login To Your Account
 			label Username 
-			input(type="text", name="user", id='user-tf').span6.required
+			input(type="text", name="user", id='user-tf').span7.required
 			label Password
-			input(type="password", name="pass", id='pass-tf').span6.required
+			input(type="password", name="pass", id='pass-tf').span7.required
 			button(type="submit")#btn-login.btn.btn-primary
 				i.icon-lock.icon-white
 				| Sign in
@@ -33,6 +33,8 @@ block content
 			div.btm-links
 				a(href='#')#forgot-password Forgot Your Password?
 				a(href='/signup')#create-account Create An Account
+	#photo-testimonial
+		
 	#footer-banner
 
 	include modals/alert
