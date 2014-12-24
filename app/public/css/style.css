@@ -21,9 +21,14 @@ body {
   width: 980px;
   margin: 20px auto;
 }
+#middle-container {
+  width: 980px;
+  margin: 20px auto;
+}
+
 #login-container {
   width: 340px;
-  margin: 20px;
+  margin: 0px;
 }
 #login-container label {
   margin: 15px 0 5px 5px;
