@@ -21,11 +21,13 @@ body {
 #header-banner {
   width: inherit;
   height: 20%;
+  background-color: black;
 }
 
 #footer-banner{
   width: inherit;
   height: 20%;
+  background-color: black;
 }
 
 /*login-container - start*/
