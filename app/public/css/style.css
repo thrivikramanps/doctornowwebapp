@@ -17,11 +17,7 @@ body {
 /* W3C */
 }
 #header-banner-container {
-  background-color:rgb(222, 222, 222);
-}
-
-#footer-banner-container {
-  background-color:rgb(222, 222, 222);
+  background-color: rgb(222, 222, 222);
 }
 
 #login-container {
@@ -52,6 +48,12 @@ body {
   float: left;
   margin-left: 10px;
 }
+
+
+#footer-banner-container {
+  background-color: rgb(222, 222, 222);
+}
+
 #account-form-container {
   width: 460px;
   margin: 100px auto;
