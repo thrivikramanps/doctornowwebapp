@@ -17,6 +17,17 @@ body {
 /* W3C */
 }
 
+/*header-banner*/
+#header-banner {
+  width: inherit;
+  height: 20%;
+}
+
+#footer-banner{
+  width: inherit;
+  height: 20%;
+}
+
 /*login-container - start*/
 #login-container {
   width: 50%;
