@@ -38,6 +38,19 @@ module.exports = function(app) {
 			}
 		});
 	});
+
+// logged-in nurse-schedule eVisit page
+
+	app.get('/nschedule-evisit', function(req, res) {
+		if (req.session.user == null) {
+			res.redirect('/');
+		}	else {
+			res.render('nschedule-evisit', {
+				udata : req.session.user
+			});
+		}	
+	});
+
 	
 // logged-in user homepage //
 	

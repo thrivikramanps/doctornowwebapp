@@ -10,8 +10,17 @@ function HomeController()
 		window.location.href = '/home';		
 	});
 
+//handle Schedule eVisit button click
+	$('#btn-schedule-evisit').click(function(){
+		window.location.href = '/nschedule-evisit'
+	});
+
+
 // handle user logout //
 	$('#btn-logout').click(function(){ that.attemptLogout(); });
+
+
+
 
 // confirm account deletion //
 	$('#account-form-btn1').click(function(){$('.modal-confirm').modal('show')});
