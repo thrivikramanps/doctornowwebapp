@@ -17,7 +17,7 @@ body {
 /* W3C */
 }
 
-#header-banner-container {
+#header-container {
   width: 980px;
   margin: 20px auto;
 }
@@ -49,11 +49,10 @@ body {
   float: left;
   margin-left: 10px;
 }
-#footer-banner-container {
+#footer-container {
   width: 980px;
   margin: 30px auto;
 }
-
 #account-form-container {
   width: 460px;
   margin: 100px auto;
