@@ -19,7 +19,7 @@ module.exports = function(app) {
 				    req.session.user = o;
 					res.redirect('/home');
 				}	else{
-					res.render('login', { title: 'Hello - Please Login To Your Account' });
+					res.render('login2', { title: 'Hello - Please Login To Your Account' });
 				}
 			});
 		}
@@ -39,19 +39,6 @@ module.exports = function(app) {
 			}
 		});
 	});
-
-// logged-in nurse-schedule eVisit page
-
-	app.get('/nschedule-evisit', function(req, res) {
-		if (req.session.user == null) {
-			res.redirect('/');
-		}	else {
-			res.render('nschedule-evisit', {
-				udata : req.session.user
-			});
-		}	
-	});
-
 	
 // logged-in user homepage //
 	
@@ -61,9 +48,9 @@ module.exports = function(app) {
 	        res.redirect('/');
 	    }   else{
 	    	var session_variable = req.session.user;
-	    	console.log(session_variable.user);
+
 	    	AM.getAccountByUserName(session_variable.user, function(o){
-	    		console.log(o.role);
+
 	    		if (o.role === 'Admin') {
 					res.render('home-admin', {
 						udata : req.session.user

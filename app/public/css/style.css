@@ -41,6 +41,10 @@ body {
   margin: 20px 0px 0px 50px;
 }
 
+#btn-set-availability {
+  margin: 20px 0px 0px 50px;
+}
+
 #btn-begin-evisit {
   margin: 20px 0px 0px 50px;
 }
@@ -64,6 +68,10 @@ body {
   margin: 0px;
 }
 #photo-container {
+  width: 630px;
+  margin: 0px 0px 0px 350px;
+}
+#availability-results-container {
   width: 630px;
   margin: 0px 0px 0px 350px;
 }

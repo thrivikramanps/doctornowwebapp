@@ -29,17 +29,19 @@ html
 					| Logout
 		
 		#footer-container
-			#footer-user.well.span12.user-footer
-				button(type="button")#btn-schedule-evisit.btn.btn-primary.user-option-button
-					p Schedule
-					p eVisit
-				button(type="button")#btn-begin-evisit.btn.btn-primary.user-option-button
-					p Begin
-					p eVisit
-				button(type="button")#btn-view-evisits.btn.btn-primary.user-option-button
-					p View
-					p Scheduled
-					p eVisits
+			form( method="post")#login-form.well.span4
+				h3 Please Enter the Date, Free Time Period
+				label Date 
+				input(type="text", name="date", id='date-tf').span4.required
+				label Start Time
+				input(type="password", name="start-time", id='starttime-tf').span4.required
+				label End Time
+				input(type="password", name="end-time", id='endtime-tf').span4.required
+				button(type="submit")#btn-login.btn.btn-primary
+					| Submit
+
+			#availability-results-container
+				#availability-results.well.span8
 
 		include modals/alert
 		include modals/confirm
