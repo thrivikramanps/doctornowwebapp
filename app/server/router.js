@@ -103,7 +103,7 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
-					res.render('home-NH', {
+					res.render('availability', {
 						udata : req.session.user
 					});
 				}
