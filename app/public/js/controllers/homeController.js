@@ -17,7 +17,7 @@ function HomeController()
 
 
 // handle user logout //
-	$('#btn-logout').click(function(){ that.attemptLogout(); });
+	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
 
 
