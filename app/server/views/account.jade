@@ -7,13 +7,13 @@ input(type='hidden', value= user._id)#userId
 #account-form-container
 	form( method="post")#account-form.form-horizontal.well.span6
 		h1
-		p#sub1.subheading Please fill in the nursing home details.
+		p#sub1.subheading Please fill in the nursing home/doctor/admin details.
 		hr
 		fieldset
 			#name-cg.control-group
 				label.control-label(for='name-tf') Name
 				.controls
-					input#name-tf.input-xlarge(type='text', name='Nursing Home Name', value= user.name)
+					input#name-tf.input-xlarge(type='text', name='Nursing Home/Doctor/Admin Name', value= user.name)
 			#email-cg.control-group
 				label.control-label(for='email-tf') Email
 				.controls
@@ -32,6 +32,13 @@ input(type='hidden', value= user._id)#userId
 				label.control-label(for='phone-tf') Phone
 				.controls
 					input#phone-tf.input-xlarge(type='text', name='Phone', value= user.phone)
+			#role-cg.control-group
+				label.control-label(for='role-list') Role
+				.controls
+					select#role-list(name='role')
+						each item in states
+							option(selected=item.name == user.role)= item.name
+
 			hr
 			p#sub2.subheading
 			#user-cg.control-group
