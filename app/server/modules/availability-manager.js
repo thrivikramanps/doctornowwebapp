@@ -6,7 +6,7 @@ var MongoDB 	= require('mongodb').Db;
 var Server 		= require('mongodb').Server;
 var moment 		= require('moment');
 
-var dbPort 		= 27018;
+var dbPort 		= 27017;
 var dbHost 		= 'localhost';
 var dbName 		= 'availability-db';
 
