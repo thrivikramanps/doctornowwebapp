@@ -65,17 +65,17 @@ module.exports = function(app) {
 	    	AM.getAccountByUserName(session_variable.user, function(o){
 	    		console.log(o.role);
 	    		if (o.role === 'Admin') {
-					res.render('/home-admin', {
+					res.render('home-admin', {
 						udata : req.session.user
 					});
 				}
 				else if (o.role === 'Doctor') {
-					res.render('/home-DOC', {
+					res.render('home-DOC', {
 						udata : req.session.user
 					});
 				}
 				else {
-					res.render('/home-NH', {
+					res.render('home-NH', {
 						udata : req.session.user
 					})
 				}
