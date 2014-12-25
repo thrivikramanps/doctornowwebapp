@@ -3,6 +3,7 @@ var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var AVM = require('./modules/availability-manager');
 
 
 
@@ -111,6 +112,29 @@ module.exports = function(app) {
 				}
 	});
 	
+
+	app.post('/availability', function(req,res) {
+		if (req.session.user == null){
+			res.redirect('/');
+		}	else{
+			//submitted a new task
+			var session_variable = req.session.user;
+			AVM.addNewAvailability({
+				user      : session_variable.user;
+				date 	  : req.param('date'),
+				starttime : req.param('starttime'),
+				endtime	  : req.param('endtime')
+			}, function(e) {
+				if (e) {
+					res.send(e, 400);
+				} else{
+					res.send('ok', 200);
+				}
+			});
+		}
+	});
+
+
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
