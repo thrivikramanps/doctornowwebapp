@@ -60,8 +60,9 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
-	    	console.log(req.param('user'));
-	    	AM.getAccountByUserName(req.param('user'), function(o){
+	    	var session_variable = req.session.user;
+	    	console.log(session_variable.user);
+	    	AM.getAccountByUserName(session_variable.user, function(o){
 	    		console.log(o.role);
 	    		if (o.role === 'Admin') {
 					res.render('/home-admin', {
@@ -70,12 +71,12 @@ module.exports = function(app) {
 				}
 				else if (o.role === 'Doctor') {
 					res.render('/home-DOC', {
-						udata : req.sessions.user
+						udata : req.session.user
 					});
 				}
 				else {
 					res.render('/home-NH', {
-						udata : req.sessions.user
+						udata : req.session.user
 					})
 				}
 			});
