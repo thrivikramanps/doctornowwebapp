@@ -16,7 +16,6 @@ app.configure(function(){
 	app.use(express.bodyParser());
 	app.use(express.cookieParser());
 	app.use(express.session({ secret: '59B93087-78BC-4EB9-993A-A61FC844F6C9' }));
-	app.use(express.csrf());
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
@@ -24,11 +23,6 @@ app.configure(function(){
 
 app.configure('development', function(){
 	app.use(express.errorHandler());
-});
-
-app.use(function(req, res, next) {
-  res.locals._csrf = req.session._csrf;
-  return next();
 });
 
 require('./app/server/router')(app);
