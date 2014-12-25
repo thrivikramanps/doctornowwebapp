@@ -122,6 +122,10 @@ exports.getAccountByEmail = function(email, callback)
 	accounts.findOne({email:email}, function(e, o){ callback(o); });
 }
 
+exports.getAccountByUserName = function(user, callback){
+	accounts.findOne({user:user},  function(e, o){ callback(o); });
+}
+
 exports.validateResetLink = function(email, passHash, callback)
 {
 	accounts.find({ $and: [{email:email, pass:passHash}] }, function(e, o){

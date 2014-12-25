@@ -205,6 +205,10 @@ body {
   padding: 17px;
 }
 
+.admin-view{
+  margin: auto;
+}
+
 .form-horizontal .control-label {
   width: 80px;
 }

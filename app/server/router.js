@@ -60,8 +60,24 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
-			res.render('home', {
-				udata : req.session.user
+	    	console.log(req.param('user'));
+	    	AM.getAccountByUserName(req.param('user'), function(o){
+	    		console.log(o.role);
+	    		if (o.role === 'Admin') {
+					res.render('/home-admin', {
+						udata : req.session.user
+					});
+				}
+				else if (o.role === 'Doctor') {
+					res.render('/home-DOC', {
+						udata : req.sessions.user
+					});
+				}
+				else {
+					res.render('/home-NH', {
+						udata : req.sessions.user
+					})
+				}
 			});
 	    }
 	});
