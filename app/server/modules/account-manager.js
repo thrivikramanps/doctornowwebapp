@@ -19,6 +19,7 @@ var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}),
 	}
 });
 var accounts = db.collection('accounts');
+var evisits  = db.collection('evisits');
 
 /* login validation methods */
 
@@ -76,6 +77,7 @@ exports.updateAccount = function(newData, callback)
 		o.state 	= newData.state;
 		o.address   = newData.address;
 		o.phone		= newData.phone;
+		o.role		= newData.role;
 
 		if (newData.pass == ''){
 			accounts.save(o, {safe: true}, function(err) {

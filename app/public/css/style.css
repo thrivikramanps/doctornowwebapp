@@ -118,6 +118,10 @@ body {
   margin-left: 50px;
 }
 
+#role-list{
+  width: 280px;
+}
+
 #state-list {
   width: 280px;
 }

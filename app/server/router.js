@@ -1,5 +1,6 @@
 
 var CT = require('./modules/state-list');
+var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
@@ -18,7 +19,7 @@ module.exports = function(app) {
 				    req.session.user = o;
 					res.redirect('/home');
 				}	else{
-					res.render('login2', { title: 'Hello - Please Login To Your Account' });
+					res.render('login', { title: 'Hello - Please Login To Your Account' });
 				}
 			});
 		}
@@ -96,7 +97,7 @@ module.exports = function(app) {
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
-		res.render('signup', {  title: 'Signup', states : CT });
+		res.render('signup', {  title: 'Signup', states : CT, roles: RT});
 	});
 	
 	app.post('/signup', function(req, res){
@@ -107,7 +108,9 @@ module.exports = function(app) {
 			pass	: req.param('pass'),
 			state 	: req.param('state'),
 			phone	: req.param('phone'),
-			address	: req.param('address')
+			address	: req.param('address'),
+			role    : req.param('role')
+
 		}, function(e){
 			if (e){
 				res.send(e, 400);
