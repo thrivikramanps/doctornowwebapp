@@ -17,7 +17,11 @@ function AvailabilityController()
 
 	//handle user home button click
 	$('#btn-availability-submit').click(function(){ 
-		that.submitAvailability();;		
+		that.submitAvailability();	
+	});
+
+	$('#btn-availability-view').click(function(){
+		that.displayCurrentAvailability();
 	});
 
 	this.submitAvailability = function()
@@ -38,6 +42,14 @@ function AvailabilityController()
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 			}
 		});
+	}
+
+	this.displayCurrentAvailability = function()
+	{
+		var that = this;
+		
+
+
 	}
 
 
