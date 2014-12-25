@@ -3,7 +3,7 @@ var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
-var AVM = require('./modules/availability-manager');
+//var AVM = require('./modules/availability-manager');
 
 
 
@@ -119,7 +119,7 @@ module.exports = function(app) {
 		}	else{
 			//submitted a new task
 			var session_variable = req.session.user;
-			AVM.addNewAvailability({
+			AM.addNewAvailability({
 				user      : session_variable.user,
 				date 	  : req.param('date'),
 				starttime : req.param('starttime'),

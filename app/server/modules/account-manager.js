@@ -25,6 +25,8 @@ var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}),
 
 
 var accounts = db.collection('accounts');
+
+var availability = db.collection('availability');
 /* login validation methods */
 
 exports.autoLogin = function(user, pass, callback)
@@ -69,6 +71,19 @@ exports.addNewAccount = function(newData, callback)
 						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
 						accounts.insert(newData, {safe: true}, callback);
 			});
+		}
+	});
+}
+
+exports.addNewAvailability = function(newData, callback)
+{
+	availability.findOne({$and : [{date:newData.date},{starttime:newData.starttime},{endtime:newData.endtime}] }, function(e, o) {
+		if (o){
+			callback('slot-taken');
+		}	else{
+					// append date stamp when record was created //
+						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+						availability.insert(newData, {safe: true}, callback);
 		}
 	});
 }
