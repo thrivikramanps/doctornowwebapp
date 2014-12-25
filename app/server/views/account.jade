@@ -36,7 +36,7 @@ input(type='hidden', value= user._id)#userId
 				label.control-label(for='role-list') Role
 				.controls
 					select#role-list(name='role')
-						each item in states
+						each item in roles
 							option(selected=item.name == user.role)= item.name
 
 			hr
