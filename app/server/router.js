@@ -120,7 +120,7 @@ module.exports = function(app) {
 			//submitted a new task
 			var session_variable = req.session.user;
 			AVM.addNewAvailability({
-				user      : session_variable.user;
+				user      : session_variable.user,
 				date 	  : req.param('date'),
 				starttime : req.param('starttime'),
 				endtime	  : req.param('endtime')

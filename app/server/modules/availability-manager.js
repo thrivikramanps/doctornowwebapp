@@ -1,34 +1,31 @@
 
+/*configure db - start */
+
+var crypto 		= require('crypto');
+var MongoDB 	= require('mongodb').Db;
+var Server 		= require('mongodb').Server;
+var moment 		= require('moment');
+
+var dbPort 		= 27018;
+var dbHost 		= 'localhost';
+var dbName 		= 'availability-db';
+
+/* establish the database connection */
+
+var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
+	db.open(function(e, d){
+	if (e) {
+		console.log(e);
+	}	else{
+		console.log('connected to database :: ' + dbName);
+	}
+});
+
+/*configure db - end */
+
+
 var availability = db.collection('availability');
 /* login validation methods */
-
-exports.autoLogin = function(user, pass, callback)
-{
-	availability.findOne({user:user}, function(e, o) {
-		if (o){
-			o.pass == pass ? callback(o) : callback(null);
-		}	else{
-			callback(null);
-		}
-	});
-}
-
-exports.manualLogin = function(user, pass, callback)
-{
-	availability.findOne({user:user}, function(e, o) {
-		if (o == null){
-			callback('user-not-found');
-		}	else{
-			validatePassword(pass, o.pass, function(err, res) {
-				if (res){
-					callback(null, o);
-				}	else{
-					callback('invalid-password');
-				}
-			});
-		}
-	});
-}
 
 /* record insertion, update & deletion methods */
 
