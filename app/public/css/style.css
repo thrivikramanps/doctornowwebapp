@@ -18,21 +18,23 @@ body {
 }
 
 #login-time {
-  width: 50px;
+  width: 120px;
+  height: 30px;
   margin: 0px 0px 0px 1px;
 }
 
 #login-account {
-  width: 50px;
+  width: 120px;
+  height: 30px;
   margin: 0px 0px 0px 465px;
 }
 
 #btn-home {
-  margin: 0px 0px 0px 697px;
+  margin: 0px 0px 0px 830px;
 }
 
 #btn-logout-user {
-  margin: 0px 0px 0px 725px;
+  margin: 0px 0px 0px 910px;
 }
 
 #btn-schedule-evisit {
