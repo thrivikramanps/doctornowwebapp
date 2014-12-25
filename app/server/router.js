@@ -2,11 +2,11 @@
 var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
-var TD = require('./modules/to-do');
+//var TD = require('./modules/to-do');
 var EM = require('./modules/email-dispatcher');
 
 // to-do function to retrieve current to-do list - start //
-function getTodos(res){
+/*function getTodos(res){
 	Todo.find(function(err, todos) {
 
 			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
@@ -16,7 +16,7 @@ function getTodos(res){
 			res.json(todos); // return all todos in JSON format
 		});
 };
-
+*/
 // to-do function to retrieve current to-do list - end //
 
 module.exports = function(app) {
@@ -227,7 +227,7 @@ module.exports = function(app) {
 			res.redirect('/print');	
 		});
 	});
-
+/*
 	//to-do block code - start 
 	// api ---------------------------------------------------------------------
 	// get all todos
@@ -265,7 +265,7 @@ module.exports = function(app) {
 			getTodos(res);
 		});
 	});
-
+*/
 	//to-do block code - end
 	
 	app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
