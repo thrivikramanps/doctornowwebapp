@@ -2,7 +2,22 @@
 var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
+var TD = require('./modules/to-do');
 var EM = require('./modules/email-dispatcher');
+
+// to-do function to retrieve current to-do list - start //
+function getTodos(res){
+	Todo.find(function(err, todos) {
+
+			// if there is an error retrieving, send the error. nothing after res.send(err) will execute
+			if (err)
+				res.send(err)
+
+			res.json(todos); // return all todos in JSON format
+		});
+};
+
+// to-do function to retrieve current to-do list - end //
 
 module.exports = function(app) {
 
@@ -212,6 +227,46 @@ module.exports = function(app) {
 			res.redirect('/print');	
 		});
 	});
+
+	//to-do block code - start 
+	// api ---------------------------------------------------------------------
+	// get all todos
+	app.get('/api/todos', function(req, res) {
+
+		// use mongoose to get all todos in the database
+		getTodos(res);
+	});
+
+	// create todo and send back all todos after creation
+	app.post('/api/todos', function(req, res) {
+
+		// create a todo, information comes from AJAX request from Angular
+		Todo.create({
+			text : req.body.text,
+			done : false
+		}, function(err, todo) {
+			if (err)
+				res.send(err);
+
+			// get and return all the todos after you create another
+			getTodos(res);
+		});
+
+	});
+
+	// delete a todo
+	app.delete('/api/todos/:todo_id', function(req, res) {
+		Todo.remove({
+			_id : req.params.todo_id
+		}, function(err, todo) {
+			if (err)
+				res.send(err);
+
+			getTodos(res);
+		});
+	});
+
+	//to-do block code - end
 	
 	app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
 

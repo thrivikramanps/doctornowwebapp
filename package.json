@@ -1,26 +1,26 @@
 {
 	"name": "node-login",
 	"version": "1.3.2",
-	"description": "A template for quickly building login systems on top of Node.js & MongoDb",
+	"description": "DoctorNow webapp on top of Node.js & MongoDb",
 	"author": {
-		"name": "Stephen Braitsch",
-		"email": "stephen@braitsch.io"
+		"name": "Star Lord",
+		"email": "somewhere in the galaxy"
 	},
 	"website":{
-		"url": "node-login.braitsch.io"
+		"url": "http://ec2-54-68-105-144.us-west-2.compute.amazonaws.com:8080/"
 	},
 	"repository": {
 		"type": "git",
-		"url": "git://github.com/braitsch/node-login.git"
+		"url": "git://github.com/thrivikramanps/doctornowwebapp"
 	},
 	"private": true,
 	"dependencies": {
-		"express": "3.0.6",
-		"stylus": "0.31.0",
-		"jade": "0.27.7",
-		"mongodb": "1.2.7",
-		"moment" : "1.7.2",
-		"emailjs": "0.3.3"
+		"express": "4.10.6",
+		"stylus": "0.49.3",
+		"jade": "1.8.2",
+		"mongodb": "1.4.26",
+		"moment": "2.8.4",
+		"emailjs": "0.3.12"
 	},
 	"engines": {
 		"node": "0.8.14",
