@@ -2,9 +2,12 @@
 var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
+var TD = require('./modules/to-do');
 var EM = require('./modules/email-dispatcher');
 
 
+
+module.exports = function(app) {
 
 // main login page //
 
@@ -213,8 +216,6 @@ var EM = require('./modules/email-dispatcher');
 		});
 	});
 
-	
-	
 	app.get('*', function(req, res) { res.render('404', { title: 'Page Not Found'}); });
 
 };
