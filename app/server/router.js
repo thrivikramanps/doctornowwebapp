@@ -135,6 +135,7 @@ module.exports = function(app) {
 			var session_variable2 = req.session.user;
 			AM.getAllUserRecords(session_variable2.user, function(e,o){
 				if (o){
+					console.log("returning success");
 					res.send(o, 200);
 				}
 				else{
