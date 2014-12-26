@@ -148,6 +148,7 @@ module.exports = function(app) {
 					session_variable.appointmentend = o.endtime;
 					session_variable.doctorname = o.doctorname;
 					session_variable.doctorphoto = o.doctorphoto;
+					session_variable.availabilitydeletionid = o.availabilitydeletionid;
 					res.send('ok', 200);
 
 				} else {
@@ -177,6 +178,9 @@ module.exports = function(app) {
 		if (req.session.user == null)
 			res.redirect('/');
 		else{
+			AM.deleteAvailability(req.param('availabilitydeletionid'), function(){
+					//res.send("gen-success", 200);
+			});
 			res.render('booking-success', {
 				udata:req.session.user
 			})

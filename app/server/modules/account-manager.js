@@ -129,19 +129,22 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			newData.appointmentstarttime = o.starttime;
 			newData.appointmentendtime = o.endtime;
 			newData.appointmentdate = o.freedate;
+			newData.availabilitydeletionid = o._id;
 			console.log("doctor found for that time range");
 			evisits.insert(newData, {safe: true}, function(err, obj){
 				if (err){
-					callback(err, null);
+					
 					console.log("err during insertion");
+					callback(err, null);
 				}
 				else{
-					availability.findAndModify({
+					/*availability.findAndModify({
 						query: {freedate:obj.freedate, starttime:obj.starttime, endtime:obj.endtime},
 						remove: true
-					});
-					callback(null, obj);
+					});*/
+			
 					console.log("clean insertion");
+					callback(null, obj);
 				}
 			});
 		}
