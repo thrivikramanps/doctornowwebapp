@@ -91,7 +91,7 @@ exports.addNewAvailability = function(newData, callback)
 
 exports.getAllUserRecords = function(user, callback)
 {
-	console.log(" search parameter is " + a);
+	console.log(" search parameter is " + user);
 
 	accounts.find( {user:user} ).toArray(
 		function(e, results) {
