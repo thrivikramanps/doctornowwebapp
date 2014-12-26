@@ -118,7 +118,7 @@ module.exports = function(app) {
 			res.redirect('/');
 		} else if (req.param('rangestartdate') != null && req.param('rangeenddate') != null){
 			var session_variable = req.session.user;
-			console.log(toString(req.param('rangestartdate')));
+			console.log(req.param('rangestartdate'));
 			AM.validateAndAddNewEVisit({
 				user 	: session_variable.user,
 				patient1name : req.param('patient1name'),
