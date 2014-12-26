@@ -137,7 +137,7 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			o.nursename = newData.nursename,
 			o.nursinguser = newData.user
 			console.log("doctor found for that time range");
-			evisits.insert(o, {safe: true}, function(err, o){
+			evisits.insert(o, {safe: true}, function(err){
 				if (err)
 					callback(err, null);
 				else

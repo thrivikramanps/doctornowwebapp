@@ -43,12 +43,12 @@ function BookingController()
 			success: function(data){
 				console.log('booking is successful');
 				window.location.href = '/booking-success';
-				res.redirect('/booking-success');
+				//res.redirect('/booking-success');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 				window.location.href = '/booking-failure';
-				res.redirect('/booking-failure');
+				//res.redirect('/booking-failure');
 			}
 		});
 	}
