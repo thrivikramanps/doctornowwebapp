@@ -113,6 +113,68 @@ module.exports = function(app) {
 
 	});
 
+	app.post('/booking', function(req,res) {
+		if (req.session.user == null) {
+			res.redirect('/');
+		} else if (req.param('rangestartdate') != null && re.param('rangeenddate') != null){
+			var session_variable = req.session.user;
+			AM.validateAndAddNewEVisit({
+				user 	: session_variable.user,
+				patient1name : req.param('patient1name'),
+				patient1dob : req.param('patient1dob'),
+				patient2name : req.param('patient2name'),
+				patient2dob : req.param('patient2dob'),
+				patient3name : req.param('patient3name'),
+				patient3dob : req.param('patient3dob'),
+				patient4name : req.param('patient4name'),
+				patient4dob : req.param('patient4dob'),
+				rangestartdate : req.param('rangestartdate'),
+				rangeenddate	: req.param('rangeenddate'),
+				nursename	: req.param('nursename')
+			}, function(e, o) {
+				if (e){
+					res.send('no-such-account', 400);	
+				}
+				else {
+					req.session.user.doctoruser = o.doctoruser;
+					req.session.user.patient1name = o.patient1name;
+					req.session.user.patient2name = o.patient2name;
+					req.session.user.patient3name = o.patient3name;
+					req.session.user.patient4name = o.patient4name;
+					req.session.user.apoointmentdate = o.freedate;
+					req.session.user.appointmentstart = o.starttime;
+					req.session.user.appointmentend = o.endtime;
+					req.session.user.doctorname = o.doctorname;
+					req.session.user.doctorphoto = o.doctorphoto;
+					res.send('ok', 200);
+
+				}
+			});
+
+		}
+	});
+
+	app.get('/booking-failure', function(req, res){
+		if (req.session.user == null){
+			res.redirect('/');
+		else{
+			res.render('booking-failure', {
+				udata:req.session.user
+			});
+		}
+	});
+
+	app.get('/booking-success', function(req, res){
+		if (req.session.user == null)
+			res.redirect('/');
+		else{
+			res.render('booking-success', {
+				udata:req.session.user
+			})
+		}
+
+	});
+
 	app.get('/availability', function(req, res) {
 	    if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //

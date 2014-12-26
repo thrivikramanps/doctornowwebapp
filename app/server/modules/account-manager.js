@@ -27,6 +27,10 @@ var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}),
 var accounts = db.collection('accounts');
 
 var availability = db.collection('availability');
+
+var evisits = db.collection('evisits');
+
+var doctordetails = db.collection('doctordetails');
 /* login validation methods */
 
 exports.autoLogin = function(user, pass, callback)
@@ -106,6 +110,38 @@ exports.getAllUserRecords = function(user, callback)
 	});
 
 }
+
+
+exports.validateAndAddNewEVisit = function(newData, callback)
+{
+
+	availability.findOne({$and : [{freedate:{$gte: newData.rangestartdate}},{freedate:{$lte: newData.rangeenddate}}] }, function(e,o){
+		o.doctoruser = o.user;
+		o.patient1name = newData.patient1name,
+		o.patient1dob = newData.patient1dob,
+		o.patient2name = newData.patient2name,
+		o.patient2dob = newData.patient2dob,
+		o.patient3name = newData.patient3name,
+		o.patient3dob = newData.patient3dob,
+		o.patient4name = newData.patient4name,
+		o.patient4dob = newData.patient4dob,
+		o.nursename = newData.nursename,
+		o.nursinguser = newData.user
+		//other variables we will automatically take from the 'o' variable are o.freedate, o.starttime, o.endtime
+
+		if (e){
+			console.log("no free doctor hours block found");
+			callback(e);
+		} else {
+			console.log("doctor found for that time range");
+			evisits.insert(o, {safe: true}, callback (null, o));
+		}
+
+	})
+
+
+}
+
 
 exports.updateAccount = function(newData, callback)
 {

@@ -29,33 +29,26 @@ html
 					| Logout
 		
 		#footer-container
-			form( method="post")#left-side.well.span6
-				h4 Step 1: Enter Patients for this Visit
+			h3 eVisit Details
+			#left-side.well.span5		
 				hr
-				label Name 										DOB
+				label Appointment Date 										
+				input#appointmentdate-tf(type="text", name="appointmentdate", id='appointmentdate-tf').span4.required
+				label Appointment Time
+				input#appointmenttime-tf(type="text", name="appointmenttime", id='appointmenttime-tf').span4.required
+				Label Patient Names
 				input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
-				input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
 				input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
-				input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
 				input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
-				input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
 				input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
-				input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required		
 
-				hr	
-				h4 Step 2: Who is the supervising nurse for this Visit
-				input#nursename-tf(type="text", name="nursename", id='nursename-tf').span5.required		
 
-			#right-side.well.wellspecial.span3
-				h4 Step 3: Enter Date Range for Visit
+			#right-side.well.wellspecial.span5
 				hr
-				input#rangestartdate-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span2.required
-				input#rangeenddate-tf(type="text", name="rangeenddate", id='rangeenddate-tf').span2.required
-
-				hr
-				h4 Step 4: Click Submit
-				button(type="submit")#btn-evisit-submit.btn.btn-primary
-					| Submit
+				label Doctor Name 										
+				input#doctorname-tf(type="text", name="doctorname", id='doctorname-tf').span4.required
+				label Doctor Photo
+				input#doctorphoto-tf(type="text", name="doctorphoto", id='doctorphoto-tf').span4.required
 
 					
 
