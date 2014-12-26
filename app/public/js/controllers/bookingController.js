@@ -42,10 +42,12 @@ function BookingController()
 			data: {patient1name:patient1name, patient1dob:patient1dob, patient2name:patient2name, patient2dob:patient2dob, patient3name:patient3name, patient3dob:patient3dob, patient4name:patient4name, patient4dob:patient4dob, nursename:nursename, rangestartdate:rangestartdate, rangeenddate:rangeenddate},
 			success: function(data){
 				console.log('booking is successful');
+				window.location.href = '/booking-success';
 				//res.redirect('/booking-success');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+				window.location.href = '/booking-failure';
 				//res.redirect('/booking-failure');
 			}
 		});
