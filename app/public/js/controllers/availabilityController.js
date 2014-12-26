@@ -95,7 +95,7 @@ function AvailabilityController()
 						div_new.appendChild(button_new);
 
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
-						button_new.addEventListener("click",function(){var delnode = document.getElementById(String(data[i]._id)); delnode.parentNode.removeChild(node); });
+						button_new.addEventListener("click",function(){var delnode = document.getElementById('FreeTimeRecordHolderDiv'); delnode.removeChild(this.parentNode); });
 						//parent_element.appendChild(button_new);
 					}	
 				}
