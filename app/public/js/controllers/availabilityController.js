@@ -64,7 +64,7 @@ function AvailabilityController()
 			type: "POST",
 			data: {action: 'display current availability'},
 			success: function(data){
-				console.log(" successfully reached availabilityController" + data);
+				console.log(" successfully reached availabilityController" + data[0] + " " + data[1]);
 	 			//add the result set to the availability-results element
 			},
 			error: function(jqXHR){

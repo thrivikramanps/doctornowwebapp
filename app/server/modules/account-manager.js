@@ -91,15 +91,19 @@ exports.addNewAvailability = function(newData, callback)
 
 exports.getAllUserRecords = function(user, callback)
 {
-	console.log(" user is " + user)
-	findByMultipleFields({user:user}, function(e,o){
-		if (o){
-			callback(null, o);
-		} else {
-			callback(null);
-		}
+	console.log(" search parameter is " + a);
 
-	})
+	accounts.find( {user:user} ).toArray(
+		function(e, results) {
+		if (e) {
+			console.log("error finding anything");
+			callback(e);
+		}
+		else {
+			console.log("results are " + results);
+			callback(null, results)
+		}
+	});
 
 }
 
@@ -237,11 +241,9 @@ var findByMultipleFields = function(a, callback)
 	accounts.find( {user:'doctor1'} ).toArray(
 		function(e, results) {
 		if (e) {
-			console.log("error finding anything");
 			callback(e);
 		}
 		else {
-			console.log("results are " + results);
 			callback(null, results)
 		}
 	});
