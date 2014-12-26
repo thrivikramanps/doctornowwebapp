@@ -119,7 +119,7 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 		
 		//other variables we will automatically take from the 'o' variable are o.freedate, o.starttime, o.endtime
 
-		if (e){
+		if (e || (o == null){
 			console.log("no free doctor hours block found");
 			callback(e);
 		} else {
