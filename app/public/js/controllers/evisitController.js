@@ -14,18 +14,7 @@ function HomeController()
 // handle user logout //
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
-	//handle user home button click
-	$('#btn-set-availability').click(function(){ 
-		window.location.href = '/availability';		
-	});
 
-	$('#btn-schedule-evisit').click(function(){ 
-		window.location.href = '/booking';		
-	});
-
-	$('#btn-begin-evisit').click(function(){ 
-		window.location.href = '/evisitsession';		
-	});
 
 	this.attemptLogout = function()
 	{
