@@ -116,7 +116,7 @@ module.exports = function(app) {
 	app.post('/booking', function(req,res) {
 		if (req.session.user == null) {
 			res.redirect('/');
-		} else if (req.param('rangestartdate') != null && re.param('rangeenddate') != null){
+		} else if (req.param('rangestartdate') != null && req.param('rangeenddate') != null){
 			var session_variable = req.session.user;
 			AM.validateAndAddNewEVisit({
 				user 	: session_variable.user,
@@ -157,6 +157,7 @@ module.exports = function(app) {
 	app.get('/booking-failure', function(req, res){
 		if (req.session.user == null){
 			res.redirect('/');
+		}
 		else{
 			res.render('booking-failure', {
 				udata:req.session.user

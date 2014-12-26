@@ -41,11 +41,12 @@ function BookingController()
 			type: "POST",
 			data: {patient1name:patient1name, patient1dob:patient1dob, patient2name:patient2name, patient2dob:patient2dob, patient3name:patient3name, patient3dob:patient3dob, patient4name:patient4name, patient4dob:patient4dob, nursename:nursename, rangestartdate:rangestartdate, rangeenddate:rangeenddate},
 			success: function(data){
-				res.redirect('/booking-success');
+				console.log('booking is successful');
+				//res.redirect('/booking-success');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-				res.redirect('/booking-failure');
+				//res.redirect('/booking-failure');
 			}
 		});
 	}
