@@ -68,15 +68,15 @@ function AvailabilityController()
 				var n = data.length;
 				var insertable_parent_element = $('availability-results');
 				for (var i =0; i<n; i++) {
-					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + data[i]._id);
-					if (typeof(data[i].freedate) != undefined && typeof(data[i].starttime) != undefined && typeof(data[i].endtime) != undefined && typeof(data[i]._id) !=undefined){
+					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + String(data[i]._id));
+					/*if (typeof(data[i].freedate) != undefined && typeof(data[i].starttime) != undefined && typeof(data[i].endtime) != undefined && typeof(data[i]._id) !=undefined){
 						var div_new = document.createElement('div');
 						div_new.setAttribute('id', data[i]._id);
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
 						div_new.appendChild(text_new);
 
 						insertable_parent_element.appendChild(div_new); 	//add the result set to the availability-results element
-					}	
+					}	*/
 				}
 			},
 			error: function(jqXHR){
