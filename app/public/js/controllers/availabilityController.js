@@ -80,11 +80,17 @@ function AvailabilityController()
 				parent_element = document.getElementById('FreeTimeRecordHolderDiv');
 
 				for (var i =0; i<n; i++) {
-					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + String(data[i]._id));
+					//console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + String(data[i]._id));
 					if (String(data[i].freedate) != "undefined" && String(data[i].starttime) != "undefined" && String(data[i].endtime) != "undefined" && String(data[i]._id) !="undefined"){
 						var div_new = document.createElement('div');
 						div_new.setAttribute('id', String(data[i]._id));
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
+						var button_new = document.createElement('input');
+						button_new.setAttribute('name', 'write');
+						button_new.setAttribute('type', 'button');
+						button_new.setAttribute('class', 'btn btn-primary');
+						div_new.appendChild(text_new);
+						text_new = document.createTextNode(" ");
 						div_new.appendChild(text_new);
 
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
