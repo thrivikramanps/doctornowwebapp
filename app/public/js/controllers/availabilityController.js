@@ -92,9 +92,11 @@ function AvailabilityController()
 						div_new.appendChild(text_new);
 						text_new = document.createTextNode(" ");
 						div_new.appendChild(text_new);
+						div_new.appendChild(button_new);
 
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
-						parent_element.appendChild(button_new);
+						button_new.addEventListener("click",function(){var delnode = document.getElementById(String(data[i]._id)); delnode.parentNode.removeChild(node); });
+						//parent_element.appendChild(button_new);
 					}	
 				}
 			},
