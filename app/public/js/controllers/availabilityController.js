@@ -66,9 +66,18 @@ function AvailabilityController()
 			success: function(data){
 				
 				var n = data.length;
-				for (var i =0; i<n; i++)
-					console.log(data[i].freedate + " " + data[i].starttime + " " + data[i].endtime + " " +data[i]._id+ "\n");
-	 			//add the result set to the availability-results element
+				var insertable_parent_element = $('availability-results');
+				for (var i =0; i<n; i++) {
+					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + data[i]._id);
+					if (data[i].freedate != undefined && data[i].starttime != undefined && data[i].endtime != undefined && data[i]._id !=undefined){
+						var div_new = document.createElement('div');
+						div_new.setAttribute('id', data[i]._id);
+						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
+						div_new.appendChild(text_new);
+
+						insertable_parent_element.appendChild(div_new); 	//add the result set to the availability-results element
+					}	
+				}
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
