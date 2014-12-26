@@ -137,6 +137,7 @@ module.exports = function(app) {
 				if ( o == null)
 					console.log("return value is null");
 				if (o) {
+					console.log("line 140");
 					var session_variable = req.session.user;
 					session_variable.doctoruser = o.doctoruser;
 					session_variable.patient1name = o.patient1name;

@@ -130,7 +130,7 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			newData.appointmentendtime = o.endtime;
 			newData.appointmentdate = o.freedate;
 			newData.availabilitydeletionid = o._id;
-			console.log("doctor found for that time range");
+			console.log("doctor found for that time range" + newData.availabilitydeletionid);
 			evisits.insert(newData, {safe: true}, function(err, obj){
 				if (err){
 					
@@ -143,7 +143,7 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 						remove: true
 					});*/
 			
-					console.log("clean insertion");
+					console.log("clean insertion" + obj.availabilitydeletionid);
 					callback(null, obj);
 				}
 			});
