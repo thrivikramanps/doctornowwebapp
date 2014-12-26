@@ -136,6 +136,10 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 					console.log("err during insertion");
 				}
 				else{
+					availability.findAndModify({
+						query: {freedate:obj.freedate, starttime:obj.starttime, endtime:obj.endtime},
+						remove: true
+					});
 					callback(null, obj);
 					console.log("clean insertion");
 				}
