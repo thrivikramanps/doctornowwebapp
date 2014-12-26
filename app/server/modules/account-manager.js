@@ -93,7 +93,7 @@ exports.getAllUserRecords = function(user, callback)
 {
 	console.log(" search parameter is " + user);
 
-	accounts.find( {user:user} ).toArray(
+	availability.find( {user:user} ).toArray(
 		function(e, results) {
 		if (e) {
 			console.log("error finding anything");
