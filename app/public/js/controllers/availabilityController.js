@@ -94,6 +94,7 @@ function AvailabilityController()
 						div_new.appendChild(text_new);
 
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
+						parent_element.appendChild(button_new);
 					}	
 				}
 			},
