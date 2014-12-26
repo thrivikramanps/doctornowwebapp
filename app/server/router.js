@@ -148,7 +148,11 @@ module.exports = function(app) {
 					res.send('ok', 200);
 
 				} else {
-					res.send('no-such-account', 400);	
+						if ("03012015" >= toString(rangestartdate))
+							console.log("test is gte");
+						else
+							console.log("test is lt");
+						//res.send('no-such-account', 400);	
 				}
 			});
 
