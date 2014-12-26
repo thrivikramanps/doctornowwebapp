@@ -148,7 +148,7 @@ module.exports = function(app) {
 					res.send('ok', 200);
 
 				} else {
-						if ("03012015" >= toString(rangestartdate))
+						if ("03012015" >= toString(req.param('rangestartdate')))
 							console.log("test is gte");
 						else
 							console.log("test is lt");
