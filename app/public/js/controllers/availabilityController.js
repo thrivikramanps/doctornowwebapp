@@ -66,6 +66,11 @@ function AvailabilityController()
 			success: function(data){
 				
 				var n = data.length;
+
+				var delete_element = document.getElementById('FreeTimeRecordHolderDiv');
+
+				if (delete_element)
+					delete_element.parentNode.removeChild(delete_element);
 				
 				var title_div = document.createElement('div');
 				title_div.setAttribute('id', 'FreeTimeRecordHolderDiv');
