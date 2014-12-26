@@ -75,7 +75,8 @@ function AvailabilityController()
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
 						div_new.appendChild(text_new);
 
-						insertable_parent_element.appendChild(div_new); 	//add the result set to the availability-results element
+						if (insertable_parent_element)
+							insertable_parent_element.appendChild(div_new); 	//add the result set to the availability-results element
 					//}	
 				}
 			},
