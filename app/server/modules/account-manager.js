@@ -121,7 +121,7 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 
 		if (e || (o == null)){
 			console.log("no free doctor hours block found");
-			callback(e);
+			callback(e, null);
 		} else {
 			o.doctoruser = o.user;
 			o.patient1name = newData.patient1name,

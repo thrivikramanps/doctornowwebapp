@@ -132,22 +132,23 @@ module.exports = function(app) {
 				rangeenddate	: req.param('rangeenddate'),
 				nursename	: req.param('nursename')
 			}, function(e, o) {
-				if (e){
-					res.send('no-such-account', 400);	
-				}
-				else {
-					req.session.user.doctoruser = o.doctoruser;
-					req.session.user.patient1name = o.patient1name;
-					req.session.user.patient2name = o.patient2name;
-					req.session.user.patient3name = o.patient3name;
-					req.session.user.patient4name = o.patient4name;
-					req.session.user.apoointmentdate = o.freedate;
-					req.session.user.appointmentstart = o.starttime;
-					req.session.user.appointmentend = o.endtime;
-					req.session.user.doctorname = o.doctorname;
-					req.session.user.doctorphoto = o.doctorphoto;
+
+				if (o) {
+					var session_variable = req.session.user;
+					session_variable.doctoruser = o.doctoruser;
+					session_variable.patient1name = o.patient1name;
+					session_variable.patient2name = o.patient2name;
+					session_variable.patient3name = o.patient3name;
+					session_variable.patient4name = o.patient4name;
+					session_variable.apoointmentdate = o.freedate;
+					session_variable.appointmentstart = o.starttime;
+					session_variable.appointmentend = o.endtime;
+					session_variable.doctorname = o.doctorname;
+					session_variable.doctorphoto = o.doctorphoto;
 					res.send('ok', 200);
 
+				} else {
+					res.send('no-such-account', 400);	
 				}
 			});
 
