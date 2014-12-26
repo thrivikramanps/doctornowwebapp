@@ -254,7 +254,7 @@ module.exports = function(app) {
 		if (req.session.user == null){
 			res.redirect('/');
 		} else {
-			res.render('bookevisit', {
+			res.render('evisitsession', {
 					udata : req.session.user
 			});
 		}
