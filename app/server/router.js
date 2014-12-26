@@ -118,7 +118,7 @@ module.exports = function(app) {
 			res.redirect('/');
 		} else if (req.param('rangestartdate') != null && req.param('rangeenddate') != null){
 			var session_variable = req.session.user;
-			console.log(req.param('rangestartdate'));
+		//	console.log(req.param('rangestartdate'));
 			AM.validateAndAddNewEVisit({
 				user 	: session_variable.user,
 				patient1name : req.param('patient1name'),
@@ -149,11 +149,11 @@ module.exports = function(app) {
 					res.send('ok', 200);
 
 				} else {
-						if ("03012015" >= toString(req.param('rangestartdate')))
+						/*if ("03012015" >= toString(req.param('rangestartdate')))
 							console.log("test is gte");
 						else
-							console.log("test is lt" + req.param('rangestartdate'));
-						//res.send('no-such-account', 400);	
+							console.log("test is lt" + req.param('rangestartdate'));*/
+						res.send('no-such-account', 400);	
 				}
 			});
 

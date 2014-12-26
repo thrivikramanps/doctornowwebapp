@@ -115,10 +115,7 @@ exports.getAllUserRecords = function(user, callback)
 exports.validateAndAddNewEVisit = function(newData, callback)
 {
 
-	if ("03012015" >= newData.rangestartdate)
-		console.log("test is gte");
-	else
-		console.log("test is lt");
+
 
 	availability.findOne({$and : [{freedate:{$gte: newData.rangestartdate}},{freedate:{$lte: newData.rangeenddate}}] }, function(e,o){
 		
@@ -140,10 +137,15 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			o.nursename = newData.nursename,
 			o.nursinguser = newData.user
 			console.log("doctor found for that time range");
-			evisits.insert(o, {safe: true}, callback (null, o));
+			evisits.insert(o, {safe: true}, function(e, o){
+				if (err)
+					callback(err, null);
+				else
+					callback(null, o);
+			});
 		}
 
-	})
+	});
 
 
 }
