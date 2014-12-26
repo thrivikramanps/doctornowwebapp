@@ -29,8 +29,8 @@ html
 					| Logout
 		
 		#footer-container
-			form( method="post")#left-side.well.span7
-				h5 Step 1: Enter Patients for this Visit
+			form( method="post")#left-side.well.span6
+				h4 Step 1: Enter Patients for this Visit
 				hr
 				label Date DOB
 				input#date-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
@@ -43,18 +43,18 @@ html
 				input#starttime-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required		
 
 				hr	
-				h5 Step 2: Who is the supervising nurse for this Visit
+				h4 Step 2: Who is the supervising nurse for this Visit
 				input#starttime-tf(type="text", name="nursename", id='nursename-tf').span6.required		
 
-			#right-side.well.span5
+			#right-side.well.span3
 				h5 Step 3: Enter Date Range for Visit
 				hr
-				input#date-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span5.required
-				input#starttime-tf(type="text", name="rangeenddate", id='rangeenddate-tf').span5.required
+				input#date-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span2.required
+				input#starttime-tf(type="text", name="rangeenddate", id='rangeenddate-tf').span2.required
 
 				hr
 				h5 Step 4: Click Submit
-				button(type="submit")#btn-evisit-submit.btn.btn-primary
+				button(type="submit")#btn-evisit-submit.btn.btn-primary.auto
 					| Submit
 
 					
