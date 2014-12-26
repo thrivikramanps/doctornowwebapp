@@ -125,23 +125,20 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			console.log("no free doctor hours block found");
 			callback(e, null);
 		} else {
-			o.doctoruser = o.user;
-			o.patient1name = newData.patient1name,
-			o.patient1dob = newData.patient1dob,
-			o.patient2name = newData.patient2name,
-			o.patient2dob = newData.patient2dob,
-			o.patient3name = newData.patient3name,
-			o.patient3dob = newData.patient3dob,
-			o.patient4name = newData.patient4name,
-			o.patient4dob = newData.patient4dob,
-			o.nursename = newData.nursename,
-			o.nursinguser = newData.user
+			newData.doctoruser = o.user;
+			newData.appointmentstarttime = o.starttime;
+			newData.appointmentendtime = o.endtime;
+			newData.appointmentdate = o.freedate;
 			console.log("doctor found for that time range");
-			evisits.insert(o, {safe: true}, function(err){
-				if (err)
+			evisits.insert(newData, {safe: true}, function(err, obj){
+				if (err){
 					callback(err, null);
-				else
-					callback(null, o);
+					console.log("err during insertion");
+				}
+				else{
+					callback(null, obj);
+					console.log("clean insertion");
+				}
 			});
 		}
 
