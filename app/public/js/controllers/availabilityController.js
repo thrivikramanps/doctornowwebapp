@@ -86,7 +86,7 @@ function AvailabilityController()
 						div_new.setAttribute('id', String(data[i]._id));
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
 						var button_new = document.createElement('input');
-						button_new.setAttribute('name', 'write');
+						button_new.setAttribute('value', 'Delete');
 						button_new.setAttribute('type', 'button');
 						button_new.setAttribute('class', 'btn btn-primary');
 						div_new.appendChild(text_new);
