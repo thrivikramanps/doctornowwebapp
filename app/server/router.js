@@ -151,7 +151,7 @@ module.exports = function(app) {
 						if ("03012015" >= toString(req.param('rangestartdate')))
 							console.log("test is gte");
 						else
-							console.log("test is lt");
+							console.log("test is lt" + req.param('rangestartdate'));
 						//res.send('no-such-account', 400);	
 				}
 			});
