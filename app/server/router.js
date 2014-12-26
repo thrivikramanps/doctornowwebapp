@@ -249,7 +249,18 @@ module.exports = function(app) {
 			});
 		}
 	});
+	
+	app.get('/evisitsession', function(req, res) {
+		if (req.session.user == null){
+			res.redirect('/');
+		} else {
+			res.render('bookevisit', {
+					udata : req.session.user
+			});
+		}
 
+
+	});
 
 // creating new accounts //
 	
