@@ -134,6 +134,8 @@ module.exports = function(app) {
 				nursename	: req.param('nursename')
 			}, function(e, o) {
 
+				if ( o == null)
+					console.log("return value is null");
 				if (o) {
 					var session_variable = req.session.user;
 					session_variable.doctoruser = o.doctoruser;
