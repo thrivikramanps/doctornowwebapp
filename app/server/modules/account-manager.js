@@ -83,6 +83,7 @@ exports.addNewAvailability = function(newData, callback)
 		}	else{
 					// append date stamp when record was created //
 						newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+						console.log("inserting new availability date");
 						availability.insert(newData, {safe: true}, callback);
 		}
 	});
@@ -90,6 +91,7 @@ exports.addNewAvailability = function(newData, callback)
 
 exports.getAllUserRecords = function(user, callback)
 {
+	console.log(" user is " + user)
 	findByMultipleFields({user:user}, function(e,o){
 		if (o){
 			callback(null, o);
@@ -229,9 +231,18 @@ var findById = function(id, callback)
 var findByMultipleFields = function(a, callback)
 {
 // this takes an array of name/val pairs to search against {fieldName : 'value'} //
+
+	console.log(" search parameter is " + a);
+
 	accounts.find( { $or : a } ).toArray(
 		function(e, results) {
-		if (e) callback(e)
-		else callback(null, results)
+		if (e) {
+			console.log("error finding anything");
+			callback(e);
+		}
+		else {
+			console.log("results are " + results);
+			callback(null, results)
+		}
 	});
 }

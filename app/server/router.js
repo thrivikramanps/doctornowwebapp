@@ -133,6 +133,7 @@ module.exports = function(app) {
 			});
 		} else if (req.param('action') === 'display current availability') {
 			var session_variable2 = req.session.user;
+			console.log(" user is " + session_variable2.user);
 			AM.getAllUserRecords(session_variable2.user, function(e,o){
 				if (o){
 					console.log("returning success");
