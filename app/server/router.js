@@ -101,6 +101,18 @@ module.exports = function(app) {
 		}
 	});
 
+	app.get('/booking', function(req,res)) {
+		if (req.session.user == null) {
+			res.redirect('/');
+		}	else{
+					res.render('bookevisit', {
+						udata : req.session.user
+					});
+
+		}
+
+	});
+
 	app.get('/availability', function(req, res) {
 	    if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //

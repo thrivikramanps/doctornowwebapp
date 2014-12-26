@@ -19,6 +19,10 @@ function HomeController()
 		window.location.href = '/availability';		
 	});
 
+	$('#btn-schedule-evisit').click(function(){ 
+		window.location.href = '/booking';		
+	});
+
 
 	this.attemptLogout = function()
 	{
