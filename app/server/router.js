@@ -134,22 +134,31 @@ module.exports = function(app) {
 				nursename	: req.param('nursename')
 			}, function(e, o) {
 
-				if ( o == null)
-					console.log("return value is null");
-				if (o) {
+
+				if (o!=null) {
 					console.log("line 140");
 					var session_variable = req.session.user;
-					session_variable.doctoruser = o.doctoruser;
-					session_variable.patient1name = o.patient1name;
-					session_variable.patient2name = o.patient2name;
-					session_variable.patient3name = o.patient3name;
-					session_variable.patient4name = o.patient4name;
-					session_variable.apoointmentdate = o.freedate;
+					session_variable.doctoruser = o.user;
+					console.log(o.user);
+					session_variable.patient1name = req.param('patient1name');
+					console.log(req.param('patient1name'));
+					session_variable.patient2name = req.param('patient2name');
+					console.log(req.param('patient2name'));
+					session_variable.patient3name = req.param('patient3name');
+					console.log(req.param('patient3name'));
+					session_variable.patient4name = req.param('patient4name');
+					console.log(req.param('patient4name'));
+					session_variable.appointmentdate = o.freedate;
+					console.log(session_variable.appointmentdate);
 					session_variable.appointmentstart = o.starttime;
+					console.log(session_variable.appointmentstart);
 					session_variable.appointmentend = o.endtime;
-					session_variable.doctorname = o.doctorname;
-					session_variable.doctorphoto = o.doctorphoto;
-					session_variable.availabilitydeletionid = o.availabilitydeletionid;
+					console.log(session_variable.appointmentend);
+					/*session_variable.doctorname = o.doctorname;
+					session_variable.doctorphoto = o.doctorphoto;*/
+					session_variable.availabilitydeletionid = o._id;
+					console.log(session_variable.availabilitydeletionid);
+					req.session.user = session_variable;
 					res.send('ok', 200);
 
 				} else {
