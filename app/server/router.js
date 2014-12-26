@@ -178,6 +178,7 @@ module.exports = function(app) {
 		if (req.session.user == null)
 			res.redirect('/');
 		else{
+			console.log(req.param('availabilitydeletionid'));
 			AM.deleteAvailability(req.param('availabilitydeletionid'), function(){
 					//res.send("gen-success", 200);
 			});
