@@ -31,9 +31,9 @@ function BookingController()
 		var patient3dob = this.formFields[5].val();
 		var patient4name = this.formFields[6].val();
 		var patient4dob = this.formFields[7].val();
-		var nursename = this.formFields[5].val();
-		var rangestartdate = this.formFields[6].val();
-		var rangeenddate = this.formFields[7].val();
+		var nursename = this.formFields[8].val();
+		var rangestartdate = this.formFields[9].val();
+		var rangeenddate = this.formFields[10].val();
 
 
 		$.ajax({
