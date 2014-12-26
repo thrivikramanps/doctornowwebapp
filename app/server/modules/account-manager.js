@@ -234,7 +234,7 @@ var findByMultipleFields = function(a, callback)
 
 	console.log(" search parameter is " + a);
 
-	accounts.find( { $or : a } ).toArray(
+	accounts.find( {user:'doctor1'} ).toArray(
 		function(e, results) {
 		if (e) {
 			console.log("error finding anything");
