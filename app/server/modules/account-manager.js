@@ -155,6 +155,12 @@ exports.deleteAccount = function(id, callback)
 	accounts.remove({_id: getObjectId(id)}, callback);
 }
 
+exports.deleteAvailability = function(id, callback)
+{
+	console.log("actual id is " + getAvailabilityObjectId(id));
+	availability.remove({_id: getAvailabilityObjectId(id)}, callback);
+}
+
 exports.getAccountByEmail = function(email, callback)
 {
 	accounts.findOne({email:email}, function(e, o){ callback(o); });
@@ -220,6 +226,11 @@ var validatePassword = function(plainPass, hashedPass, callback)
 var getObjectId = function(id)
 {
 	return accounts.db.bson_serializer.ObjectID.createFromHexString(id)
+}
+
+var getAvailabilityObjectId = function(id)
+{
+	return availability.db.bson_serializer.ObjectID.createFromHexString(id)
 }
 
 var findById = function(id, callback)

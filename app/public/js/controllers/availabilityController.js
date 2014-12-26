@@ -95,7 +95,7 @@ function AvailabilityController()
 						div_new.appendChild(button_new);
 
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
-						button_new.addEventListener("click",function(){var delnode = document.getElementById('FreeTimeRecordHolderDiv'); delnode.removeChild(this.parentNode); });
+						button_new.addEventListener("click",function(){that.deleteRecord(this.parentNode.id);});
 						//parent_element.appendChild(button_new);
 					}	
 				}
@@ -106,7 +106,26 @@ function AvailabilityController()
 		});
 	}
 
+	this.deleteRecord = function(msg)
+	{
+		var that = this;
+		var delnode = document.getElementById('FreeTimeRecordHolderDiv'); 
+		var identity = document.getElementById(msg);
+		 
 
+		$.ajax({
+			url: "/availability",
+			type: "POST",
+			data: {action: 'delete from db', identity:msg},
+			success: function(data){
+	 			delnode.removeChild(identity);
+			},
+			error: function(jqXHR){
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
+
+	}
 
 	this.attemptLogout = function()
 	{

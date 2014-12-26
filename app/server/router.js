@@ -144,6 +144,10 @@ module.exports = function(app) {
 				} 
 
 			});
+		} else if (req.param('action') === 'delete from db') {
+			AM.deleteAvailability(req.param('identity'), function(){
+					res.send(o, 200);
+			});
 		}
 	});
 
