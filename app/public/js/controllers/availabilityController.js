@@ -66,7 +66,14 @@ function AvailabilityController()
 			success: function(data){
 				
 				var n = data.length;
-				var insertable_parent_element = $('availability-results');
+				
+				var title_div = document.createElement('div');
+				title_div.setAttribute('id', 'FreeTimeRecordHolderDiv');
+				var parent_element = document.getElementById('availability-results');
+				parent_element.appendChild(title_div);
+
+				parent_element = document.getElementById('FreeTimeRecordHolderDiv');
+
 				for (var i =0; i<n; i++) {
 					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + String(data[i]._id));
 					if (String(data[i].freedate) != "undefined" && String(data[i].starttime) != "undefined" && String(data[i].endtime) != "undefined" && String(data[i]._id) !="undefined"){
@@ -75,7 +82,6 @@ function AvailabilityController()
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
 						div_new.appendChild(text_new);
 
-						var parent_element = document.getElementById('availability-results');
 						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
 					}	
 				}
