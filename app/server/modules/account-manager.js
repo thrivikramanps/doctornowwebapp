@@ -100,7 +100,7 @@ exports.getAllUserRecords = function(user, callback)
 			callback(e);
 		}
 		else {
-			console.log("results are " + results);
+			console.log("results are " + results + results.length);
 			callback(null, results)
 		}
 	});

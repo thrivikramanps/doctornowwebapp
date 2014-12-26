@@ -64,9 +64,9 @@ function AvailabilityController()
 			type: "POST",
 			data: {action: 'display current availability'},
 			success: function(data){
-				console(" success length has " + data.length + "records");
+				
 				var n = data.length;
-				console.log(" successfully reached availabilityController" + data[n-1].date + " " + data[n-1]._id + " " + data[n-1].starttime + " " + data[n-1].endtime + " "+ data[n-1].user);
+				console.log(" successfully reached availabilityController" + data[2].date + " " + data[2]._id + " " + data[2].starttime + " " + data[2].endtime + " "+ data[2].user);
 	 			//add the result set to the availability-results element
 			},
 			error: function(jqXHR){
