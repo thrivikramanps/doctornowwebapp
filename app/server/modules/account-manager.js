@@ -115,6 +115,11 @@ exports.getAllUserRecords = function(user, callback)
 exports.validateAndAddNewEVisit = function(newData, callback)
 {
 
+	if ("03012015" >= newData.rangestartdate)
+		console.log("test is gte");
+	else
+		console.log("test is lt");
+
 	availability.findOne({$and : [{freedate:{$gte: newData.rangestartdate}},{freedate:{$lte: newData.rangeenddate}}] }, function(e,o){
 		
 		//other variables we will automatically take from the 'o' variable are o.freedate, o.starttime, o.endtime
