@@ -101,7 +101,7 @@ module.exports = function(app) {
 		}
 	});
 
-	app.get('/booking', function(req,res)) {
+	app.get('/booking', function(req,res) {
 		if (req.session.user == null) {
 			res.redirect('/');
 		}	else{
