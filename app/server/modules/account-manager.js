@@ -77,13 +77,13 @@ exports.addNewAccount = function(newData, callback)
 
 exports.addNewAvailability = function(newData, callback)
 {
-	availability.findOne({$and : [{date:newData.date},{starttime:newData.starttime},{endtime:newData.endtime}] }, function(e, o) {
+	availability.findOne({$and : [{freedate:newData.freedate},{starttime:newData.starttime},{endtime:newData.endtime}] }, function(e, o) {
 		if (o){
 			callback('slot-taken');
 		}	else{
 					// append date stamp when record was created //
 						newData.timestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
-						console.log("inserting new availability date" + newData.user + " " + newData.date + " " + newData.starttime +" " +newData.endtime + " "+ newData._id+ " "+ newData.timestamp);
+						console.log("inserting new availability date" + newData.user + " " + newData.freedate + " " + newData.starttime +" " +newData.endtime + " "+ newData._id+ " "+ newData.timestamp);
 						availability.insert(newData, {safe: true}, callback);
 		}
 	});

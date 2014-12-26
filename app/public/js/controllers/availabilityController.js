@@ -27,14 +27,14 @@ function AvailabilityController()
 	this.submitAvailability = function()
 	{
 		var that = this;
-		var date = this.formFields[0].val();
+		var freedate = this.formFields[0].val();
 		var starttime = this.formFields[1].val();
 		var endtime = this.formFields[2].val();
 
 		$.ajax({
 			url: "/availability",
 			type: "POST",
-			data: {action: 'enter to db', date:date, starttime: starttime, endtime: endtime},
+			data: {action: 'enter to db', freedate:freedate, starttime: starttime, endtime: endtime},
 			success: function(data){
 	 			//that.showUpdatedList();
 			},
@@ -66,7 +66,8 @@ function AvailabilityController()
 			success: function(data){
 				
 				var n = data.length;
-				console.log(" successfully reached availabilityController" + data[2].date + " " + data[2]._id + " " + data[2].starttime + " " + data[2].endtime + " "+ data[2].user);
+				for (var i =0; i<n; i++)
+					console.log(data[i].freedate + " " + data[i].starttime + " " + data[i].endtime + " " +data[i]._id+ "\n");
 	 			//add the result set to the availability-results element
 			},
 			error: function(jqXHR){

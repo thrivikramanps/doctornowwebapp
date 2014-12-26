@@ -121,7 +121,7 @@ module.exports = function(app) {
 			var session_variable = req.session.user;
 			AM.addNewAvailability({
 				user      : session_variable.user,
-				date 	  : req.param('date'),
+				freedate  : req.param('freedate'),
 				starttime : req.param('starttime'),
 				endtime	  : req.param('endtime')
 			}, function(e) {
