@@ -69,7 +69,7 @@ function AvailabilityController()
 				var insertable_parent_element = $('availability-results');
 				for (var i =0; i<n; i++) {
 					console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + data[i]._id);
-					if (data[i].freedate != undefined && data[i].starttime != undefined && data[i].endtime != undefined && data[i]._id !=undefined){
+					if (typeof(data[i].freedate) != undefined && typeof(data[i].starttime) != undefined && typeof(data[i].endtime) != undefined && typeof(data[i]._id) !=undefined){
 						var div_new = document.createElement('div');
 						div_new.setAttribute('id', data[i]._id);
 						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
