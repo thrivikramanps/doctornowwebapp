@@ -82,7 +82,7 @@ exports.addNewAvailability = function(newData, callback)
 			callback('slot-taken');
 		}	else{
 					// append date stamp when record was created //
-						newData.entrytimestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
+						newData.timestamp = moment().format('MMMM Do YYYY, h:mm:ss a');
 						console.log("inserting new availability date" + newData.user + " " + newData.date + " " + newData.starttime +" " +newData.endtime + " "+ newData._id+ " "+ newData.timestamp);
 						availability.insert(newData, {safe: true}, callback);
 		}
