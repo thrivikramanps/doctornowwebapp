@@ -88,6 +88,19 @@ exports.addNewAvailability = function(newData, callback)
 	});
 }
 
+exports.getAllUserRecords = function(user, callback)
+{
+	findByMultipleFields({user:user}, function(e,o){
+		if (o){
+			callback(null, o);
+		} else {
+			callback(null);
+		}
+
+	})
+
+}
+
 exports.updateAccount = function(newData, callback)
 {
 	accounts.findOne({user:newData.user}, function(e, o){

@@ -34,7 +34,7 @@ function AvailabilityController()
 		$.ajax({
 			url: "/availability",
 			type: "POST",
-			data: {date:date, starttime: starttime, endtime: endtime},
+			data: {action: 'enter to db', date:date, starttime: starttime, endtime: endtime},
 			success: function(data){
 	 			//that.showUpdatedList();
 			},
@@ -44,12 +44,32 @@ function AvailabilityController()
 		});
 	}
 
+	//this function adds the successul form entry post-db commit to the current view of free days/times
+	this.showUpdatedList = function()
+	{
+		var that = this;
+		var date = this.formFields[0].val();
+		var starttime = this.formFields[1].val();
+		var endtime = this.formFields[2].val();
+
+		//find the availability-results elements and add the new element to it
+	}
+
+	//this function just fetches the entire record list corresponding to the current user and displays it for viewing
 	this.displayCurrentAvailability = function()
 	{
 		var that = this;
-		
-
-
+		$.ajax({
+			url: "/availability",
+			type: "POST",
+			data: {action: 'display current availability'},
+			success: function(data){
+	 			//add the result set to the availability-results element
+			},
+			error: function(jqXHR){
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
 	}
 
 

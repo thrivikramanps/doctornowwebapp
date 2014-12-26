@@ -116,7 +116,7 @@ module.exports = function(app) {
 	app.post('/availability', function(req,res) {
 		if (req.session.user == null){
 			res.redirect('/');
-		}	else{
+		}	else if (req.param('action') === 'enter to db') {
 			//submitted a new task
 			var session_variable = req.session.user;
 			AM.addNewAvailability({
@@ -130,6 +130,17 @@ module.exports = function(app) {
 				} else{
 					res.send('ok', 200);
 				}
+			});
+		} else if (req.param('action') === 'display current availability') {
+			var session_variable2 = req.session.user;
+			AM.getAllUserRecords(session_variable2.user, function(e,o){
+				if (o){
+					res.send(o, 200);
+				}
+				else{
+					res.send(e,400);
+				} 
+
 			});
 		}
 	});
