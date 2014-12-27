@@ -5,11 +5,17 @@ html
     meta(name="description", content="WebRTC codelab")
     meta(name="viewport", content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1")
     title
-    link(rel='stylesheet', href='/vendor/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/style.css')
-    script(src="/js/lib/adapter.js")
+    link(rel="stylesheet", href="/vendor/bootstrap.min.css")
+    link(rel="stylesheet", href="/css/style.css")
+    script(src="js/lib/adapter.js")
   body
     #header-container
+      #header-banner.well.span12
+    #middle-container
+      p#login-time Login Time
+      p#login-account Login Account
+      button#btn-home.btn.btn-primary(type="button") Home
+      button#btn-logout-user.btn.btn-primary(type="button") Logout
     video#localVideo(autoplay="", muted="")
     video#remoteVideo(autoplay="", muted="")
     div
@@ -105,3 +111,9 @@ html
       }
       }
       function handleError(){}
+    script(src="/vendor/jquery.min.js")
+    script(src="/vendor/jquery.form.js")
+    script(src="/vendor/bootstrap-modal.js")
+    script(src="/vendor/bootstrap-transition.js")
+    script(src="/js/views/evisitsession.js")
+    script(src="/js/controllers/evisitSessionController.js")
