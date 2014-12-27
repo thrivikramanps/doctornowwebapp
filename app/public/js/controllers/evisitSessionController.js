@@ -16,77 +16,84 @@ function eVisitSessionController()
 
 	var localStream, localPeerConnection, remotePeerConnection;
 
-	var localVideo = $('#localVideo');
-	var remoteVideo = $('#remoteVideo');
+	/*var localVideo = $('#localVideo');
+	var remoteVideo = $('#remoteVideo');*/
 
-	var startButton = $('#startButton');
+	/*var startButton = $('#startButton');
 	var callButton = $('#callButton');
-	var hangupButton = $('#hangupButton');
-	startButton.disabled = false;
-	callButton.disabled = true;
-	hangupButton.disabled = true;
-	startButton.onclick = start;
-	callButton.onclick = call;
-	hangupButton.onclick = hangup;
+	var hangupButton = $('#hangupButton');*/
 
-	function trace(text) {
+	$('#startButton').click(function(){that.startview();});
+	$('#callButton').click(function(){that.callstart();});
+	$('#hangupButton').click(function(){that.hangup();});
+
+	$('#startButton').disabled = false;
+	$('#callButton').disabled = true;
+	$('#hangupButton').disabled = true;
+
+
+	/*startButton.onclick = start;
+	callButton.onclick = call;
+	hangupButton.onclick = hangup;*/
+
+	this.trace = function(text) {
 	  console.log((performance.now() / 1000).toFixed(3) + ": " + text);
 	}
 
-	function gotStream(stream){
-	  trace("Received local stream");
-	  localVideo.src = URL.createObjectURL(stream);
+	this.gotStream = function(stream){
+	  that.trace("Received local stream");
+	  $('#localVideo').src = URL.createObjectURL(stream);
 	  localStream = stream;
-	  callButton.disabled = false;
+	  $('#callButton').disabled = false;
 	}
 
-	function start() {
-	  trace("Requesting local stream");
-	  startButton.disabled = true;
-	  getUserMedia({audio:true, video:true}, gotStream,
+	this.start = function() {
+	  that.trace("Requesting local stream");
+	  $('#startButton').disabled = true;
+	  that.getUserMedia({audio:true, video:true}, gotStream,
 	    function(error) {
-	      trace("getUserMedia error: ", error);
+	      that.trace("getUserMedia error: ", error);
 	    });
 	}
 
-	function call() {
-	  callButton.disabled = true;
-	  hangupButton.disabled = false;
-	  trace("Starting call");
+	this.call = function() {
+	  $('#callButton').disabled = true;
+	  $('#hangupButton').disabled = false;
+	  that.trace("Starting call");
 
 	  if (localStream.getVideoTracks().length > 0) {
-	    trace('Using video device: ' + localStream.getVideoTracks()[0].label);
+	    that.trace('Using video device: ' + localStream.getVideoTracks()[0].label);
 	  }
 	  if (localStream.getAudioTracks().length > 0) {
-	    trace('Using audio device: ' + localStream.getAudioTracks()[0].label);
+	    that.trace('Using audio device: ' + localStream.getAudioTracks()[0].label);
 	  }
 
 	  var servers = null;
 
 	  localPeerConnection = new RTCPeerConnection(servers);
-	  trace("Created local peer connection object localPeerConnection");
+	  that.trace("Created local peer connection object localPeerConnection");
 	  localPeerConnection.onicecandidate = gotLocalIceCandidate;
 
 	  remotePeerConnection = new RTCPeerConnection(servers);
-	  trace("Created remote peer connection object remotePeerConnection");
+	  that.trace("Created remote peer connection object remotePeerConnection");
 	  remotePeerConnection.onicecandidate = gotRemoteIceCandidate;
 	  remotePeerConnection.onaddstream = gotRemoteStream;
 
 	  localPeerConnection.addStream(localStream);
-	  trace("Added localStream to localPeerConnection");
+	  that.trace("Added localStream to localPeerConnection");
 	  localPeerConnection.createOffer(gotLocalDescription,handleError);
 	}
 
 	function gotLocalDescription(description){
 	  localPeerConnection.setLocalDescription(description);
-	  trace("Offer from localPeerConnection: \n" + description.sdp);
+	  that.trace("Offer from localPeerConnection: \n" + description.sdp);
 	  remotePeerConnection.setRemoteDescription(description);
 	  remotePeerConnection.createAnswer(gotRemoteDescription,handleError);
 	}
 
 	function gotRemoteDescription(description){
 	  remotePeerConnection.setLocalDescription(description);
-	  trace("Answer from remotePeerConnection: \n" + description.sdp);
+	  that.trace("Answer from remotePeerConnection: \n" + description.sdp);
 	  localPeerConnection.setRemoteDescription(description);
 	}
 
@@ -96,26 +103,26 @@ function eVisitSessionController()
 	  remotePeerConnection.close();
 	  localPeerConnection = null;
 	  remotePeerConnection = null;
-	  hangupButton.disabled = true;
-	  callButton.disabled = false;
+	  $('#hangupButton').disabled = true;
+	  $('#callButton').disabled = false;
 	}
 
 	function gotRemoteStream(event){
-	  remoteVideo.src = URL.createObjectURL(event.stream);
-	  trace("Received remote stream");
+	  $('#remoteVideo').src = URL.createObjectURL(event.stream);
+	  that.trace("Received remote stream");
 	}
 
 	function gotLocalIceCandidate(event){
 	  if (event.candidate) {
 	    remotePeerConnection.addIceCandidate(new RTCIceCandidate(event.candidate));
-	    trace("Local ICE candidate: \n" + event.candidate.candidate);
+	    that.trace("Local ICE candidate: \n" + event.candidate.candidate);
 	  }
 	}
 
 	function gotRemoteIceCandidate(event){
 	  if (event.candidate) {
 	    localPeerConnection.addIceCandidate(new RTCIceCandidate(event.candidate));
-	    trace("Remote ICE candidate: \n " + event.candidate.candidate);
+	    that.trace("Remote ICE candidate: \n " + event.candidate.candidate);
 	  }
 	}
 
