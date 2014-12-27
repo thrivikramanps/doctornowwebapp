@@ -40,7 +40,7 @@ function eVisitSessionController()
 	  console.log((performance.now() / 1000).toFixed(3) + ": " + text);
 	}
 
-	this.gotStream = function(stream){
+	function gotStream(stream){
 	  that.trace("Received local stream");
 	  $('#localVideo').src = URL.createObjectURL(stream);
 	  localStream = stream;
@@ -97,7 +97,7 @@ function eVisitSessionController()
 	  localPeerConnection.setRemoteDescription(description);
 	}
 
-	function hangup() {
+	this.hangup = function() {
 	  trace("Ending call");
 	  localPeerConnection.close();
 	  remotePeerConnection.close();
