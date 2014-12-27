@@ -5,8 +5,8 @@ html
     meta(name="description", content="WebRTC codelab")
     meta(name="viewport", content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1")
     title WebRTC codelab: step 3
-    style
     script(src="/js/lib/adapter.js")
+    script(src=/js/controller/)
   body
     video#localVideo(autoplay="", muted="")
     video#remoteVideo(autoplay="", muted="")
@@ -14,6 +14,8 @@ html
       button#startButton Start
       button#callButton Call
       button#hangupButton Hang Up
+    include modals/alert
+	include modals/confirm
     script
       var localStream, localPeerConnection, remotePeerConnection;
       var localVideo = document.getElementById("localVideo");
@@ -103,3 +105,12 @@ html
       }
       }
       function handleError(){}
+
+  block scripts
+	script(src='/vendor/jquery.min.js')
+	script(src='/vendor/jquery.form.js')
+	script(src='/vendor/bootstrap-modal.js')
+	script(src='/vendor/bootstrap-transition.js')
+	script(src='/js/views/home.js')
+	script(src='/js/controllers/evisitsession.js')
+	script(src='/js/form-validators/evisitSessionController.js')
