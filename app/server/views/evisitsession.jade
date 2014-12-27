@@ -17,33 +17,19 @@ html
 	body
 
 	block content
-		#header-container
-			#header-banner.well.span12
 
-		#middle-container
-			p#login-time Login Time
-			p#login-account Login Account
-			button(type="button")#btn-home.btn.btn-primary
-					| Home
-			button(type="button")#btn-logout-user.btn.btn-primary
-					| Logout
-		
 
 		h4 eVisit Session
-		video#localVideo(autoplay="", muted="").videospecial
+		video#localVideo(autoplay="", muted="")
 		#left-side-container-buttons
-			button(type="button")#startButton.btn.btn-primary
+			button(type="button")#startButton.btn
 				| Start
-			button(type="button")#callButton.btn.btn-primary
+			button(type="button")#callButton.btn
 				| Call
-			button(type="button")#hangupButton.btn.btn-primary
+			button(type="button")#hangupButton.btn
 				| Hang Up
 				
-		video#remoteVideo(autoplay="", muted="").videospecial
-
-		#right-side-container.well.wellspecial2.span2
-				#patient-view
-
+		video#remoteVideo(autoplay="", muted="")
 					
 
 		include modals/alert
