@@ -203,6 +203,10 @@ body {
   margin-left:10px;
 }
 
+.videospecial{
+  z-index:120;
+}
+
 .user-option-button{
   width: 250px;
   height: 215px;
