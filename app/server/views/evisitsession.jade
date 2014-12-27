@@ -28,22 +28,20 @@ html
 			button(type="button")#btn-logout-user.btn.btn-primary
 					| Logout
 		
-		#footer-container
-			h4 eVisit Session
-			#left-side-container.wellspecial2.span4
-				video#localVideo(autoplay="", muted="").videospecial
-				#left-side-container-buttons
-					button(type="button")#startButton.btn.btn-primary
-						| Start
-					button(type="button")#callButton.btn.btn-primary
-						| Call
-					button(type="button")#hangupButton.btn.btn-primary
-						| Hang Up
-				
-			#middle-side-container.wellspecial2.span3
-				video#remoteVideo(autoplay="", muted="").videospecial
 
-			#right-side-container.well.wellspecial2.span2
+		h4 eVisit Session
+		video#localVideo(autoplay="", muted="")
+		#left-side-container-buttons
+			button(type="button")#startButton.btn.btn-primary
+				| Start
+			button(type="button")#callButton.btn.btn-primary
+				| Call
+			button(type="button")#hangupButton.btn.btn-primary
+				| Hang Up
+				
+		video#remoteVideo(autoplay="", muted="")
+
+		#right-side-container.well.wellspecial2.span2
 				#patient-view
 
 					
