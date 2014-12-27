@@ -50,7 +50,7 @@ function eVisitSessionController()
 	this.startview = function() {
 	  that.trace("Requesting local stream");
 	  $('#startButton').disabled = true;
-	  that.getUserMedia({audio:true, video:true}, gotStream,
+	  getUserMedia({audio:true, video:true}, gotStream,
 	    function(error) {
 	      that.trace("getUserMedia error: ", error);
 	    });
