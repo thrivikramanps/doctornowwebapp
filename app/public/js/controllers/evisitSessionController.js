@@ -47,7 +47,7 @@ function eVisitSessionController()
 	  $('#callButton').disabled = false;
 	}
 
-	this.start = function() {
+	this.startview = function() {
 	  that.trace("Requesting local stream");
 	  $('#startButton').disabled = true;
 	  that.getUserMedia({audio:true, video:true}, gotStream,
@@ -56,7 +56,7 @@ function eVisitSessionController()
 	    });
 	}
 
-	this.call = function() {
+	this.callstart = function() {
 	  $('#callButton').disabled = true;
 	  $('#hangupButton').disabled = false;
 	  that.trace("Starting call");
