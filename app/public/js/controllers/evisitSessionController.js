@@ -25,15 +25,6 @@ function eVisitSessionController()
 	startButton.disabled = false;
 	callButton.disabled = true;
 	hangupButton.disabled = true;
-
-	$('#startButton').click(function(){
-		that.start();
-	});
-
-	$('#callButton').click(function(){
-		that.call();
-	});
-
 	startButton.onclick = start;
 	callButton.onclick = call;
 	hangupButton.onclick = hangup;

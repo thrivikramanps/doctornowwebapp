@@ -31,10 +31,20 @@ html
 		#footer-container
 			h4 eVisit Session
 			#left-side-container.well.wellspecial2.span3
+				video#localVideo(autoplay="", muted="")
+				#left-side-container-buttons
+	  				button(type="button")#startButton.btn.btn-primary
+	  					| Start
+	  				button(type="button")#callButton.btn.btn-primary
+	  					| Call
+	  				button(type="button")#hangupButton.btn.btn-primary
+	  					| Hang Up
 				
 			#middle-side-container.well.wellspecial2.span3
+				video#remoteVideo(autoplay="", muted="")
 
 			#right-side-container.well.wellspecial2.span5
+				#patient-view
 
 					
 
@@ -47,5 +57,6 @@ block scripts
 	script(src='/vendor/jquery.form.js')
 	script(src='/vendor/bootstrap-modal.js')
 	script(src='/vendor/bootstrap-transition.js')
-	script(src='/js/views/booking.js')
-	script(src='/js/controllers/bookingController.js')
+	script(src='/js/lib/adapter.js')
+	script(src='/js/views/evisitsession.js')
+	script(src='/js/controllers/evisitsessionController.js')
