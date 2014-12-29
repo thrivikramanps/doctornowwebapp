@@ -237,7 +237,7 @@ exports.getAllRecords = function(callback)
 
 exports.getAlleVisitsByUserName = function(user, callback)
 {
-	evisits.find({user:user}, { appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, _id: 1}).toArray(
+	evisits.find({user:user}).toArray(
 		function(e, res)  {
 		if (e) callback(e, null)
 		else callback(null, res)
