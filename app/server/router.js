@@ -281,8 +281,12 @@ module.exports = function(app) {
 				if (e)
 					res.send(e, 400);
 				else {
+					var session_var = req.session.user;
+					session_var.list = o;
+					req.session.user = session_var;
+
 					res.render('evisitlist-NH', {
-						listevisits: o
+						udata: req.session.user
 					});
 				}
 			});
