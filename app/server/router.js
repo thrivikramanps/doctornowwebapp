@@ -74,8 +74,8 @@ module.exports = function(app) {
 				}
 				else {
 					res.render('home-NH', {
-						logintime : session_var.logintime;
-						loginuser : session_var.user;
+						logintime : session_var.logintime
+						loginuser : session_var.user
 					});
 				}
 			});
