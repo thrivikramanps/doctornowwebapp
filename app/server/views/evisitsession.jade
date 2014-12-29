@@ -12,8 +12,8 @@ html
     #header-container
       #header-banner.well.span12
     #middle-container
-      p#login-time Login Time
-      p#login-account Login Account
+      input#login-time.disabled(type='text', name='login-time', value= udata.logintime, style = " border: 0px none rgb(255, 255, 255)")
+      input#login-account.disabled(type='text', name='login-account', value= udata.user, style ="margin-left: 270px; border: 0px none rgb(255, 255, 255)")
       button#btn-home.btn.btn-primary(type="button") Home
       button#btn-logout-user.btn.btn-primary(type="button") Logout
     #patient-details-container.well.span3(style="margin-left:190px; width:300px")
