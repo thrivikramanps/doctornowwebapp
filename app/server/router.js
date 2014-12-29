@@ -34,6 +34,11 @@ module.exports = function(app) {
 				res.send(e, 400);
 			}	else{
 			    req.session.user = o;
+			    var modified_req_session = req.session.user;
+		    	var logintimestamp = new Date();
+		    	var logintime = logintimestamp.getHours() +":"+logintimestamp.getMinutes() +":"+ logintimestamp.getSeconds();
+		    	modified_req_session.logintime = logintime;
+		    	req.session.user = modified_req_session;
 				if (req.param('remember-me') == 'true'){
 					res.cookie('user', o.user, { maxAge: 900000 });
 					res.cookie('pass', o.pass, { maxAge: 900000 });
@@ -50,11 +55,7 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
-	    	var modified_req_session = req.session.user;
-	    	var logintimestamp = new Date();
-	    	var logintime = logintimestamp.getHours() +":"+logintimestamp.getMinutes() +":"+ logintimestamp.getSeconds();
-	    	modified_req_session.logintime = logintime;
-	    	req.session.user = modified_req_session;
+	    	
 	    	var session_variable = req.session.user;
 
 
