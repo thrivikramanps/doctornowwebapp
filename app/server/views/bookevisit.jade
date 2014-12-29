@@ -4,6 +4,7 @@ html
 		title
 		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
 		link(rel='stylesheet', href='/css/style.css')
+		link(rel="stylesheet", href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css")
 		script(type='text/javascript')
 			var _gaq = _gaq || [];
 			_gaq.push(['_setAccount', 'UA-1890531-10']);
@@ -13,6 +14,15 @@ html
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
+		script
+	      	$(function() {
+	      		$( "#patient1dob-tf" ).datepicker();
+	      		$( "#patient2dob-tf" ).datepicker();
+	      		$( "#patient3dob-tf" ).datepicker();
+	      		$( "#patient4dob-tf" ).datepicker();
+	      		$( "#rangestartdate-tf" ).datepicker();
+	      		$( "#rangeenddate-tf" ).datepicker();
+	      	});
 	
 	body
 
@@ -65,6 +75,8 @@ html
 
 block scripts
 	script(src='/vendor/jquery.min.js')
+	script(src="//code.jquery.com/jquery-1.10.2.js")
+    script(src="//code.jquery.com/ui/1.11.2/jquery-ui.js")
 	script(src='/vendor/jquery.form.js')
 	script(src='/vendor/bootstrap-modal.js')
 	script(src='/vendor/bootstrap-transition.js')
