@@ -50,9 +50,17 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
+	    	var modified_req_session = req.session.user;
+	    	var logintimestamp = new Date();
+	    	var logintime = logintimestamp.getHours() +":"+logintimestamp.getMinutes() +":"+ logintimestamp.getSeconds();
+	    	modified_req_session.logintime = logintime;
+	    	req.session.user = modified_req_session;
 	    	var session_variable = req.session.user;
 
+
 	    	AM.getAccountByUserName(session_variable.user, function(o){
+
+	    		var session_var = req.session.user;
 
 	    		if (o.role === 'Admin') {
 					res.render('home-admin', {
@@ -66,7 +74,8 @@ module.exports = function(app) {
 				}
 				else {
 					res.render('home-NH', {
-						udata : req.session.user
+						logintime : session_var.logintime;
+						loginuser : session_var.user;
 					});
 				}
 			});

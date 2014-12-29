@@ -21,8 +21,8 @@ html
 			#header-banner.well.span12
 
 		#middle-container
-			p#login-time Login Time
-			p#login-account Login Account
+			p#login-time(textContent = logintime.toString())
+			p#login-account(textContent = logintime.toString())
 			button(type="button")#btn-home.btn.btn-primary
 					| Home
 			button(type="button")#btn-logout-user.btn.btn-primary
