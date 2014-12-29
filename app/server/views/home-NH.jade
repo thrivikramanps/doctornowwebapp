@@ -21,8 +21,8 @@ html
 			#header-banner.well.span12
 
 		#middle-container
-			p#login-time
-			p#login-account
+			input#login-time.disabled(type='text', name='login-time', value= udata.logintime)
+			input#login-account.disabled(type='text', name='login-account', value= udata.user)
 			button(type="button")#btn-home.btn.btn-primary
 					| Home
 			button(type="button")#btn-logout-user.btn.btn-primary
