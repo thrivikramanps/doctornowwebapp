@@ -271,6 +271,33 @@ module.exports = function(app) {
 
 	});
 
+	app.get('/evisitreview', function(req,res) {
+		if (req.session.user == null) {
+			res.redirect('/');
+		} else {
+			var session_variable = req.session.user;
+
+			AM.getAlleVisitsByUserName(session_variable.user, function (e,o) {
+				if (e)
+					res.send(e, 400);
+				else {
+					res.render('evisitlist-NH', {
+						listevisits: o
+					});
+				}
+			});
+		}
+	});
+
+	app.post('/evisitreview', function(req,res) {
+		if (req.session.user == null) {
+			res.redirect('/');
+		} else {
+
+		}
+
+	});
+
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {

@@ -1,9 +1,10 @@
 
-function HomeController()
+function eVisitReviewController()
 {
 
 // bind event listeners to button clicks //
 	var that = this;
+	this.formFields = [$('#date-tf'), $('#starttime-tf'), $('#endtime-tf')];
 
 //handle user home button click
 	$('#btn-home').click(function(){ 
@@ -14,23 +15,28 @@ function HomeController()
 // handle user logout //
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
-	//handle user home button click
-	$('#btn-set-availability').click(function(){ 
-		window.location.href = '/availability';		
-	});
 
-	$('#btn-schedule-evisit').click(function(){ 
-		window.location.href = '/booking';		
-	});
+	$('.evisit-record').click(function(event) {
+	    $target = $(event.target)
+	    $.ajax({
+	      type: 'POST',
+	      url: '/evisitreview',
+	      data: {
+	        id : $target.attr('id')
+	      },
+	      success: function(response) {
+	        $target.parent().parent().remove();
+	        $alert.trigger('success', 'Task was removed.');
+	      },
+	      error: function(error) {
+	        $alert.trigger('error', error);
+	      }
+	    })
+  	});
 
-	$('#btn-begin-evisit').click(function(){ 
-		window.location.href = '/evisitsession';		
-	});
+	
 
-	$('#btn-view-evisits').click(function(){
-		window.location.href = '/evisitreview';
-	});
-
+	
 	this.attemptLogout = function()
 	{
 		var that = this;
@@ -46,6 +52,7 @@ function HomeController()
 			}
 		});
 	}
+
 
 	this.showLockedAlert = function(msg){
 		$('.modal-alert').modal({ show : false, keyboard : false, backdrop : 'static' });

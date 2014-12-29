@@ -235,6 +235,22 @@ exports.getAllRecords = function(callback)
 	});
 };
 
+exports.getAlleVisitsByUserName = function(user, callback)
+{
+	evisits.find({user:user}, { appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, _.id: 1}).toArray(
+		function(e, res)  {
+		if (e) callback(e, null)
+		else callback(null, res)
+	});
+}
+
+exports.getPatientRecordsForeVisit = function()
+{
+
+}
+
+
+
 exports.delAllRecords = function(callback)
 {
 	accounts.remove({}, callback); // reset accounts collection for testing //
