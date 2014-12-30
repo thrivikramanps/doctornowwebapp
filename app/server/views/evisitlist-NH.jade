@@ -31,6 +31,8 @@ html
 		#evisitlist.well.span6(style = " margin-left: 190px")
 			h4 Appointment List
 			div.listcontainer(style = " height: 200px; overflow-y: auto")
+				div.titleelement
+					span.name='Appointment Date ' + ' Start Time ' + ' End Time ' 
 				if (listevisits.length === 0)
 					| No eVisits.
 				each evisititem, index in listevisits
