@@ -37,9 +37,9 @@ html
 					th Start Time
 					th End Time
 					th Action
-			table.listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+			table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 				if (listevisits.length === 0)
-					tr.noevisits
+					tr#noevisits
 						th No eVisits.
 				each evisititem, index in listevisits
 					tr.evisitrecord
@@ -54,6 +54,7 @@ html
 							span.name=evisititem.appointmentendtime
 						td.evisitrecordaction(align="center")
 							input(type='submit', value='delete')
+							input(type='hidden', value=evisititem._id.toString(), name='id')
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h5(align="center") Patient List
