@@ -81,8 +81,8 @@ function eVisitReviewController()
 		$('.modal-alert .modal-header h3').text('Success!');
 		$('.modal-alert .modal-body p').html(msg);
 		$('.modal-alert').modal('show');
-		$('.modal-alert button').click(function(){window.location.href = '/';})
-		setTimeout(function(){window.location.href = '/';}, 3000);
+		$('.modal-alert button').click(function(){});
+		//setTimeout(function(){window.location.href = '/';}, 3000);
 	}
 
 	this.insertPatientRecords = function(patientRecords){
