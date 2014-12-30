@@ -23,7 +23,7 @@ function eVisitReviewController()
 	      url: '/evisitreview',
 	      data: {
 	      	action 	 : 'delete'
-	        identity : $target.attr('evisit_id')
+	        identity : $target.attr('evisitid')
 	      },
 	      success: function(response) {
 	        $target.parent().remove();
@@ -42,7 +42,7 @@ function eVisitReviewController()
 	      url: '/evisitreview',
 	      data: {
 	      	action 	 : 'fetch'
-	        identity : $target.attr('evisit_id')
+	        identity : $target.attr('evisitid')
 	      },
 	      success: function(response) {
 	      	that.insertPatientRecords(response);

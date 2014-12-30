@@ -50,9 +50,9 @@ html
 						td.evisitrecordend(style = "align: center")
 							span.name=evisititem.appointmentendtime
 						td.evisitrecordactiondelete(style = "align: center")
-							input(type='submit', value='delete', evisit_id=evisititem._id.toString())
+							input(type='submit', value='delete', evisitid=evisititem._id.toString())
 						td.evisitrecordactionfetch(style = "align: center")
-							input(type='submit', value='fetch', evisit_id=evisititem._id.toString())
+							input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h5(align="center") Patient List
