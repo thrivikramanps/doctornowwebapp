@@ -27,7 +27,7 @@ function eVisitReviewController()
 	        identity : idevisit
 	      },
 	      success: function(response) {
-	        $target.parent().remove();
+	        $target.parent().parent().remove();
 	        that.showLockedAlert('record was removed.');
 	      },
 	      error: function(jqXHR) {
