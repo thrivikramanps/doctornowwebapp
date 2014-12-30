@@ -91,8 +91,8 @@ function eVisitReviewController()
 		var tr = document.createElement('tr');
 		var td0 = document.createElement('td');
 		var td1 = document.createElement('td');
-		td0.appendChild(document.createTextNode(patientRecords.patient1name));
-		td1.appendChild(document.createTextNode(patientRecords.patient1dob));
+		td0.appendChild(document.createTextNode(patientRecords[0].patient1name));
+		td1.appendChild(document.createTextNode(patientRecords[0].patient1dob));
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
@@ -102,8 +102,8 @@ function eVisitReviewController()
 		tr = document.createElement('tr');
 		td0 = document.createElement('td');
 		td1 = document.createElement('td');
-		td0.appendChild(document.createTextNode(patientRecords.patient2name));
-		td1.appendChild(document.createTextNode(patientRecords.patient2dob));
+		td0.appendChild(document.createTextNode(patientRecords[0].patient2name));
+		td1.appendChild(document.createTextNode(patientRecords[0].patient2dob));
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
@@ -113,8 +113,8 @@ function eVisitReviewController()
 		tr = document.createElement('tr');
 		td0 = document.createElement('td');
 		td1 = document.createElement('td');
-		td0.appendChild(document.createTextNode(patientRecords.patient3name));
-		td1.appendChild(document.createTextNode(patientRecords.patient3dob));
+		td0.appendChild(document.createTextNode(patientRecords[0].patient3name));
+		td1.appendChild(document.createTextNode(patientRecords[0].patient3dob));
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
@@ -124,8 +124,8 @@ function eVisitReviewController()
 		tr = document.createElement('tr');
 		td0 = document.createElement('td');
 		td1 = document.createElement('td');
-		td0.appendChild(document.createTextNode(patientRecords.patient4name));
-		td1.appendChild(document.createTextNode(patientRecords.patient4dob));
+		td0.appendChild(document.createTextNode(patientRecords[0].patient4name));
+		td1.appendChild(document.createTextNode(patientRecords[0].patient4dob));
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
