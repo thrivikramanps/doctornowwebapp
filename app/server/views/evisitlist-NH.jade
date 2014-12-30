@@ -28,17 +28,19 @@ html
 			button(type="button")#btn-logout-user.btn.btn-primary
 					| Logout
 		
-		#evisitlist.well.span5
-			if (listevisits.length === 0)
-				| No eVisits.
-			each evisititem, index in listevisits
-				.item
-					div.appointmentdate
-						span.name=evisititem.appointmentdate
-					div.appointmentstarttime
-						span.name=evisititem.appointmentstarttime
-					div.appointmentendtime
-						span.name=evisititem.appointmentendtime
+		#evisitlist.well.span6(style = " margin-left: 190px")
+			h4 Appointment List
+			div.listcontainer(style = " height: 200px; overflow-y: auto")
+				if (listevisits.length === 0)
+					| No eVisits.
+				each evisititem, index in listevisits
+					.item
+						div.appointmentdate
+							span.name=evisititem.appointmentdate
+						div.appointmentstarttime
+							span.name=evisititem.appointmentstarttime
+						div.appointmentendtime
+							span.name=evisititem.appointmentendtime
 
 
 
