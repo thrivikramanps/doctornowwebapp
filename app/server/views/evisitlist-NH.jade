@@ -35,12 +35,8 @@ html
 					| No eVisits.
 				each evisititem, index in listevisits
 					.item
-						div.appointmentdate(style = " width: 100px")
-							span.name=evisititem.appointmentdate
-						div.appointmentstarttime(style = " width: 100px")
-							span.name=evisititem.appointmentstarttime
-						div.appointmentendtime(style = " width: 100px")
-							span.name=evisititem.appointmentendtime
+						div.appointmentrecord
+							span.name=evisititem.appointmentdate + ' ' + evisititem.appointmentstarttime + ' ' + evisititem.appointmentendtime
 
 
 
