@@ -39,7 +39,7 @@ function eVisitReviewController()
   	$('.evisitrecordactionfetch').click(function(event) {
 	    $target = $(event.target)
 	    var idevisit = $target.attr('evisitid');
-	    
+
 	    $.ajax({
 	      type: 'POST',
 	      url: '/evisitreview',
@@ -94,7 +94,8 @@ function eVisitReviewController()
 		td0.appendChild(document.createTextNode(patientRecords.patient1name));
 		td1.appendChild(document.createTextNode(patientRecords.patient1dob));
 
-		tr.appendChild(td);
+		tr.appendChild(td0);
+		tr.appendChild(td1);
 		parent_element.appendChild(tr);
 
 		
