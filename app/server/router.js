@@ -283,7 +283,7 @@ module.exports = function(app) {
 				else {
 					console.log ("list length is " + o.length);
 					res.render('evisitlist-NH', {
-						tasks: o || [],
+						listevisits: o || [],
 						udata: req.session.user
 					});
 				}
