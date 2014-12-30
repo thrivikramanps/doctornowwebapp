@@ -41,6 +41,11 @@ html
 				if (listevisits.length === 0)
 					tr.noevisits
 						th No eVisits.
+				each evisititem, index in listevisits
+					tr.evisitrecord
+						td.evisitrecordindex
+							span=index+1
+								|.&nbsp;
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h4 Patient List
