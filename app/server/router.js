@@ -283,7 +283,7 @@ module.exports = function(app) {
 				else {
 
 					res.render('evisitlist-NH', {
-						evisitlistitems: o,
+						tasks: o || [],
 						udata: req.session.user
 					});
 				}
