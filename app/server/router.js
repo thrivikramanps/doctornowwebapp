@@ -281,7 +281,7 @@ module.exports = function(app) {
 				if (e)
 					res.send(e, 400);
 				else {
-
+					console.log ("list length is " + o.length);
 					res.render('evisitlist-NH', {
 						tasks: o || [],
 						udata: req.session.user
