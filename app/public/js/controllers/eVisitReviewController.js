@@ -17,7 +17,7 @@ function eVisitReviewController()
 
 	$('.evisitrecordactiondelete').click(function(event) {
 	    $target = $(event.target)
-	    var idevisit = $target.attr('evisit_id');
+	    var idevisit = $target.attr('evisitid');
 	    
 	    $.ajax({
 	      type: 'POST',
