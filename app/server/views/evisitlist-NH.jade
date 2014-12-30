@@ -32,33 +32,36 @@ html
 			h5(align="center") Appointment List
 			table.listcontainerheader(style = " width: 100%")
 				tr.tableheader
-					th Number
-					th Appointment Date
-					th Start Time
-					th End Time
-					th Action
+					th Date
+					th Start
+					th End
+					th 
+					th
 			table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 				if (listevisits.length === 0)
 					tr#noevisits
 						th No eVisits.
 				each evisititem, index in listevisits
 					tr.evisitrecord
-						td.evisitrecordindex(align="center")
-							span=index+1
-								|.&nbsp;
-						td.evisitrecorddate(align="center")
+						td.evisitrecorddate(style = "align: center")
 							span.name=evisititem.appointmentdate
-						td.evisitrecordstart(align="center")
+						td.evisitrecordstart(style = "align: center")
 							span.name=evisititem.appointmentstarttime
-						td.evisitrecordend(align="center")
+						td.evisitrecordend(style = "align: center")
 							span.name=evisititem.appointmentendtime
-						td.evisitrecordaction(align="center")
-							input(type='submit', value='delete')
-							input(type='hidden', value=evisititem._id.toString(), name='id')
+						td.evisitrecordactiondelete(style = "align: center")
+							input(type='submit', value='delete', evisit_id=evisititem._id.toString())
+						td.evisitrecordactionfetch(style = "align: center")
+							input(type='submit', value='fetch', evisit_id=evisititem._id.toString())
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h5(align="center") Patient List
-			div.patientlistcontainer(style = "height: 200px; overflow-y: auto")
+			table.patientlistcontainerheader(style = " width: 100%")
+				tr.tableheader
+					th Name
+					th DOB
+			table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+
 
 
 

@@ -210,6 +210,12 @@ exports.deleteAvailability = function(id, callback)
 	availability.remove({_id: getAvailabilityObjectId(id)}, callback);
 }
 
+exports.deleteeVisit = function(id, callback)
+{
+	console.log("actual id is " + geteVisitObjectId(id));
+	evisits.remove({_id: geteVisitObjectId(id)}, callback);
+}
+
 exports.getAccountByEmail = function(email, callback)
 {
 	accounts.findOne({email:email}, function(e, o){ callback(o); });
@@ -237,18 +243,22 @@ exports.getAllRecords = function(callback)
 
 exports.getAlleVisitsByUserName = function(user, callback)
 {
-	evisits.find({user:user}).toArray(
+	evisits.find({user:user}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1}).toArray(
 		function(e, res)  {
 		if (e) callback(e, null)
 		else callback(null, res)
 	});
 }
 
-exports.getPatientRecordsForeVisit = function()
+
+exports.fetcheVisitPatients = function(id, callback)
 {
-
+	evisits.find({_id: geteVisitObjectId(id)}, {patient1name: 1, patient1dob: 1, patient2name: 1, patient2dob: 1, patient3name: 1, patient3dob: 1, patient4name: 1, patient4dob: 1}).toArray(
+		function(e, res)  {
+		if (e) callback(e, null)
+		else callback(null, res)
+	});
 }
-
 
 
 exports.delAllRecords = function(callback)
@@ -290,12 +300,17 @@ var validatePassword = function(plainPass, hashedPass, callback)
 
 var getObjectId = function(id)
 {
-	return accounts.db.bson_serializer.ObjectID.createFromHexString(id)
+	return accounts.db.bson_serializer.ObjectID.createFromHexString(id);
 }
 
 var getAvailabilityObjectId = function(id)
 {
-	return availability.db.bson_serializer.ObjectID.createFromHexString(id)
+	return availability.db.bson_serializer.ObjectID.createFromHexString(id);
+}
+
+var geteVisitObjectId = function(id)
+{
+	return evisits.db.bson_serializer.ObjectID.createFromHexString(id);
 }
 
 var findById = function(id, callback)

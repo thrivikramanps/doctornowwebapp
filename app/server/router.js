@@ -295,7 +295,18 @@ module.exports = function(app) {
 		if (req.session.user == null) {
 			res.redirect('/');
 		} else {
-
+			if (req.param('action') === 'delete'){
+				AM.deleteeVisit(req.param('identity'), function(){
+					res.send("gen-success", 200);
+				});
+			} else if (req.param('action') === 'fetch') {
+				AM.fetcheVisitPatients(req.param('identity'), function(e,o){
+					if (e)
+						res.send(e, 400);
+					else
+						res.send(o, 200);
+				});
+			}
 		}
 
 	});

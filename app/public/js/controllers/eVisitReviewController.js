@@ -16,20 +16,39 @@ function eVisitReviewController()
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
 
-	$('.evisit-record').click(function(event) {
+	$('.evisitrecordactiondelete').click(function(event) {
 	    $target = $(event.target)
 	    $.ajax({
 	      type: 'POST',
 	      url: '/evisitreview',
 	      data: {
-	        id : $target.attr('id')
+	      	action 	 : 'delete'
+	        identity : $target.attr('evisit_id')
 	      },
 	      success: function(response) {
-	        $target.parent().parent().remove();
-	        $alert.trigger('success', 'Task was removed.');
+	        $target.parent().remove();
+	        that.showLockedAlert('record was removed.');
 	      },
-	      error: function(error) {
-	        $alert.trigger('error', error);
+	      error: function(jqXHR) {
+	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+	      }
+	    })
+  	});
+
+  	$('.evisitrecordactionfetch').click(function(event) {
+	    $target = $(event.target)
+	    $.ajax({
+	      type: 'POST',
+	      url: '/evisitreview',
+	      data: {
+	      	action 	 : 'fetch'
+	        identity : $target.attr('evisit_id')
+	      },
+	      success: function(response) {
+	      	that.insertPatientRecords(response);
+	      },
+	      error: function(jqXHR) {
+	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 	      }
 	    })
   	});
@@ -61,6 +80,57 @@ function eVisitReviewController()
 		$('.modal-alert').modal('show');
 		$('.modal-alert button').click(function(){window.location.href = '/';})
 		setTimeout(function(){window.location.href = '/';}, 3000);
+	}
+
+	this.insertPatientRecords = function(patientRecords){
+		var parent_element = document.getElementById('patientlistcontainer');
+
+		var tr = document.createElement('tr');
+		var td0 = document.createElement('td');
+		var td1 = document.createElement('td');
+		td0.appendChild(document.createTextNode(patientRecords.patient1name));
+		td1.appendChild(document.createTextNode(patientRecords.patient1dob));
+
+		tr.appendChild(td);
+		parent_element.appendChild(tr);
+
+		
+		tr = document.createElement('tr');
+		td0 = document.createElement('td');
+		td1 = document.createElement('td');
+		td0.appendChild(document.createTextNode(patientRecords.patient2name));
+		td1.appendChild(document.createTextNode(patientRecords.patient2dob));
+
+		tr.appendChild(td0);
+		tr.appendChild(td1);
+		parent_element.appendChild(tr);
+
+		
+		tr = document.createElement('tr');
+		td0 = document.createElement('td');
+		td1 = document.createElement('td');
+		td0.appendChild(document.createTextNode(patientRecords.patient3name));
+		td1.appendChild(document.createTextNode(patientRecords.patient3dob));
+
+		tr.appendChild(td0);
+		tr.appendChild(td1);
+		parent_element.appendChild(tr);
+
+		
+		tr = document.createElement('tr');
+		td0 = document.createElement('td');
+		td1 = document.createElement('td');
+		td0.appendChild(document.createTextNode(patientRecords.patient4name));
+		td1.appendChild(document.createTextNode(patientRecords.patient4dob));
+
+		tr.appendChild(td0);
+		tr.appendChild(td1);
+		parent_element.appendChild(tr);
+
+		}
+
+		
+
 	}
 }
 
