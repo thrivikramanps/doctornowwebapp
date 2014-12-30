@@ -1,4 +1,3 @@
-
 function eVisitReviewController()
 {
 
@@ -18,12 +17,14 @@ function eVisitReviewController()
 
 	$('.evisitrecordactiondelete').click(function(event) {
 	    $target = $(event.target)
+	    var idevisit = $target.attr('evisit_id');
+	    
 	    $.ajax({
 	      type: 'POST',
 	      url: '/evisitreview',
 	      data: {
 	      	action 	 : 'delete'
-	        identity : $target.attr('evisitid')
+	        identity : idevisit
 	      },
 	      success: function(response) {
 	        $target.parent().remove();
@@ -42,7 +43,7 @@ function eVisitReviewController()
 	      url: '/evisitreview',
 	      data: {
 	      	action 	 : 'fetch'
-	        identity : $target.attr('evisitid')
+	        identity : $target.attr('evisit_id')
 	      },
 	      success: function(response) {
 	      	that.insertPatientRecords(response);
@@ -126,8 +127,6 @@ function eVisitReviewController()
 		tr.appendChild(td0);
 		tr.appendChild(td1);
 		parent_element.appendChild(tr);
-
-		}
 
 		
 
