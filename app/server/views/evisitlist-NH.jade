@@ -32,16 +32,16 @@ html
 			h4 Appointment List
 			div.listcontainer(style = " height: 200px; overflow-y: auto")
 				div.titleelement
-					span.name='Appointment Date ' + ' Start Time ' + ' End Time ' 
+					span.name='Appointment Date ' + 'Start Time ' + ' End Time ' 
 				if (listevisits.length === 0)
 					| No eVisits.
 				each evisititem, index in listevisits
 					.item
 						div.appointmentrecord
-							span.name=evisititem.appointmentdate + ' ' + evisititem.appointmentstarttime + ' ' + evisititem.appointmentendtime
+							span.name=evisititem.appointmentdate + '       ' + evisititem.appointmentstarttime + '     ' + evisititem.appointmentendtime + '    '
 							input(type='submit', value='delete')
 
-		#evisitpatientsublist.well.span3(style = "margin-left :710px")
+		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h4 Patient List
 			div.patientlistcontainer(style = "height: 200px; overflow-y: auto")
 
