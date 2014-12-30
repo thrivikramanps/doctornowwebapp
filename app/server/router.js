@@ -286,7 +286,7 @@ module.exports = function(app) {
 						listevisits: o || [],
 						udata: req.session.user
 					});
-					res.send("ok", 200);
+					//res.send("ok", 200);
 				}
 			});
 		}
