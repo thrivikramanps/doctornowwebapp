@@ -43,9 +43,17 @@ html
 						th No eVisits.
 				each evisititem, index in listevisits
 					tr.evisitrecord
-						td.evisitrecordindex
+						td.evisitrecordindex(align="center")
 							span=index+1
 								|.&nbsp;
+						td.evisitrecorddate(align="center")
+							span.name=evisititem.appointmentdate
+						td.evisitrecordstart(align="center")
+							span.name=evisititem.appointmentstarttime
+						td.evisitrecordend(align="center")
+							span.name=evisititem.appointmentendtime
+						td.evisitrecordaction(align="center")
+							input(type='submit', value='delete')
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h4 Patient List
