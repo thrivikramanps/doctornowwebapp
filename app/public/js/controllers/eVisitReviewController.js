@@ -23,7 +23,7 @@ function eVisitReviewController()
 	      type: 'POST',
 	      url: '/evisitreview',
 	      data: {
-	      	action 	 : 'delete'
+	      	action 	 : 'delete',
 	        identity : idevisit
 	      },
 	      success: function(response) {
@@ -38,12 +38,14 @@ function eVisitReviewController()
 
   	$('.evisitrecordactionfetch').click(function(event) {
 	    $target = $(event.target)
+	    var idevisit = $target.attr('evisitid');
+	    
 	    $.ajax({
 	      type: 'POST',
 	      url: '/evisitreview',
 	      data: {
-	      	action 	 : 'fetch'
-	        identity : $target.attr('evisit_id')
+	      	action 	 : 'fetch',
+	        identity : idevisit
 	      },
 	      success: function(response) {
 	      	that.insertPatientRecords(response);
