@@ -29,7 +29,7 @@ html
 					| Logout
 		
 		#evisitlist.well.span6(style = " margin-left: 190px")
-			h4 Appointment List
+			h4(align="center") Appointment List
 			table.listcontainerheader(style = " width: 100%")
 				tr.tableheader
 					th Number
@@ -38,6 +38,9 @@ html
 					th End Time
 					th Action
 			table.listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+				if (listevisits.length === 0)
+					tr.noevisits
+						th No eVisits.
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h4 Patient List

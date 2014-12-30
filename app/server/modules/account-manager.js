@@ -8,7 +8,7 @@ var moment 		= require('moment');
 
 var dbPort 		= 27017;
 var dbHost 		= 'localhost';
-var dbName 		= 'node-login';
+var dbName 		= 'node-login-new';
 
 /* establish the database connection */
 
