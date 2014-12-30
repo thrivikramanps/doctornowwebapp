@@ -30,13 +30,14 @@ html
 		
 		#evisitlist.well.span6(style = " margin-left: 190px")
 			h4 Appointment List
-			table.listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+			table.listcontainerheader(style = " width: 100%")
 				tr.tableheader
 					th Number
 					th Appointment Date
 					th Start Time
 					th End Time
 					th Action
+			table.listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 
 		#evisitpatientsublist.well.span5(style = "margin-left :30px")
 			h4 Patient List
