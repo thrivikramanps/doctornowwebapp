@@ -29,6 +29,8 @@ html
 					| Logout
 		
 		.list
+			if (listevisits.length === 0)
+				| No eVisits.
 			each evisititem, index in listevisits
 				.item
 					div.appointmentdate
