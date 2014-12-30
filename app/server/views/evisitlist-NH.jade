@@ -37,6 +37,11 @@ html
 					.item
 						div.appointmentrecord
 							span.name=evisititem.appointmentdate + ' ' + evisititem.appointmentstarttime + ' ' + evisititem.appointmentendtime
+							input(type='submit', value='delete')
+
+		#evisitpatientsublist.well.span3(style = "margin-left :710px")
+			h4 Patient List
+			div.patientlistcontainer(style = "height: 200px; overflow-y: auto")
 
 
 
