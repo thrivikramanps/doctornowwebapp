@@ -94,11 +94,15 @@ function eVisitReviewController()
 		for (var i =0; i<4; i++){
 			var tr = document.createElement('tr');
 			var td0 = document.createElement('td');
+			td0.style.width = "75px";
 			var td1 = document.createElement('td');
+			td1.style.width = "75px";
 			
 			if (role.value === 'Admin'){
 				var td2 = document.createElement('td');
+				td2.style.width = "75px";
 				var td3 = document.createElement('td');
+				td3.style.width = "75px";
 				var input1 = document.createElement('input');
 				input1.setAttribute('type', 'submit');
 				input1.setAttribute('value', 'Upload Data');
@@ -107,8 +111,16 @@ function eVisitReviewController()
 				input2.setAttribute('value', 'Upload History');
 			}
 
-			td0.appendChild(document.createTextNode(inputsname[i]));
-			td1.appendChild(document.createTextNode(inputsdob[i]));
+			var text1 = document.createTextNode(inputsname[i]);
+			var text2 = document.createTextNode(inputsdob[i]);
+
+			text1.style.display = "block";
+			text1.style.textAlign = "center";
+			text2.style.display = "block";
+			text2.style.textAlign = "center";
+
+			td0.appendChild(text1);
+			td1.appendChild(text2);
 			if (role.value === 'Admin'){
 				td2.appendChild(input1);
 				td3.appendChild(input2);
