@@ -29,7 +29,7 @@ html
 					| Logout
 		
 		#evisitlist.well.span7(style = " margin-left: 190px")
-			h5(align="center") Appointment List
+			h3(align="center") Appointment List
 			table.listcontainerheader(style = " width: 100%")
 				tr.tableheader
 					th Date
@@ -44,21 +44,21 @@ html
 						th No eVisits.
 				each evisititem, index in listevisits
 					tr.evisitrecord
-						td.evisitrecorddate(style = "align: center")
-							span.name=evisititem.appointmentdate
-						td.evisitrecordstart(style = "align: center")
-							span.name=evisititem.appointmentstarttime
-						td.evisitrecordend(style = "align: center")
-							span.name=evisititem.appointmentendtime
-						td.evisitrecordnh(style = "align: center")
-							span.name=evisititem.user
-						td.evisitrecordactiondelete(style = "align: center")
+						td.evisitrecordactiondelete(style = "width: 90px")
 							input(type='submit', value='delete', evisitid=evisititem._id.toString())
-						td.evisitrecordactionfetch(style = "align: center")
+						td.evisitrecorddate(style = "width: 90px")
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
+						td.evisitrecordstart(style = "width: 90px")
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
+						td.evisitrecordend(style = "width: 90px")
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
+						td.evisitrecordnh(style = "width: 90px")
+							span.name(style=" display: block; text-align: center")=evisititem.user
+						td.evisitrecordactionfetch(style = "width: 90px")
 							input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
 		#evisitpatientsublist.well.span4(style = "margin-left :30px")
-			h5(align="center") Patient List
+			h3(align="center") Patient List
 			table.patientlistcontainerheader(style = " width: 100%")
 				tr.tableheader
 					th Name
