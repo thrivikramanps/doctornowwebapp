@@ -115,12 +115,9 @@ exports.getAllUserRecords = function(user, callback)
 exports.validateAndAddNewEVisit = function(newData, callback)
 {
 
-
-
 	availability.findOne({$and : [{freedate:{$gte: newData.rangestartdate}},{freedate:{$lte: newData.rangeenddate}}] }, function(e,o){
-		
-		//other variables we will automatically take from the 'o' variable are o.freedate, o.starttime, o.endtime
 
+		//other variables we will automatically take from the 'o' variable are o.freedate, o.starttime, o.endtime
 		if (e || (o == null)){
 			console.log("no free doctor hours block found");
 			callback(e, null);
@@ -133,7 +130,6 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			console.log("doctor found for that time range" + newData.availabilitydeletionid);
 			evisits.insert(newData, {safe: true}, function(err){
 				/*if (err){
-					
 					console.log("err during insertion");
 					callback(err);
 				}
@@ -149,11 +145,9 @@ exports.validateAndAddNewEVisit = function(newData, callback)
 			});
 			callback(null, o);
 		}
-
 	});
-
-
 }
+
 
 
 exports.updateAccount = function(newData, callback)
@@ -241,13 +235,23 @@ exports.getAllRecords = function(callback)
 	});
 };
 
-exports.getAlleVisitsByUserName = function(user, callback)
+exports.getAlleVisitsByUserName = function(user, flag, callback)
 {
-	evisits.find({user:user}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1}).toArray(
-		function(e, res)  {
-		if (e) callback(e, null)
-		else callback(null, res)
-	});
+	if (flag === 'NH') {
+		evisits.find({user:user}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, doctoruser: 1}).toArray(
+			function(e, res)  {
+			if (e) callback(e, null)
+			else callback(null, res)
+			}
+		);
+	} else if (flag === 'DOC') {
+		evisits.find({doctoruser:user}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, user: 1}).toArray(
+			function(e, res)  {
+			if (e) callback(e, null)
+			else callback(null, res)
+			}
+		);
+	}
 }
 
 

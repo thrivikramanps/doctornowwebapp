@@ -277,18 +277,36 @@ module.exports = function(app) {
 		} else {
 			var session_variable = req.session.user;
 
-			AM.getAlleVisitsByUserName(session_variable.user, function (e,o) {
-				if (e)
-					res.send(e, 400);
-				else {
-					console.log ("list length is " + o.length);
-					res.render('evisitlist-NH', {
-						listevisits: o || [],
-						udata: req.session.user
-					});
-					//res.send("ok", 200);
-				}
-			});
+			if (session_variable.role == 'Nursing Home')
+			{
+				AM.getAlleVisitsByUserName(session_variable.user, 'NH', function (e,o) {
+					if (e)
+						res.send(e, 400);
+					else {
+						console.log ("list length is " + o.length);
+						res.render('evisitlist-NH', {
+							listevisits: o || [],
+							udata: req.session.user
+						});
+						//res.send("ok", 200);
+					}
+				});
+			} else if (session_variable.role == 'Doctor')
+			{
+				AM.getAlleVisitsByDoctorUser(session_variable.user, 'DOC', function (e,o) {
+					if (e)
+						res.send(e, 400);
+					else {
+						console.log ("list length is " + o.length);
+						res.render('evisitlist-DOC', {
+							listevisits: o || [],
+							udata: req.session.user
+						});
+						//res.send("ok", 200);
+					}
+				});
+			}
+
 		}
 	});
 
