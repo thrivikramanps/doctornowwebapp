@@ -44,17 +44,17 @@ html
 						th No eVisits.
 				each evisititem, index in listevisits
 					tr.evisitrecord
-						td.evisitrecorddate(style = "align: center")
+						th.evisitrecorddate(style = "align: center")
 							span.name=evisititem.appointmentdate
-						td.evisitrecordstart(style = "align: center")
+						th.evisitrecordstart(style = "align: center")
 							span.name=evisititem.appointmentstarttime
-						td.evisitrecordend(style = "align: center")
+						th.evisitrecordend(style = "align: center")
 							span.name=evisititem.appointmentendtime
-						td.evisitrecorddoctor(style = "align: center")
+						th.evisitrecorddoctor(style = "align: center")
 							span.name=evisititem.doctoruser
-						td.evisitrecordactiondelete(style = "align: center")
+						th.evisitrecordactiondelete(style = "align: center")
 							input(type='submit', value='delete', evisitid=evisititem._id.toString())
-						td.evisitrecordactionfetch(style = "align: center")
+						th.evisitrecordactionfetch(style = "align: center")
 							input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
 		#evisitpatientsublist.well.span4(style = "margin-left :30px")
