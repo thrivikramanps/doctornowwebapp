@@ -12,7 +12,7 @@ exports.upload = function(formData, callback)
 	form.uploadDir = __dirname + '/app/server/uploads/patientdata';
 	form.keepExtensions = true;
 
-	form.parse(req, function(err, fields, files)){
+	form.parse(req, function(err, fields, files){
 		res.writeHead(200, {'content-type': 'text/plain'});
         res.write('received upload:\n\n');
         console.log("form.bytesReceived");
@@ -23,6 +23,6 @@ exports.upload = function(formData, callback)
         console.log("file type: "+JSON.stringify(files.fileUploaded.type));
         console.log("astModifiedDate: "+JSON.stringify(files.fileUploaded.lastModifiedDate));
 
-	}
+	});
 }
 
