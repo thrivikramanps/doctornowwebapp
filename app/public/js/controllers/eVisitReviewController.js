@@ -121,8 +121,8 @@ function eVisitReviewController()
 			span2.style.textAlign = "center";
 			span2.innerHTML = inputsdob[i];
 
-			td0.appendChild(text1);
-			td1.appendChild(text2);
+			td0.appendChild(span1);
+			td1.appendChild(span2);
 			if (role.value === 'Admin'){
 				td2.appendChild(input1);
 				td3.appendChild(input2);
