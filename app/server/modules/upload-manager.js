@@ -12,7 +12,7 @@ exports.upload = function(formData, callback)
 	form.uploadDir = __dirname + '/app/server/uploads/patientdata';
 	form.keepExtensions = true;
 
-	form.parse(req, function(err, fields, files){
+	form.parse(formData, function(err, fields, files){
 		res.writeHead(200, {'content-type': 'text/plain'});
         res.write('received upload:\n\n');
         console.log("form.bytesReceived");
