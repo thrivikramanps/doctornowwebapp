@@ -111,13 +111,15 @@ function eVisitReviewController()
 				input2.setAttribute('value', 'Upload History');
 			}
 
-			var text1 = document.createTextNode(inputsname[i]);
-			var text2 = document.createTextNode(inputsdob[i]);
+			var span1 = document.createElement('span');
+			var span2 = document.createElement('span');
 
-			text1.style.display = "block";
-			text1.style.textAlign = "center";
-			text2.style.display = "block";
-			text2.style.textAlign = "center";
+			span1.style.display = "block";
+			span1.style.textAlign = "center";
+			span1.innerHTML = inputsname[i];
+			span2.style.display = "block";
+			span2.style.textAlign = "center";
+			span2.innerHTML = inputsdob[i];
 
 			td0.appendChild(text1);
 			td1.appendChild(text2);
