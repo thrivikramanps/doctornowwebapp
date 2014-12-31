@@ -28,7 +28,7 @@ function eVisitReviewController()
 		  },
 		  success: function(response) {
 			$target.parent().parent().remove();
-			that.showLockedAlert('record was removed.');
+			that.showLockedAlert('record was removed.', false);
 		  },
 		  error: function(jqXHR) {
 			console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -58,14 +58,16 @@ function eVisitReviewController()
 
 	$('#uploadForm').submit(function() {
 
-		$(this).ajaxSubmit({
+		$.ajaxSubmit({
 
 			error: function(xhr) {
 					status('Error: ' + xhr.status);
+					that.showLockedAlert('Upload failed', false);
 			},
 
 			success: function(response) {
 					  console.log(response);
+					  that.showLockedAlert('Uploaded success', false);
 			}
 		});
 
@@ -81,7 +83,7 @@ function eVisitReviewController()
 			type: "POST",
 			data: {logout : true},
 			success: function(data){
-				that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.');
+				that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.', true);
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -90,13 +92,13 @@ function eVisitReviewController()
 	}
 
 
-	this.showLockedAlert = function(msg){
+	this.showLockedAlert = function(msg, redirect){
 		$('.modal-alert').modal({ show : false, keyboard : false, backdrop : 'static' });
 		$('.modal-alert .modal-header h3').text('Success!');
 		$('.modal-alert .modal-body p').html(msg);
 		$('.modal-alert').modal('show');
-		$('.modal-alert button').click(function(){});
-		setTimeout(function(){window.location.href = '/';}, 3000);
+		$('.modal-alert button').click(function(){if (redirect) window.location.href = '/';});
+		setTimeout(function(){if (redirect) window.location.href = '/';}, 3000);
 	}
 
 	this.insertPatientRecords = function(patientRecords, evisit_id){
@@ -120,7 +122,7 @@ function eVisitReviewController()
 				var uploadform = document.createElement('form');
 				uploadform.name = 'uploadform';
 				uploadform.method = 'post';
-				uploadform.action = '/uploads';
+				uploadform.action = '/upload/patientfiles';
 				uploadform.id = 'uploadform';
 				uploadform.id = 'multipart/form-data';
 

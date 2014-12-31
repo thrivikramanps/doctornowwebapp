@@ -21,7 +21,13 @@ app.configure(function(){
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
 	app.use(multer({
-          dest: __dirname + '/app/server/uploads'
+          dest: __dirname + '/app/server/uploads',
+          rename: function (fieldname, filename) {
+    				return filename+Date.now();
+  				},
+  		  onFileUploadComplete: function (file) {
+  					console.log(file.fieldname + ' uploaded to  ' + file.path);
+		  		}
 	}));
 });
 

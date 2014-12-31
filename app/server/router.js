@@ -3,6 +3,7 @@ var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
+var UM = require('./modules/upload-manager');
 //var AVM = require('./modules/availability-manager');
 
 
@@ -346,6 +347,11 @@ module.exports = function(app) {
 
 	});
 
+
+	app.post('/upload/patientfiles', function(req,res) {
+		console.log(req.files);
+		res.send('ok', 200);
+	});
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
