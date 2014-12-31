@@ -45,13 +45,13 @@ html
 				each evisititem, index in listevisits
 					tr.evisitrecord
 						td.evisitrecorddate(style = "width: 90px")
-							span.name=evisititem.appointmentdate
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
 						td.evisitrecordstart(style = "width: 90px")
-							span.name=evisititem.appointmentstarttime
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
 						td.evisitrecordend(style = "width: 90px")
-							span.name=evisititem.appointmentendtime
+							span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
 						td.evisitrecorddoctor(style = "width: 90px")
-							span.name=evisititem.doctoruser
+							span.name(style=" display: block; text-align: center")=evisititem.doctoruser
 						td.evisitrecordactiondelete(style = "width: 90px")
 							input(type='submit', value='delete', evisitid=evisititem._id.toString())
 						td.evisitrecordactionfetch(style = "width: 90px")
