@@ -56,6 +56,26 @@ function eVisitReviewController()
 	    })
   	});
 
+  	$('.evisitrecord').click(function(event) {
+	    $target = $(event.target)
+	    var idevisit = $target.attr('evisitid');
+
+	    $.ajax({
+	      type: 'POST',
+	      url: '/evisitreview',
+	      data: {
+	      	action 	 : 'fetch',
+	        identity : idevisit
+	      },
+	      success: function(response) {
+	      	that.insertPatientRecords(response, idevisit);
+	      },
+	      error: function(jqXHR) {
+	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+	      }
+	    })
+  	});
+
 	
 
 	
@@ -85,51 +105,100 @@ function eVisitReviewController()
 		setTimeout(function(){window.location.href = '/';}, 3000);
 	}
 
-	this.insertPatientRecords = function(patientRecords){
+	this.insertPatientRecords = function(patientRecords, evisit_id){
 		var parent_element = document.getElementById('patientlistcontainer');
 
 		var tr = document.createElement('tr');
 		var td0 = document.createElement('td');
 		var td1 = document.createElement('td');
+		var td2 = document.createElement('td');
+		var td3 = document.createElement('td');
+		var input1 = document.createElement('input');
+		input1.setAttribute('type', 'submit');
+		input1.setAttribute('value', 'Upload Data');
+		var input2 = document.createElement('input');
+		input2.setAttribute('type', 'submit');
+		input2.setAttribute('value', 'Upload History');
 		td0.appendChild(document.createTextNode(patientRecords[0].patient1name));
 		td1.appendChild(document.createTextNode(patientRecords[0].patient1dob));
+		td2.appendChild(input1);
+		td3.appendChild(input2)
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
 		parent_element.appendChild(tr);
 
 		
-		tr = document.createElement('tr');
-		td0 = document.createElement('td');
-		td1 = document.createElement('td');
+		var tr = document.createElement('tr');
+		var td0 = document.createElement('td');
+		var td1 = document.createElement('td');
+		var td2 = document.createElement('td');
+		var td3 = document.createElement('td');
+		var input1 = document.createElement('input');
+		input1.setAttribute('type', 'submit');
+		input1.setAttribute('value', 'Upload Data');
+		var input2 = document.createElement('input');
+		input2.setAttribute('type', 'submit');
+		input2.setAttribute('value', 'Upload History');
 		td0.appendChild(document.createTextNode(patientRecords[0].patient2name));
 		td1.appendChild(document.createTextNode(patientRecords[0].patient2dob));
+		td2.appendChild(input1);
+		td3.appendChild(input2)
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
 		parent_element.appendChild(tr);
 
-		
-		tr = document.createElement('tr');
-		td0 = document.createElement('td');
-		td1 = document.createElement('td');
+
+		var tr = document.createElement('tr');
+		var td0 = document.createElement('td');
+		var td1 = document.createElement('td');
+		var td2 = document.createElement('td');
+		var td3 = document.createElement('td');
+		var input1 = document.createElement('input');
+		input1.setAttribute('type', 'submit');
+		input1.setAttribute('value', 'Upload Data');
+		var input2 = document.createElement('input');
+		input2.setAttribute('type', 'submit');
+		input2.setAttribute('value', 'Upload History');
 		td0.appendChild(document.createTextNode(patientRecords[0].patient3name));
 		td1.appendChild(document.createTextNode(patientRecords[0].patient3dob));
+		td2.appendChild(input1);
+		td3.appendChild(input2)
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
 		parent_element.appendChild(tr);
 
-		
-		tr = document.createElement('tr');
-		td0 = document.createElement('td');
-		td1 = document.createElement('td');
+
+		var tr = document.createElement('tr');
+		var td0 = document.createElement('td');
+		var td1 = document.createElement('td');
+		var td2 = document.createElement('td');
+		var td3 = document.createElement('td');
+		var input1 = document.createElement('input');
+		input1.setAttribute('type', 'submit');
+		input1.setAttribute('value', 'Upload Data');
+		var input2 = document.createElement('input');
+		input2.setAttribute('type', 'submit');
+		input2.setAttribute('value', 'Upload History');
 		td0.appendChild(document.createTextNode(patientRecords[0].patient4name));
 		td1.appendChild(document.createTextNode(patientRecords[0].patient4dob));
+		td2.appendChild(input1);
+		td3.appendChild(input2)
 
 		tr.appendChild(td0);
 		tr.appendChild(td1);
+		tr.appendChild(td2);
+		tr.appendChild(td3);
 		parent_element.appendChild(tr);
+		
 
 		
 

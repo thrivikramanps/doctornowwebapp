@@ -1,0 +1,77 @@
+!!! 5
+html
+	head
+		title
+		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/style.css')
+		script(type='text/javascript')
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1890531-10']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	
+	body
+
+	block content
+		#header-container
+			#header-banner.well.span12
+
+		#middle-container
+			input#login-time.disabled(type='text', name='login-time', value= udata.logintime, style = " border: 0px none rgb(255, 255, 255)")
+			input#login-account.disabled(type='text', name='login-account', value= udata.user, style ="margin-left: 270px; border: 0px none rgb(255, 255, 255)")
+			button(type="button", style ="margin-left: 300px")#btn-home.btn.btn-primary
+					| Home
+			button(type="button")#btn-logout-user.btn.btn-primary
+					| Logout
+		
+		#footer-container
+			#footer-user.well.span12.user-footer(style="text-align:center")
+				#evisitlist.well.span7
+					h3(align="center") Appointment List
+					table.listcontainerheader(style = " width: 100%")
+						tr.tableheader
+							th(style = " width: 90px") Date
+							th(style = " width: 90px") Time
+							th(style = " width: 90px") Nursing Home 
+							th(style = " width: 90px")
+						table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+							if (listevisits.length === 0)
+								tr#noevisits
+									th No eVisits.
+							each evisititem, index in listevisits
+								tr.evisitrecord
+									td.evisitrecorddate(style = "width: 90px")
+										span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
+									td.evisitrecordtime(style = "width: 90px")
+										span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime + ':' + evisititem.appointmentendtime
+									td.evisitrecordnh(style = "width: 90px")
+										span.name(style=" display: block; text-align: center")=evisititem.user
+									td.evisitrecordactionfetch(style = "width: 90px")
+										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
+				
+				#evisitpatientsublist.well.span4(style = "margin-left :20px")
+					h3(align="center") Patient List
+					table.patientlistcontainerheader(style = " width: 100%")
+						tr.tableheader
+							th Name
+							th DOB
+							th 
+							th
+					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+				
+
+		include modals/alert
+		include modals/confirm
+
+
+block scripts
+	script(src='/vendor/jquery.min.js')
+	script(src='/vendor/jquery.form.js')
+	script(src='/vendor/bootstrap-modal.js')
+	script(src='/vendor/bootstrap-transition.js')
+	script(src='/js/views/evisitreview.js')
+	script(src='/js/controllers/eVisitReviewController.js')

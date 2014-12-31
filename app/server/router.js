@@ -277,7 +277,7 @@ module.exports = function(app) {
 		} else {
 			var session_variable = req.session.user;
 
-			if (session_variable.role == 'Nursing Home')
+			if (session_variable.role === 'Nursing Home')
 			{
 				AM.getAlleVisitsByUserName(session_variable.user, 'NH', function (e,o) {
 					if (e)
@@ -291,7 +291,7 @@ module.exports = function(app) {
 						//res.send("ok", 200);
 					}
 				});
-			} else if (session_variable.role == 'Doctor')
+			} else if (session_variable.role === 'Doctor')
 			{
 				AM.getAlleVisitsByUserName(session_variable.user, 'DOC', function (e,o) {
 					if (e)
@@ -303,6 +303,19 @@ module.exports = function(app) {
 							udata: req.session.user
 						});
 						//res.send("ok", 200);
+					}
+				});
+			} else if (session_variable.role === 'Admin')
+			{
+				AM.getAlleVisitsByUserName(null, 'ADMIN', function (e,o) {
+					if (e)
+						res.send(e, 400);
+					else {
+						console.log("admin list length is " + o.length);
+						res.render('evisitlist-admin', {
+							listevisits: o || [],
+							udata: req.session.user
+						});
 					}
 				});
 			}
@@ -319,11 +332,14 @@ module.exports = function(app) {
 					res.send("gen-success", 200);
 				});
 			} else if (req.param('action') === 'fetch') {
+				var session_variable = req.session.user;
 				AM.fetcheVisitPatients(req.param('identity'), function(e,o){
 					if (e)
 						res.send(e, 400);
-					else
+					else {
+						o.role = session_variable.role;
 						res.send(o, 200);
+					}
 				});
 			}
 		}
