@@ -56,7 +56,7 @@ function eVisitReviewController()
 		})
 	});
 
-	$('#uploadForm').submit(function() {
+	$('#uploadform').submit(function() {
 
 		$.ajaxSubmit({
 
