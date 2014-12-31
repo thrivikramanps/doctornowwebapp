@@ -21,7 +21,7 @@ app.configure(function(){
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
 	app.use(multer({
-          dest: “./uploads/”
+          dest: __dirname + '/app/server/uploads'
 	}));
 });
 
