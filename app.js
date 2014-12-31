@@ -2,7 +2,9 @@
 
 var express = require('express');
 var http = require('http');
-var multer = require('multer');
+
+
+
 var app = express();
 
 
@@ -20,15 +22,6 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
-	app.use(multer({
-          dest: __dirname + '/app/server/uploads',
-          rename: function (fieldname, filename) {
-    				return filename+Date.now();
-  				},
-  		  onFileUploadComplete: function (file) {
-  					console.log(file.fieldname + ' uploaded to  ' + file.path);
-		  		}
-	}));
 });
 
 app.configure('development', function(){
