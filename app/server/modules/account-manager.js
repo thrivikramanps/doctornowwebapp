@@ -252,7 +252,7 @@ exports.getAlleVisitsByUserName = function(user, flag, callback)
 			}
 		);
 	} else if (flag === 'ADMIN') {
-		accounts.find({}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, user: 1}).toArray(
+		evisits.find({}, {appointmentdate: 1, appointmentstarttime: 1, appointmentendtime: 1, user: 1}).toArray(
 			function(e, res) {
 			if (e) callback(e)
 			else callback(null, res)
