@@ -96,7 +96,7 @@ function eVisitReviewController()
 			var td0 = document.createElement('td');
 			var td1 = document.createElement('td');
 			
-			if (role.val() === 'Admin'){
+			if (role.value === 'Admin'){
 				var td2 = document.createElement('td');
 				var td3 = document.createElement('td');
 				var input1 = document.createElement('input');
@@ -109,14 +109,14 @@ function eVisitReviewController()
 
 			td0.appendChild(document.createTextNode(inputsname[i]));
 			td1.appendChild(document.createTextNode(inputsdob[i]));
-			if (role.val() === 'Admin'){
+			if (role.value === 'Admin'){
 				td2.appendChild(input1);
 				td3.appendChild(input2);
 			}	
 
 			tr.appendChild(td0);
 			tr.appendChild(td1);
-			if (role.val() === 'Admin'){
+			if (role.value === 'Admin'){
 				tr.appendChild(td2);
 				tr.appendChild(td3);
 			}
