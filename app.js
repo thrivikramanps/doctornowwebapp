@@ -2,6 +2,7 @@
 
 var express = require('express');
 var http = require('http');
+var multer = require('multer');
 var app = express();
 
 
@@ -19,6 +20,9 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
+	app.use(multer({
+          dest: “./uploads/”
+	}));
 });
 
 app.configure('development', function(){

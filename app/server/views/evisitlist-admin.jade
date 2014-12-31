@@ -31,7 +31,7 @@ html
 		#footer-container
 			#footer-user.well.span12.user-footer(style="text-align:center")
 				input#role(type='hidden', value=udata.role)
-				#evisitlist.well.span7
+				#evisitlist.well.span6
 					h3(align="center") Appointment List
 					table.listcontainerheader(style = " width: 100%")
 						tr.tableheader
@@ -44,7 +44,7 @@ html
 								tr#noevisits
 									th No eVisits.
 							each evisititem, index in listevisits
-								tr.evisitrecord
+								tr.evisitrecord(style = "height: 90px")
 									td.evisitrecorddate(style = "width: 90px")
 										span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
 									td.evisitrecordtime(style = "width: 90px")
@@ -54,7 +54,7 @@ html
 									td.evisitrecordactionfetch(style = "width: 90px")
 										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 				
-				#evisitpatientsublist.well.span4(style = "margin-left :20px")
+				#evisitpatientsublist.well.span5(style = "margin-left :20px")
 					h3(align="center") Patient List
 					table.patientlistcontainerheader(style = " width: 100%")
 						tr.tableheader

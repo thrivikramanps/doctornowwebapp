@@ -16,45 +16,61 @@ function eVisitReviewController()
 
 
 	$('.evisitrecordactiondelete').click(function(event) {
-	    $target = $(event.target)
-	    var idevisit = $target.attr('evisitid');
-	    
-	    $.ajax({
-	      type: 'POST',
-	      url: '/evisitreview',
-	      data: {
-	      	action 	 : 'delete',
-	        identity : idevisit
-	      },
-	      success: function(response) {
-	        $target.parent().parent().remove();
-	        that.showLockedAlert('record was removed.');
-	      },
-	      error: function(jqXHR) {
-	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-	      }
-	    })
-  	});
+		$target = $(event.target)
+		var idevisit = $target.attr('evisitid');
+		
+		$.ajax({
+		  type: 'POST',
+		  url: '/evisitreview',
+		  data: {
+			action 	 : 'delete',
+			identity : idevisit
+		  },
+		  success: function(response) {
+			$target.parent().parent().remove();
+			that.showLockedAlert('record was removed.');
+		  },
+		  error: function(jqXHR) {
+			console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+		  }
+		})
+	});
 
-  	$('.evisitrecordactionfetch').click(function(event) {
-	    $target = $(event.target)
-	    var idevisit = $target.attr('evisitid');
+	$('.evisitrecordactionfetch').click(function(event) {
+		$target = $(event.target)
+		var idevisit = $target.attr('evisitid');
 
-	    $.ajax({
-	      type: 'POST',
-	      url: '/evisitreview',
-	      data: {
-	      	action 	 : 'fetch',
-	        identity : idevisit
-	      },
-	      success: function(response) {
-	      	that.insertPatientRecords(response);
-	      },
-	      error: function(jqXHR) {
-	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-	      }
-	    })
-  	});
+		$.ajax({
+		  type: 'POST',
+		  url: '/evisitreview',
+		  data: {
+			action 	 : 'fetch',
+			identity : idevisit
+		  },
+		  success: function(response) {
+			that.insertPatientRecords(response);
+		  },
+		  error: function(jqXHR) {
+			console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+		  }
+		})
+	});
+
+	$('#uploadForm').submit(function() {
+
+		$(this).ajaxSubmit({
+
+			error: function(xhr) {
+					status('Error: ' + xhr.status);
+			},
+
+			success: function(response) {
+					  console.log(response);
+			}
+		});
+
+		return false;
+	}); 
 
 	
 	this.attemptLogout = function()
@@ -65,7 +81,7 @@ function eVisitReviewController()
 			type: "POST",
 			data: {logout : true},
 			success: function(data){
-	 			that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.');
+				that.showLockedAlert('You are now logged out.<br>Redirecting you back to the homepage.');
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -100,15 +116,30 @@ function eVisitReviewController()
 			
 			if (role.value === 'Admin'){
 				var td2 = document.createElement('td');
-				td2.style.width = "75px";
-				var td3 = document.createElement('td');
-				td3.style.width = "75px";
+				td2.style.width = "100px";
+				var uploadform = document.createElement('form');
+				uploadform.name = 'uploadform';
+				uploadform.method = 'post';
+				uploadform.action = '/uploads';
+				uploadform.id = 'uploadform';
+				uploadform.id = 'multipart/form-data';
+
 				var input1 = document.createElement('input');
-				input1.setAttribute('type', 'submit');
-				input1.setAttribute('value', 'Upload Data');
+				input1.setAttribute('type', 'file');
+				input1.setAttribute('name', 'datafile');
+				input1.setAttribute('accept', 'image/*');
+				uploadform.appendChild(input1);
+				
 				var input2 = document.createElement('input');
-				input2.setAttribute('type', 'submit');
-				input2.setAttribute('value', 'Upload History');
+				input2.setAttribute('type', 'file');
+				input2.setAttribute('name', 'historyfile');
+				input2.setAttribute('accept', 'image/*');
+				uploadform.appendChild(input2);
+
+				var input3 = document.createElement('input');
+				input3.setAttribute('type', 'submit');
+				input3.setAttribute('value', 'Submit');
+				uploadform.appendChild(input3);
 			}
 
 			var span1 = document.createElement('span');
@@ -124,15 +155,13 @@ function eVisitReviewController()
 			td0.appendChild(span1);
 			td1.appendChild(span2);
 			if (role.value === 'Admin'){
-				td2.appendChild(input1);
-				td3.appendChild(input2);
+				td2.appendChild(uploadform);
 			}	
 
 			tr.appendChild(td0);
 			tr.appendChild(td1);
 			if (role.value === 'Admin'){
 				tr.appendChild(td2);
-				tr.appendChild(td3);
 			}
 			
 			parent_element.appendChild(tr);
