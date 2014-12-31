@@ -122,9 +122,10 @@ function eVisitReviewController()
 				var uploadform = document.createElement('form');
 				uploadform.name = 'uploadform';
 				uploadform.method = 'post';
-				uploadform.action = '/upload/patientfiles';
+				uploadform.action = '/upload';
 				uploadform.id = 'uploadform';
 				uploadform.id = 'multipart/form-data';
+				uploadform.multiple ="";
 
 				var input1 = document.createElement('input');
 				input1.setAttribute('type', 'file');
@@ -132,10 +133,10 @@ function eVisitReviewController()
 				input1.setAttribute('accept', 'image/*');
 				uploadform.appendChild(input1);
 
-				var input3 = document.createElement('input');
+				/*var input3 = document.createElement('input');
 				input3.setAttribute('type', 'submit');
 				input3.setAttribute('value', 'Submit');
-				uploadform.appendChild(input3);
+				uploadform.appendChild(input3);*/
 			}
 
 			var span1 = document.createElement('span');

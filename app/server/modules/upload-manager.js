@@ -1,28 +1,50 @@
-var querystring = require("querystring");
-var formidable = require("formidable");
-var path = require('path');
-var fs = require ("fs");
+var options = {
+    tmpDir:  __dirname + '/app/server/uploaded/tmp',
+    uploadDir: __dirname + '/app/server/uploaded/files',
+    uploadUrl:  '/uploaded/files/',
+    maxPostSize: 11000000000, // 11 GB
+    minFileSize:  1,
+    maxFileSize:  10000000000, // 10 GB
+    acceptFileTypes:  /.+/i,
+    // Files not matched by this regular expression force a download dialog,
+    // to prevent executing any scripts in the context of the service domain:
+    inlineFileTypes:  /\.(gif|jpe?g|png)/i,
+    imageTypes:  /\.(gif|jpe?g|png)/i,
+    copyImgAsThumb : true, // required
+    imageVersions :{
+        maxWidth : 200,
+        maxHeight : 200
+    },
+    accessControl: {
+        allowOrigin: '*',
+        allowMethods: 'OPTIONS, HEAD, GET, POST, PUT, DELETE',
+        allowHeaders: 'Content-Type, Content-Range, Content-Disposition'
+    },
+    storage : {
+        type : 'aws',
+        aws : {
+            accessKeyId :  'XXXXXXXXXXXXXXXXXXXXXXXX',
+            secretAccessKey : 'XXXXXXXXXXXXXXXXXXXXXXXX',
+            region : 'us-west-2', //make sure you know the region, else leave this option out
+            bucketName : 'XXXXXXXXXXXXXXXXXXXXXXXX'
+        }
+    }
+};
+
+var uploader = require('blueimp-file-upload-expressjs')(options);
 
 
-exports.upload = function(formData, callback)
-{
-	console.log("entered the upload function");
 
-	var form = new formidable.IncomingForm();
-	form.uploadDir = __dirname + '/app/server/uploads/patientdata';
-	form.keepExtensions = true;
+    exports.uploadget = function(req, res) {
+      uploader.get(req, res, function (obj) {
+            res.send(JSON.stringify(obj)); 
+      });
+      
+    }
 
-	form.parse(formData, function(err, fields, files){
-		res.writeHead(200, {'content-type': 'text/plain'});
-        res.write('received upload:\n\n');
-        console.log("form.bytesReceived");
-        //TESTING
-        console.log("file size: "+JSON.stringify(files.fileUploaded.size));
-        console.log("file path: "+JSON.stringify(files.fileUploaded.path));
-        console.log("file name: "+JSON.stringify(files.fileUploaded.name));
-        console.log("file type: "+JSON.stringify(files.fileUploaded.type));
-        console.log("astModifiedDate: "+JSON.stringify(files.fileUploaded.lastModifiedDate));
-
-	});
-}
-
+    exports.uploadpost = function(req, res) {
+      uploader.post(req, res, function (obj) {
+            res.send(JSON.stringify(obj)); 
+      });
+      
+    }

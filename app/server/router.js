@@ -347,10 +347,22 @@ module.exports = function(app) {
 
 	});
 
+	app.get('/upload', function(req,res, next) {
+		console.log("request requested is " + req);
+		UM.uploadget(req, function(e, o){
+			if (!o){
+				res.send(e, 400);
+			}	else{
+				res.send(o, 200);
+			}
+		});
 
-	app.post('/upload/patientfiles', function(req,res, next) {
+	});
+
+
+	app.post('/upload', function(req,res, next) {
 		console.log("request received is " + req);
-		UM.upload(req, function(e, o){
+		UM.uploadpost(req, function(e, o){
 			if (!o){
 				res.send(e, 400);
 			}	else{
