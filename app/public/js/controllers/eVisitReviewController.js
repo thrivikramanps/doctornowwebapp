@@ -56,28 +56,6 @@ function eVisitReviewController()
 	    })
   	});
 
-  	$('.evisitrecord').click(function(event) {
-	    $target = $(event.target)
-	    var idevisit = $target.attr('evisitid');
-
-	    $.ajax({
-	      type: 'POST',
-	      url: '/evisitreview',
-	      data: {
-	      	action 	 : 'fetch',
-	        identity : idevisit
-	      },
-	      success: function(response) {
-	      	that.insertPatientRecords(response, idevisit);
-	      },
-	      error: function(jqXHR) {
-	        console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-	      }
-	    })
-  	});
-
-	
-
 	
 	this.attemptLogout = function()
 	{
