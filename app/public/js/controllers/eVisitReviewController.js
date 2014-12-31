@@ -128,15 +128,9 @@ function eVisitReviewController()
 
 				var input1 = document.createElement('input');
 				input1.setAttribute('type', 'file');
-				input1.setAttribute('name', 'datafile');
+				input1.setAttribute('name', 'patientfile');
 				input1.setAttribute('accept', 'image/*');
 				uploadform.appendChild(input1);
-				
-				var input2 = document.createElement('input');
-				input2.setAttribute('type', 'file');
-				input2.setAttribute('name', 'historyfile');
-				input2.setAttribute('accept', 'image/*');
-				uploadform.appendChild(input2);
 
 				var input3 = document.createElement('input');
 				input3.setAttribute('type', 'submit');
