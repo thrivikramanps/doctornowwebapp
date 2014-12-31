@@ -82,7 +82,7 @@ function eVisitReviewController()
 		$('.modal-alert .modal-body p').html(msg);
 		$('.modal-alert').modal('show');
 		$('.modal-alert button').click(function(){});
-		//setTimeout(function(){window.location.href = '/';}, 3000);
+		setTimeout(function(){window.location.href = '/';}, 3000);
 	}
 
 	this.insertPatientRecords = function(patientRecords){
