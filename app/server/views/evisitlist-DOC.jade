@@ -32,12 +32,12 @@ html
 			h3(align="center") Appointment List
 			table.listcontainerheader(style = " width: 100%")
 				tr.tableheader
-					th Date
-					th Start
-					th End
-					th Nursing Home
-					th 
-					th
+					th(style = " width: 90px")
+					th(style = " width: 90px") Date
+					th(style = " width: 90px") Start
+					th(style = " width: 90px") End
+					th(style = " width: 90px") Nursing Home 
+					th(style = " width: 90px")
 			table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 				if (listevisits.length === 0)
 					tr#noevisits
