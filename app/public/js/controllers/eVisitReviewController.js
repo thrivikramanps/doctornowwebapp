@@ -88,13 +88,15 @@ function eVisitReviewController()
 		var inputsname = [patientRecords[0].patient1name, patientRecords[0].patient2name, patientRecords[0].patient3name, patientRecords[0].patient4name];
 		var inputsdob =  [patientRecords[0].patient1dob, patientRecords[0].patient2dob, patientRecords[0].patient3dob, patientRecords[0].patient4dob];
 		var parent_element = document.getElementById('patientlistcontainer');
+
+		var role = document.getElementById('role');
 		
 		for (var i =0; i<4; i++){
 			var tr = document.createElement('tr');
 			var td0 = document.createElement('td');
 			var td1 = document.createElement('td');
 			
-			if (patientRecords.role === 'Admin'){
+			if (role.val() === 'Admin'){
 				var td2 = document.createElement('td');
 				var td3 = document.createElement('td');
 				var input1 = document.createElement('input');
@@ -107,14 +109,14 @@ function eVisitReviewController()
 
 			td0.appendChild(document.createTextNode(inputsname[i]));
 			td1.appendChild(document.createTextNode(inputsdob[i]));
-			if (patientRecords.role === 'Admin'){
+			if (role.val() === 'Admin'){
 				td2.appendChild(input1);
 				td3.appendChild(input2);
 			}	
 
 			tr.appendChild(td0);
 			tr.appendChild(td1);
-			if (patientRecords.role === 'Admin'){
+			if (role.val() === 'Admin'){
 				tr.appendChild(td2);
 				tr.appendChild(td3);
 			}
