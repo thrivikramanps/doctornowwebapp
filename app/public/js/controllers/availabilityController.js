@@ -193,9 +193,9 @@ function AvailabilityController()
 			span2.style.display = "block";
 			span2.style.textAlign = "center";
 			span2.innerHTML = String(data[i].starttime);
-			span2.style.display = "block";
-			span2.style.textAlign = "center";
-			span2.innerHTML = String(data[i].endtime);
+			span3.style.display = "block";
+			span3.style.textAlign = "center";
+			span3.innerHTML = String(data[i].endtime);
 
 			td0.appendChild(span1);
 			td1.appendChild(span2);
