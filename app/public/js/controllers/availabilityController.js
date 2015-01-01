@@ -37,6 +37,7 @@ function AvailabilityController()
 			data: {action: 'enter to db', freedate:freedate, starttime: starttime, endtime: endtime},
 			success: function(data){
 	 			//that.showUpdatedList();
+	 			console.log("successfully inserted");
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -44,16 +45,6 @@ function AvailabilityController()
 		});
 	}
 
-	//this function adds the successul form entry post-db commit to the current view of free days/times
-	this.showUpdatedList = function()
-	{
-		var that = this;
-		var date = this.formFields[0].val();
-		var starttime = this.formFields[1].val();
-		var endtime = this.formFields[2].val();
-
-		//find the availability-results elements and add the new element to it
-	}
 
 	//this function just fetches the entire record list corresponding to the current user and displays it for viewing
 	this.displayCurrentAvailability = function()
@@ -67,40 +58,6 @@ function AvailabilityController()
 
 				that.insertAvailabilityRecords(data);
 				
-				/*var n = data.length;
-
-				var delete_element = document.getElementById('FreeTimeRecordHolderDiv');
-
-				if (delete_element)
-					delete_element.parentNode.removeChild(delete_element);
-				
-				var title_div = document.createElement('div');
-				title_div.setAttribute('id', 'FreeTimeRecordHolderDiv');
-				var parent_element = document.getElementById('availability-results');
-				parent_element.appendChild(title_div);
-
-				parent_element = document.getElementById('FreeTimeRecordHolderDiv');
-
-				for (var i =0; i<n; i++) {
-					//console.log(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime) + " " + String(data[i]._id));
-					if (String(data[i].freedate) != "undefined" && String(data[i].starttime) != "undefined" && String(data[i].endtime) != "undefined" && String(data[i]._id) !="undefined"){
-						var div_new = document.createElement('div');
-						div_new.setAttribute('id', String(data[i]._id));
-						var text_new = document.createTextNode(String(data[i].freedate) + " " + String(data[i].starttime) + " " + String(data[i].endtime));
-						var button_new = document.createElement('input');
-						button_new.setAttribute('value', 'Delete');
-						button_new.setAttribute('type', 'button');
-						button_new.setAttribute('class', 'btn btn-primary');
-						div_new.appendChild(text_new);
-						text_new = document.createTextNode(" ");
-						div_new.appendChild(text_new);
-						div_new.appendChild(button_new);
-
-						parent_element.appendChild(div_new); 	//add the result set to the availability-results element
-						button_new.addEventListener("click",function(){that.deleteRecord(this.parentNode.id);});
-						//parent_element.appendChild(button_new);
-					}	
-				}*/
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
