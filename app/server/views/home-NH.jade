@@ -1,32 +1,8 @@
-!!! 5
-html
-	head
-		title
-		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/style.css')
-		script(type='text/javascript')
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-1890531-10']);
-			_gaq.push(['_trackPageview']);
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-	
-	body
+export home-head
 
 	block content
-		#header-container
-			#header-banner.well-dn.span12
-
-		#middle-container
-			input#login-time.disabled(type='text', name='login-time', value= udata.logintime, style = " border: 0px none rgb(255, 255, 255)")
-			input#login-account.disabled(type='text', name='login-account', value= udata.user, style ="margin-left: 270px; border: 0px none rgb(255, 255, 255)")
-			button(type="button", style ="margin-left: 300px")#btn-home.btn.btn-primary
-					| Home
-			button(type="button")#btn-logout-user.btn.btn-primary
-					| Logout
+		include home-body-header
+		include home-body-middle
 		
 		#footer-container
 			#footer-user.well-dn.span12.user-footer
@@ -43,13 +19,3 @@ html
 
 		include modals/alert
 		include modals/confirm
-
-
-block scripts
-	script(src='/vendor/jquery.min.js')
-	script(src='/vendor/jquery.form.js')
-	script(src='/vendor/bootstrap-modal.js')
-	script(src='/vendor/bootstrap-transition.js')
-	script(src='/js/views/home.js')
-	script(src='/js/controllers/homeController.js')
-	script(src='/js/form-validators/accountValidator.js')
