@@ -59,11 +59,11 @@ body {
 
 
 #header-container {
-  width: 980px;
+  width: 1000px;
   margin: 20px auto;
 }
 #middle-container {
-  width: 980px;
+  width: 1000px;
   margin: 20px auto;
 }
 
@@ -104,7 +104,7 @@ body {
   margin-left: 10px;
 }
 #footer-container {
-  width: 980px;
+  width: 1000px;
   margin: 20px auto;
 }
 #account-form-container {
@@ -280,4 +280,7 @@ button i {
   -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0,0.075);
   box-shadow: inset 0 0px 0px rgba(0,0,0,0,0.075);
   color: #000000;
+}
+.span12 {
+  width: 1000px;
 }
