@@ -13,6 +13,7 @@ module.exports = function(app) {
 // main login page //
 
 	app.get('/', function(req, res){
+		console.log("reached here 1");
 	// check if the user's credentials are saved in a cookie //
 		if (req.cookies.user == undefined || req.cookies.pass == undefined){
 			res.render('login2', { title: 'Hello - Please Login To Your Account' });
@@ -30,6 +31,7 @@ module.exports = function(app) {
 	});
 	
 	app.post('/', function(req, res){
+		console.log("reached here 2");
 		AM.manualLogin(req.param('user'), req.param('pass'), function(e, o){
 			if (!o){
 				res.send(e, 400);
