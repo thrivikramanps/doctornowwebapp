@@ -166,7 +166,8 @@ function eVisitReviewController()
 			}	
 
 			tr.appendChild(td0);
-			tr.appendChild(td1);
+			if (role !== 'Doctor')
+				tr.appendChild(td1);
 			if (role === 'Admin'){
 				tr.appendChild(td2);
 			}

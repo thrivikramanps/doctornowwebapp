@@ -7,9 +7,10 @@ block content
 	#footer-container	
 		#footer-holder(style = "text-align: center").well-dn.span12
 
-			#left-side(style = "text-align: center").well-dn.span4	
+			#left-side(style = "text-align: center").well-dn.span6	
 				#evisitlist
 					h3(align="center") Appointment List
+					hr
 					table.listcontainerheader(style = " width: 100%")
 						tr.tableheader
 							th(style = " width: 70px")
@@ -37,18 +38,19 @@ block content
 								td.evisitrecordactionfetch(style = "width: 70px")
 									input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
-			#middle-side(style = "text-align: center).well-dn.span4
+			#middle-side(style = "text-align: center).well-dn.span2
 				#evisitpatientsublist
 					h3(align="center") Patient List
+					hr
 					table.patientlistcontainerheader(style = " width: 100%")
 						tr.tableheader
 							th Name
-							th DOB
 					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 
 			#right-side(style = "text-align: center; float: right").well-dn.span4
 				#patientdetails
 					h3(align="center") Patient List
+					hr
 					table.patientlistcontainerheader(style = " width: 100%")
 						tr.tableheader
 							th 
