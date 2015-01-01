@@ -24,8 +24,6 @@ block content
 								th No eVisits.
 						each evisititem, index in listevisits
 							tr.evisitrecord
-								td.evisitrecordactiondelete(style = "width: 70px")
-									input(type='submit', value='delete', evisitid=evisititem._id.toString())
 								td.evisitrecorddate(style = "width: 70px")
 									span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
 								td.evisitrecordstart(style = "width: 70px")
