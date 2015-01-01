@@ -107,7 +107,7 @@ function eVisitReviewController()
 		var inputsdob =  [patientRecords[0].patient1dob, patientRecords[0].patient2dob, patientRecords[0].patient3dob, patientRecords[0].patient4dob];
 		var parent_element = document.getElementById('patientlistcontainer');
 
-		var role = document.getElementById('role');
+		var role = patientRecords.role;
 		
 		for (var i =0; i<4; i++){
 			var tr = document.createElement('tr');
@@ -116,7 +116,7 @@ function eVisitReviewController()
 			var td1 = document.createElement('td');
 			td1.style.width = "75px";
 			
-			if (role.value === 'Admin'){
+			if (role === 'Admin'){
 				var td2 = document.createElement('td');
 				td2.style.width = "100px";
 				var uploadform = document.createElement('form');
@@ -151,13 +151,13 @@ function eVisitReviewController()
 
 			td0.appendChild(span1);
 			td1.appendChild(span2);
-			if (role.value === 'Admin'){
+			if (role === 'Admin'){
 				td2.appendChild(uploadform);
 			}	
 
 			tr.appendChild(td0);
 			tr.appendChild(td1);
-			if (role.value === 'Admin'){
+			if (role === 'Admin'){
 				tr.appendChild(td2);
 			}
 			
