@@ -104,7 +104,7 @@ exports.getAllUserRecords = function(user, callback)
 			callback(e);
 		}
 		else {
-			console.log("results are " + results + results[0].freedate + results[0].starttime + results[0].endtime);
+			//console.log("results are " + results + results[0].freedate + results[0].starttime + results[0].endtime);
 			callback(null, results)
 		}
 	});
