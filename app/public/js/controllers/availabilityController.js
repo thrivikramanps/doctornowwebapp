@@ -185,6 +185,7 @@ function AvailabilityController()
 			button_new.setAttribute('value', 'Delete');
 			button_new.setAttribute('type', 'button');
 			button_new.setAttribute('class', 'btn');
+			button_new.addEventListener("click",function(){that.deleteRecord(this.parentNode.parentNode.id);});
 
 			span1.style.display = "block";
 			span1.style.textAlign = "center";
