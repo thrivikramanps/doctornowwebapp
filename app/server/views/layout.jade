@@ -1,7 +1,7 @@
 !!! 5
 html
 	head
-		title DoctorNowWebApp
+		title DoctorNow
 		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
 		link(rel='stylesheet', href='/css/style.css')
 		script(type='text/javascript')
@@ -13,6 +13,10 @@ html
 				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
 				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 			})();
+		script(src='/vendor/jquery.min.js')
+		script(src='/vendor/jquery.form.js')
+		script(src='/vendor/bootstrap-modal.js')
+		script(src='/vendor/bootstrap-transition.js')
 	body
 	block content
 	block scripts
