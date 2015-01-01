@@ -14,7 +14,7 @@ block content
 	video#remoteVideo(autoplay="", muted="").well-dn.wellspecial2
 
 	#footer-container
-		#button-holder.well-dn.span4(style="text-align: center; margin-left: 350px")
+		#button-holder.well-dn.span4(style="text-align: center; margin-left: 345px")
 			button#startButton Start
 			button#callButton Call
 			button#hangupButton End
@@ -110,10 +110,11 @@ block content
 			}
 			function handleError(){}
 block scripts
-	script(src="/js/views/evisitsession.js")
-	script(src="/js/controllers/evisitSessionController.js")
 	script(src="/js/lib/adapter.js")
 	script(src='/vendor/jquery.min.js')
 	script(src='/vendor/jquery.form.js')
 	script(src='/vendor/bootstrap-modal.js')
 	script(src='/vendor/bootstrap-transition.js')
+	script(src="/js/views/evisitsession.js")
+	script(src="/js/controllers/evisitSessionController.js")
+
