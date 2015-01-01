@@ -1,0 +1,41 @@
+!!! 5
+html
+	head
+		title
+		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
+		link(rel='stylesheet', href='/css/style.css')
+		script(type='text/javascript')
+			var _gaq = _gaq || [];
+			_gaq.push(['_setAccount', 'UA-1890531-10']);
+			_gaq.push(['_trackPageview']);
+			(function() {
+				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+			})();
+	body
+	block content
+		#header-container
+    		#header-banner.well.span12
+
+		#middle-container
+			form( method="post")#login-form.well.span4
+				h3 Please Login To Your Account
+				label Username 
+				input(type="text", name="user", id='user-tf').span4.required
+				label Password
+				input(type="password", name="pass", id='pass-tf').span4.required
+				button(type="submit")#btn-login.btn.btn-primary
+					i.icon-lock.icon-white
+					| Sign in
+				label#remember-me.checkbox Remember Me
+					input(type="checkbox", checked='checked')
+				div.clear-fix
+				hr
+				div.btm-links
+					a(href='#')#forgot-password Forgot Your Password?
+					a(href='/signup')#create-account Create An Account
+
+		#photo-container
+			#photo-testimonial.well.span8
+	block scripts

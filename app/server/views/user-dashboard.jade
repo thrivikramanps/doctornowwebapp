@@ -1,0 +1,78 @@
+#corporate-banner.element.js-header
+.container.container-1.clearfix
+  p#time.text.text-1.js-logintime Login Time
+  p#account.text.text-2.js-loginaccount Login Account
+  button#home._button._button-1.js-home-button(type='button') Home
+  button#logout._button._button-2.js-logout-button(type='button') Logout
+.container.container-2.clearfix
+  button#schedulevisit._button._button-3.js-schedulevisit
+    p Schedule
+    p eVisit
+  button#schedulevisit._button._button-4.js-schedulevisit
+    p Begin
+    p eVisit
+  button#schedulevisit._button._button-5.js-schedulevisit
+    p View
+    p Scheduled
+    p eVisits
+
+!!! 5
+html
+  head
+    title DoctorNowWebApp - Nurse Dashboard
+    link(rel='stylesheet', href='/vendor/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(type='text/javascript')
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-1890531-10']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+
+block content
+  #header-container
+    #header-banner.well.span12
+
+  #middle-container 
+    #login-container
+      form( method="post")#login-form.well.span4
+        h3 Please Login To Your Account
+        label Username 
+        input(type="text", name="user", id='user-tf').span4.required
+        label Password
+        input(type="password", name="pass", id='pass-tf').span4.required
+        button(type="submit")#btn-login.btn.btn-primary
+          i.icon-lock.icon-white
+          | Sign in
+        label#remember-me.checkbox Remember Me
+          input(type="checkbox", checked='checked')
+        div.clear-fix
+        hr
+        div.btm-links
+          a(href='#')#forgot-password Forgot Your Password?
+          a(href='/signup')#create-account Create An Account
+
+    #photo-container
+      #photo-testimonial.well.span8
+
+
+  #footer-container
+    #footer-banner.well.span12
+
+  include modals/alert
+  include modals/confirm
+
+block scripts
+  script(src='/vendor/jquery.min.js')
+  script(src='/vendor/jquery.form.js')
+  script(src='/vendor/bootstrap-modal.js')
+  script(src='/vendor/bootstrap-transition.js')
+  script(src='/js/views/login.js')
+  script(src='/js/controllers/loginController.js')
+  script(src='/js/form-validators/loginValidator.js')
+  script(src='/js/form-validators/emailValidator.js')
+
+
