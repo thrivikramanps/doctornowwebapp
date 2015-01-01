@@ -6,44 +6,46 @@ block content
 		
 	#footer-container
 		#left-side.well-dn.span6
-			form( method="post")
-				h3(align="left") Step 1: Enter patients for eVisit
-				hr
-				table.listcontainerheader(style = " width: 100%")
-					tr.tableheader
-						th(style = " width: 90px") Full Name
-						th(style = " width: 90px") DOB
-				table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
-					tr.patient1
-						td
-							input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
-						td
-							input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
-					tr.patient2
-						td
-							input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
-						td
-							input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
-					tr.patient3
-						td
-							input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
-						td
-							input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
-					tr.patient4
-						td
-							input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
-						td
-							input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required
-				
-				hr	
-				h3(align="left"): Who is the supervising nurse for this eVisit?
-				input#nursename-tf(type="text", name="nursename", id='nursename-tf').span5.required		
+			#left-side-holder
+				form( method="post")
+					h3(align="left") Step 1: Enter patients for eVisit
+					hr
+					table.listcontainerheader(style = " width: 100%")
+						tr.tableheader
+							th(style = " width: 90px") Full Name
+							th(style = " width: 90px") DOB
+					table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+						tr.patient1
+							td
+								input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
+							td
+								input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
+						tr.patient2
+							td
+								input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
+							td
+								input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
+						tr.patient3
+							td
+								input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
+							td
+								input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
+						tr.patient4
+							td
+								input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
+							td
+								input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required
+					
+					hr	
+					h3(align="left"): Who is the supervising nurse for this eVisit?
+					input#nursename-tf(type="text", name="nursename", id='nursename-tf').span5.required		
 
 		#right-side.well-dn.wellspecial.span5
+			#right-side-holder
 				h3(align="left") Step 3: Enter Date Range for Visit
 				hr
 				input#rangestartdate-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span2.required
-				input#rangeenddate-tf(type="text", name="rangeenddate", id='rangeenddate-tf').span2.required
+				input#rangeenddate-tf(type="text", name="rangeenddate", id='rangeenddate-tf', style = 'float: right').span2.required
 
 				hr
 				h3(align="left") Step 4: Click Submit
