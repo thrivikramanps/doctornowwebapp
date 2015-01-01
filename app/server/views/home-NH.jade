@@ -1,21 +1,21 @@
 extends homehead
 
-	block content
-		include homebodyheader
-		include homebodymiddle
+block content
+	include homebodyheader
+	include homebodymiddle
 		
-		#footer-container
-			#footer-user.well-dn.span12.user-footer
-				button(type="button")#btn-schedule-evisit.btn.btn-primary.user-option-button
-					p Schedule
-					p eVisit
-				button(type="button")#btn-begin-evisit.btn.btn-primary.user-option-button
-					p Begin
-					p eVisit
-				button(type="button")#btn-view-evisits.btn.btn-primary.user-option-button
-					p View
-					p Scheduled
-					p eVisits
+	#footer-container
+		#footer-user.well-dn.span12.user-footer
+			button(type="button")#btn-schedule-evisit.btn.btn-primary.user-option-button
+				p Schedule
+				p eVisit
+			button(type="button")#btn-begin-evisit.btn.btn-primary.user-option-button
+				p Begin
+				p eVisit
+			button(type="button")#btn-view-evisits.btn.btn-primary.user-option-button
+				p View
+				p Scheduled
+				p eVisits
 
-		include modals/alert
-		include modals/confirm
+	include modals/alert
+	include modals/confirm
