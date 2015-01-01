@@ -5,10 +5,11 @@ block content
 	include homebodymiddle
 		
 	#footer-container
-			#footer-user.well.span12.user-footer(style="text-align:center")
-				input#role(type='hidden', value=udata.role)
-				#evisitlist.well.span6
+		##footer-holder(style = "text-align: center").well-dn.span12
+			#left-side(style = "text-align: center").well-dn.span
+				#evisitlist
 					h3(align="center") Appointment List
+					hr
 					table.listcontainerheader(style = " width: 100%")
 						tr.tableheader
 							th(style = " width: 90px") Date
@@ -30,7 +31,8 @@ block content
 									td.evisitrecordactionfetch(style = "width: 90px")
 										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 				
-				#evisitpatientsublist.well.span5(style = "margin-left :20px")
+			#right-side(style = "text-align: center; float: right").well-dn.span4
+				#evisitpatientsublist
 					h3(align="center") Patient List
 					table.patientlistcontainerheader(style = " width: 100%")
 						tr.tableheader
