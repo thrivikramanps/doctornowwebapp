@@ -8,7 +8,7 @@ var moment 		= require('moment');
 
 var dbPort 		= 27017;
 var dbHost 		= 'localhost';
-var dbName 		= 'node-login';
+var dbName 		= 'primary-database';
 
 /* establish the database connection */
 
@@ -97,14 +97,14 @@ exports.getAllUserRecords = function(user, callback)
 {
 	console.log(" search parameter is " + user);
 
-	availability.find( {user:user} ).toArray(
+	availability.find( {user:user}, {freedate: 1, starttime: 1, endtime: 1}).toArray(
 		function(e, results) {
 		if (e) {
 			console.log("error finding anything");
 			callback(e);
 		}
 		else {
-			console.log("results are " + results + results.length);
+			console.log("results are " + results + results[0].freedate + results[0].starttime + results[0].endtime);
 			callback(null, results)
 		}
 	});
