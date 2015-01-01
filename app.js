@@ -22,10 +22,8 @@ var app = express();
 //	app.use(express.favicon());
 //	app.use(express.logger('dev'));
 	// parse application/json
-    app.use(bodyParser.json());                        
+    app.use(bodyParser);                        
 
-    // parse application/x-www-form-urlencoded
-    app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(cookieParser);
 	app.use(session({ resave: true, saveUninitialized: true, 
                       secret: 'thrivi' }));
