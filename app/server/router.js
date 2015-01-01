@@ -3,8 +3,7 @@ var CT = require('./modules/state-list');
 var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
-var UM = require('./modules/upload-manager');
-//var AVM = require('./modules/availability-manager');
+
 
 
 
@@ -347,7 +346,7 @@ module.exports = function(app) {
 
 	});
 
-	app.get('/upload', function(req,res, next) {
+/*	app.get('/upload', function(req,res, next) {
 		console.log("request requested is " + req);
 		UM.uploadget(req, function(e, o){
 			if (!o){
@@ -370,7 +369,7 @@ module.exports = function(app) {
 			}
 		});
 
-	});
+	});*/
 // creating new accounts //
 	
 	app.get('/signup', function(req, res) {
