@@ -64,8 +64,10 @@ function AvailabilityController()
 			type: "POST",
 			data: {action: 'display current availability'},
 			success: function(data){
+
+				that.insertAvailabilityRecords(data);
 				
-				var n = data.length;
+				/*var n = data.length;
 
 				var delete_element = document.getElementById('FreeTimeRecordHolderDiv');
 
@@ -98,7 +100,7 @@ function AvailabilityController()
 						button_new.addEventListener("click",function(){that.deleteRecord(this.parentNode.id);});
 						//parent_element.appendChild(button_new);
 					}	
-				}
+				}*/
 			},
 			error: function(jqXHR){
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -151,6 +153,62 @@ function AvailabilityController()
 		$('.modal-alert').modal('show');
 		$('.modal-alert button').click(function(){window.location.href = '/';})
 		setTimeout(function(){window.location.href = '/';}, 3000);
+	}
+
+	this.insertAvailabilityRecords = function(data){
+
+		var n = data.length;
+
+		var parent_element = document.getElementById('availability-results');
+
+		while (parent_element.firstChild) {
+    		parent_element.removeChild(parent_element.firstChild);
+		}
+
+		for (var i =0; i<n; i++){
+			var tr = document.createElement('tr');
+			tr.setAttribute('id', String(data[i]._id));
+			var td0 = document.createElement('td');
+			td0.style.width = "147px";
+			var td1 = document.createElement('td');
+			td1.style.width = "147px";
+			var td2 = document.createElement('td');
+			td2.style.width = "147px";
+			var td3 = document.createElement('td');
+			td3.style.width = "147px";
+
+			var span1 = document.createElement('span');
+			var span2 = document.createElement('span');
+			var span3 = document.createElement('span');
+
+			var button_new = document.createElement('input');
+			button_new.setAttribute('value', 'Delete');
+			button_new.setAttribute('type', 'button');
+			button_new.setAttribute('class', 'btn');
+
+			span1.style.display = "block";
+			span1.style.textAlign = "center";
+			span1.innerHTML = String(data[i].freedate);
+			span2.style.display = "block";
+			span2.style.textAlign = "center";
+			span2.innerHTML = String(data[i].starttime);
+			span2.style.display = "block";
+			span2.style.textAlign = "center";
+			span2.innerHTML = String(data[i].endtime);
+
+			td0.appendChild(span1);
+			td1.appendChild(span2);
+			td2.appendChild(span3);
+			td3.appendChild(button_new);
+
+			tr.appendChild(td0);
+			tr.appendChild(td1);
+			tr.appendChild(td2);
+			tr.appendChild(td3);
+
+			parent_element.appendChild(tr);
+		}
+
 	}
 }
 

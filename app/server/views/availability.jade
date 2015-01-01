@@ -15,7 +15,7 @@ block content
 					input#starttime-tf(type="time", name="starttime", id='starttime-tf').span4.required
 					label End Time
 					input#endtime-tf(type="time", name="endtime", id='endtime-tf').span4.required
-					button(type="submit")#btn-availability-submit.btn.btn-primary
+					button(type="submit")#btn-availability-submit.btn
 						| Submit
 
 		#right-side-holder
@@ -29,7 +29,7 @@ block content
 							th.span2 Start Time
 							th.span2 End Time
 							th.span2
-					table#availability-results
+					table#availability-results(style = " width: 100%; height: 230px; overflow-y: auto")
 						
 					
 
