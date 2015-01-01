@@ -27,7 +27,8 @@ var app = express();
     // parse application/x-www-form-urlencoded
     app.use(bodyParser.urlencoded({ extended: true }));
 	app.use(cookieParser);
-	app.use(session({ secret: '59B93087-78BC-4EB9-993A-A61FC844F6C9' }));
+	app.use(session({ resave: true, saveUninitialized: true, 
+                      secret: 'thrivi' }));
 	app.use(methodOverride);
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
