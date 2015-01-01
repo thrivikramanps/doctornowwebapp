@@ -121,6 +121,7 @@ function eVisitReviewController()
 		
 		for (var i =0; i<4; i++){
 			var tr = document.createElement('tr');
+			tr.style.verticalAlign = "top";
 			var td0 = document.createElement('td');
 			td0.style.width = elementWidth;
 			var td1 = document.createElement('td');

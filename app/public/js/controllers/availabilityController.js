@@ -125,6 +125,7 @@ function AvailabilityController()
 		for (var i =0; i<n; i++){
 			var tr = document.createElement('tr');
 			tr.setAttribute('id', String(data[i]._id));
+			tr.style.verticalAlign = "top";
 			var td0 = document.createElement('td');
 			td0.style.width = "147px";
 			var td1 = document.createElement('td');
