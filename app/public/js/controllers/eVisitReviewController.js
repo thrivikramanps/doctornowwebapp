@@ -112,13 +112,19 @@ function eVisitReviewController()
 		}
 
 		var role = patientRecords.role;
+		var elementWidth;
+
+		if (role === 'Doctor')
+			elementWidth = "70px";
+		else
+			elementWidth = "75px";
 		
 		for (var i =0; i<4; i++){
 			var tr = document.createElement('tr');
 			var td0 = document.createElement('td');
-			td0.style.width = "75px";
+			td0.style.width = elementWidth;
 			var td1 = document.createElement('td');
-			td1.style.width = "75px";
+			td1.style.width = elementWidth;
 			
 			if (role === 'Admin'){
 				var td2 = document.createElement('td');
