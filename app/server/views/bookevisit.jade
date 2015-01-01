@@ -19,22 +19,22 @@ block content
 							td
 								input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
 							td
-								input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
+								input#patient1dob-tf(type="date", name="patient1dob", id='patient1dob-tf').span2.required
 						tr.patient2
 							td
 								input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
 							td
-								input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
+								input#patient2dob-tf(type="date", name="patient2dob", id='patient2dob-tf').span2.required
 						tr.patient3
 							td
 								input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
 							td
-								input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
+								input#patient3dob-tf(type="date", name="patient3dob", id='patient3dob-tf').span2.required
 						tr.patient4
 							td
 								input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
 							td
-								input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required
+								input#patient4dob-tf(type="date", name="patient4dob", id='patient4dob-tf').span2.required
 					
 					hr	
 					h3(align="left") Step 2: Who is the supervising nurse for this eVisit?
@@ -42,14 +42,14 @@ block content
 
 		#right-side.well-dn.rightwell.span5
 			#right-side-holder(style='text-align: center')
-				h3(align="left") Step 3: Enter Date Range for Visit
+				h3(align="left") Step 3: Enter Date Range for eVisit
 				hr
 				table.listcontainerheader(style = " width: 100%")
 						tr.tableheader
 							th.span2 Range Start
 							th.span2 Range End
-				input#rangestartdate-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span2.required
-				input#rangeenddate-tf(type="text", name="rangeenddate", id='rangeenddate-tf', style = 'float: right').span2.required
+				input#rangestartdate-tf(type="date", name="rangestartdate", id='rangestartdate-tf').span2.required
+				input#rangeenddate-tf(type="date", name="rangeenddate", id='rangeenddate-tf', style = 'float: right').span2.required
 
 				hr
 				h3(align="left") Step 4: Click Submit
