@@ -5,7 +5,7 @@ block content
 	include homebodymiddle
 	#footer-container
 		#left-side-holder
-			#patient-details-container(style="align: center; margin-right: 5px").well-dn.span3
+			#patient-details-container(style="align: center; margin-right: 5px").well-dn.span4
 				input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
 				input(type='submit', value='Patient Data', style= "background-color: white; color: black")
 				input(type='submit', value='Patient History', style= "background-color: white; color: black")      
@@ -13,10 +13,10 @@ block content
 	video#localVideo(autoplay="", muted="").well-dn.wellspecial2
 	video#remoteVideo(autoplay="", muted="").well-dn.wellspecial2
 
-		#button-container.well-dn.span4
-			button#startButton Start
-			button#callButton Call
-			button#hangupButton End
+	#button-container.well-dn.span4
+		button#startButton Start
+		button#callButton Call
+		button#hangupButton End
 	
 	script
 			var localStream, localPeerConnection, remotePeerConnection;
@@ -108,6 +108,11 @@ block content
 			}
 			}
 			function handleError(){}
+block scripts
 	script(src="/js/views/evisitsession.js")
 	script(src="/js/controllers/evisitSessionController.js")
-	script(src="js/lib/adapter.js")
+	script(src="/js/lib/adapter.js")
+	script(src='/vendor/jquery.min.js')
+	script(src='/vendor/jquery.form.js')
+	script(src='/vendor/bootstrap-modal.js')
+	script(src='/vendor/bootstrap-transition.js')
