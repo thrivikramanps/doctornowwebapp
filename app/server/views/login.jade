@@ -2,11 +2,11 @@ extends layout
 
 block content
 	#header-container
-		#header-banner.well.span12
+		#header-banner.well-dn.span12
 
 	#middle-container	
 		#login-container
-			form( method="post")#login-form.well.span4
+			form( method="post")#login-form.well-dn.span4
 				h3 Please Login To Your Account
 				label Username 
 				input(type="text", name="user", id='user-tf').span4.required
@@ -24,11 +24,11 @@ block content
 					a(href='/signup')#create-account Create An Account
 
 		#photo-container
-			#photo-testimonial.well.span8
+			#photo-testimonial.well-dn.span8
 
 
 	#footer-container
-		#footer-banner.well.span12
+		#footer-banner.well-dn.span12
 
 	include modals/alert
 	include modals/lost-password
