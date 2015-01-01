@@ -3,19 +3,18 @@ extends homehead
 block content
 	include homebodyheader
 	include homebodymiddle
-	#patient-details-container.well-dn.span3(style="margin-left:190px; width:300px")
-		#patient-details-tabs-container(style="align: center")
-			input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
-			input(type='submit', value='Patient Data', style= "background-color: white; color: black")
-			input(type='submit', value='Patient History', style= "background-color: white; color: black")      
+	#footer-container
+		#left-side-holder
+			#patient-details-container(style="align: center").well-dn.span3
+				input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
+				input(type='submit', value='Patient Data', style= "background-color: white; color: black")
+				input(type='submit', value='Patient History', style= "background-color: white; color: black")      
 
 	video#localVideo(autoplay="", muted="").well-dn.wellspecial2
-		div
-			button#startButton Start
+		button#startButton Start
 	video#remoteVideo(autoplay="", muted="").well-dn.wellspecial2
-		div
-			button#callButton Call
-			button#hangupButton End
+		button#callButton Call
+		button#hangupButton End
 	
 	script
 			var localStream, localPeerConnection, remotePeerConnection;
