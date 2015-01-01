@@ -107,6 +107,10 @@ function eVisitReviewController()
 		var inputsdob =  [patientRecords[0].patient1dob, patientRecords[0].patient2dob, patientRecords[0].patient3dob, patientRecords[0].patient4dob];
 		var parent_element = document.getElementById('patientlistcontainer');
 
+		while (parent_element.firstChild) {
+    		parent_element.removeChild(parent_element.firstChild);
+		}
+
 		var role = patientRecords.role;
 		
 		for (var i =0; i<4; i++){
