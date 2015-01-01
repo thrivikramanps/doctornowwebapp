@@ -3,7 +3,7 @@ extends homehead
 block content
 	include homebodyheader
 	include homebodymiddle
-	#footer-container
+	#left-container
 		#left-side-holder
 			#patient-details-container(style="align: center; margin-right: 5px").well-dn.span4
 				input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
@@ -13,7 +13,7 @@ block content
 	video#localVideo(autoplay="", muted="").well-dn.wellspecial2
 	video#remoteVideo(autoplay="", muted="").well-dn.wellspecial2
 
-	#button-container.well-dn.span4
+	#foot-container.well-dn.span4
 		button#startButton Start
 		button#callButton Call
 		button#hangupButton End
