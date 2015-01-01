@@ -5,16 +5,18 @@ block content
 	include homebodymiddle
 	#footer-container
 		#left-side-holder
-			#patient-details-container(style="align: center").well-dn.span3
+			#patient-details-container(style="align: center; margin-right: 5px").well-dn.span3
 				input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
 				input(type='submit', value='Patient Data', style= "background-color: white; color: black")
 				input(type='submit', value='Patient History', style= "background-color: white; color: black")      
 
 	video#localVideo(autoplay="", muted="").well-dn.wellspecial2
-		button#startButton Start
 	video#remoteVideo(autoplay="", muted="").well-dn.wellspecial2
-		button#callButton Call
-		button#hangupButton End
+
+		#button-container.well-dn.span4
+			button#startButton Start
+			button#callButton Call
+			button#hangupButton End
 	
 	script
 			var localStream, localPeerConnection, remotePeerConnection;
