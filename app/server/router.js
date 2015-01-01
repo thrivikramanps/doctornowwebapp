@@ -145,7 +145,7 @@ module.exports = function(app) {
 
 
 				if (o!=null) {
-					console.log("line 140");
+					
 					var session_variable = req.session.user;
 					session_variable.doctoruser = o.user;
 					console.log(o.user);
@@ -198,10 +198,12 @@ module.exports = function(app) {
 			res.redirect('/');
 		else{
 			var session_variable = req.session.user;
-			console.log(session_variable.availabilitydeletionid);
+			console.log( " before rendering success booking" + session_variable.availabilitydeletionid);
+			console.log( " before rendering success booking" + session_variable.doctoruser);
 			AM.deleteAvailability(session_variable.availabilitydeletionid, function(){
 					//res.send("gen-success", 200);
 			});
+
 			res.render('booking-success', {
 				udata:req.session.user
 			})
