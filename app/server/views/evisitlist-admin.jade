@@ -3,45 +3,64 @@ extends homehead
 block content
 	include homebodyheader
 	include homebodymiddle
-		
-	#footer-container
-		##footer-holder(style = "text-align: center").well-dn.span12
-			#left-side(style = "text-align: center").well-dn.span7
+
+	#footer-container	
+		#footer-holder(style = "text-align: center").well-dn.span12
+
+			#left-side(style = "text-align: center").well-dn.span6	
 				#evisitlist
 					h3(align="center") Appointment List
 					hr
 					table.listcontainerheader(style = " width: 100%")
 						tr.tableheader
-							th(style = " width: 90px") Date
-							th(style = " width: 90px") Time
-							th(style = " width: 90px") Nursing Home 
-							th(style = " width: 90px")
-						table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
-							if (listevisits.length === 0)
-								tr#noevisits
-									th No eVisits.
-							each evisititem, index in listevisits
-								tr.evisitrecord(style = "height: 90px")
-									td.evisitrecorddate(style = "width: 90px")
-										span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
-									td.evisitrecordtime(style = "width: 90px")
-										span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime + ':' + evisititem.appointmentendtime
-									td.evisitrecordnh(style = "width: 90px")
-										span.name(style=" display: block; text-align: center")=evisititem.user
-									td.evisitrecordactionfetch(style = "width: 90px")
-										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
-				
-			#right-side(style = "text-align: center; float: right").well-dn.span4
+							th(style = " width: 70px") Date
+							th(style = " width: 70px") Start
+							th(style = " width: 70px") End
+							th(style = " width: 70px") Facility 
+							th(style = " width: 70px")
+					table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+						if (listevisits.length === 0)
+							tr#noevisits
+								th No eVisits.
+						each evisititem, index in listevisits
+							tr.evisitrecord
+								td.evisitrecordactiondelete(style = "width: 70px")
+									input(type='submit', value='delete', evisitid=evisititem._id.toString())
+								td.evisitrecorddate(style = "width: 70px")
+									span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
+								td.evisitrecordstart(style = "width: 70px")
+									span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
+								td.evisitrecordend(style = "width: 70px")
+									span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
+								td.evisitrecordnh(style = "width: 70px")
+									span.name(style=" display: block; text-align: center")=evisititem.user
+								td.evisitrecordactionfetch(style = "width: 70px")
+									input(type='submit', value='fetch', evisitid=evisititem._id.toString())
+
+			#middle-side(style = "margin-left: 25px; text-align: center").well-dn.span3
 				#evisitpatientsublist
 					h3(align="center") Patient List
+					hr
 					table.patientlistcontainerheader(style = " width: 100%")
 						tr.tableheader
-							th(style = " width: 75px") Name
-							th(style = " width: 75px") DOB
-							th(style = " width: 75px") 
-							th(style = " width: 75px")
+							th Name
+							th DOB
 					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
-				
+
+			#right-side(style = "text-align: center; float: right").well-dn.span3
+				#patientdetails
+					table.patientlistcontainerheader(style = " width: 100%")
+						tr.tableheader
+							th 
+								input(type='button', value='General')
+							th 
+								input(type='button', value='History')
+					hr
+					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+
+
+
+
 
 		include modals/alert
 		include modals/confirm
@@ -54,4 +73,3 @@ block scripts
 	script(src='/vendor/bootstrap-transition.js')
 	script(src='/js/views/evisitreview.js')
 	script(src='/js/controllers/eVisitReviewController.js')
-	
