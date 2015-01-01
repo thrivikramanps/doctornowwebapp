@@ -1,53 +1,33 @@
-!!! 5
-html
-	head
-		title
-		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/style.css')
-		script(type='text/javascript')
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-1890531-10']);
-			_gaq.push(['_trackPageview']);
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-	
-	body
+extends homehead
 
-	block content
-		#header-container
-			#header-banner.well.span12
-
-		#middle-container
-			p#login-time Login Time
-			p#login-account Login Account
-			button(type="button")#btn-home.btn.btn-primary
-					| Home
-			button(type="button")#btn-logout-user.btn.btn-primary
-					| Logout
+block content
+	include homebodyheader
+	include homebodymiddle
 		
-		#footer-container
-			form( method="post")#login-form.well.span4
-				h3 Please Enter the Date, Free Time Period
-				label Date 
-				input#date-tf(type="text", name="date", id='date-tf').span4.required
-				label Start Time
-				input#starttime-tf(type="text", name="starttime", id='starttime-tf').span4.required
-				label End Time
-				input#endtime-tf(type="text", name="endtime", id='endtime-tf').span4.required
-				button(type="submit")#btn-availability-submit.btn.btn-primary
-					| Submit
+	#footer-container
+		#left-side-holder
+			#left-side.well-dn.span4
+				form( method="post")
+					h3(align="left") Please Enter Date & Free Time Range
+					label Date 
+					input#date-tf(type="date", name="date", id='date-tf').span4.required
+					label Start Time
+					input#starttime-tf(type="time", name="starttime", id='starttime-tf').span4.required
+					label End Time
+					input#endtime-tf(type="time", name="endtime", id='endtime-tf').span4.required
+					button(type="submit")#btn-availability-submit.btn.btn-primary
+						| Submit
 
-			#availability-results-container
-				#availability-results.well.span8
-					button(type="button")#btn-availability-view.btn.btn-primary
-						| View
+		#right-side-holder
+				#availability-results-container
+					button(type="button")#btn-availability-view.btn
+							| View
+					#availability-results.well-dn.span8
+						
 					
 
-		include modals/alert
-		include modals/confirm
+	include modals/alert
+	include modals/confirm
 
 
 block scripts
