@@ -111,7 +111,7 @@ function AvailabilityController()
 	this.deleteRecord = function(msg)
 	{
 		var that = this;
-		var delnode = document.getElementById('FreeTimeRecordHolderDiv'); 
+		var delnode = document.getElementById('availability-results'); 
 		var identity = document.getElementById(msg);
 		 
 
