@@ -1,71 +1,59 @@
-!!! 5
-html
-	head
-		title
-		link(rel='stylesheet', href='/vendor/bootstrap.min.css')
-		link(rel='stylesheet', href='/css/style.css')
-		link(rel="stylesheet", href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css")
-		// Load jQuery JS
-		script(src="http://code.jquery.com/jquery-1.9.1.js")
-		// Load jQuery UI Main JS
-		script(src="http://code.jquery.com/ui/1.10.3/jquery-ui.js")
-		script(type='text/javascript')
-			var _gaq = _gaq || [];
-			_gaq.push(['_setAccount', 'UA-1890531-10']);
-			_gaq.push(['_trackPageview']);
-			(function() {
-				var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-				ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-				var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-			})();
-	
-	body
+extends homehead
 
-	block content
-		#header-container
-			#header-banner.well.span12
-
-		#middle-container
-			input#login-time.disabled(type='text', name='login-time', value= udata.logintime, style = " border: 0px none rgb(255, 255, 255)")
-			input#login-account.disabled(type='text', name='login-account', value= udata.user, style ="margin-left: 270px; border: 0px none rgb(255, 255, 255)")
-			button(type="button")#btn-home.btn.btn-primary
-					| Home
-			button(type="button")#btn-logout-user.btn.btn-primary
-					| Logout
+block content
+	include homebodyheader
+	include homebodymiddle
 		
-		#footer-container
-			form( method="post")#left-side.well.span6
-				h4 Step 1: Enter Patients for this Visit
+	#footer-container
+		#left-side.well-dn.span6
+			form( method="post")
+				h3(align="left") Step 1: Enter patients for eVisit
 				hr
-				label Name 										DOB
-				input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
-				input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
-				input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
-				input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
-				input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
-				input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
-				input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
-				input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required		
-
+				table.listcontainerheader(style = " width: 100%")
+					tr.tableheader
+						th(style = " width: 90px") Full Name
+						th(style = " width: 90px") DOB
+				table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+					tr.patient1
+						td
+							input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
+						td
+							input#patient1dob-tf(type="text", name="patient1dob", id='patient1dob-tf').span2.required
+					tr.patient2
+						td
+							input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
+						td
+							input#patient2dob-tf(type="text", name="patient2dob", id='patient2dob-tf').span2.required
+					tr.patient3
+						td
+							input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
+						td
+							input#patient3dob-tf(type="text", name="patient3dob", id='patient3dob-tf').span2.required
+					tr.patient4
+						td
+							input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
+						td
+							input#patient4dob-tf(type="text", name="patient4dob", id='patient4dob-tf').span2.required
+				
 				hr	
-				h4 Step 2: Who is the supervising nurse for this Visit
+				h3(align="left"): Who is the supervising nurse for this eVisit?
 				input#nursename-tf(type="text", name="nursename", id='nursename-tf').span5.required		
 
-			#right-side.well.wellspecial.span3
-				h4 Step 3: Enter Date Range for Visit
+		#right-side.well-dn.wellspecial.span5
+				h3(align="left") Step 3: Enter Date Range for Visit
 				hr
 				input#rangestartdate-tf(type="text", name="rangestartdate", id='rangestartdate-tf').span2.required
 				input#rangeenddate-tf(type="text", name="rangeenddate", id='rangeenddate-tf').span2.required
 
 				hr
-				h4 Step 4: Click Submit
-				button(type="submit")#btn-evisit-submit.btn.btn-primary
+				h3(align="left") Step 4: Click Submit
+				button(type="submit")#btn-evisit-submit.btn
 					| Submit
 
 					
 
-		include modals/alert
-		include modals/confirm
+	include modals/alert
+	include modals/confirm
 
 
 block scripts
