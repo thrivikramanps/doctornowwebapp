@@ -32,9 +32,9 @@ var app = express();
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
 
-app.configure('development', function(){
+
 	app.use(errorHandler);
-});
+
 
 require('./app/server/router')(app);
 
