@@ -274,3 +274,6 @@ button i {
   min-height: 20px;
   border-radius: 4px;
 }
+.disinput {
+  border: 0px none rgb(255, 255, 255);
+}

@@ -1,7 +1,7 @@
 #middle-container
 	#middle-holder.well-dn.span12
-		input#login-time.disabled(type='text', name='login-time', value= udata.logintime, style = " border: 0px none rgb(255, 255, 255)")
-		input#login-account.disabled(type='text', name='login-account', value= udata.user, style ="margin-left: 270px; border: 0px none rgb(255, 255, 255)")
+		input#login-time.disabled.disinput(type='text', name='login-time', value= udata.logintime)
+		input#login-account.disabled.disinput(type='text', name='login-account', value= udata.user)
 		button(type="button", style ="margin-left: 280px")#btn-home.btn
 				| Home
 		button(type="button")#btn-logout-user.btn

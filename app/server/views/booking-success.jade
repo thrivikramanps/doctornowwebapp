@@ -5,25 +5,29 @@ block content
 	include homebodymiddle
 		
 	#footer-container
-		#footer-container-primary.well-dn.span12
-			h3 eVisit Details
-			#left-side.well.span4		
+		#footer-holder(style = "text-align: center").well-dn.span12
+			h2 eVisit Details
+			#left-side(style = "text-align: center").well-dn.span4	
+				h3 Appointment Details	
 				hr
-				label Appointment Date 										
-				input#appointmentdate-tf(type="text", name="appointmentdate", id='appointmentdate-tf').span4.required
-				label Appointment Time
-				input#appointmenttime-tf(type="text", name="appointmenttime", id='appointmenttime-tf').span4.required
+				label Date 										
+				input#appointmentdate-tf.disabled(type="date", value=udata.appointmentdate, name="appointmentdate", id='appointmentdate-tf').span4.disinput.required
+				label Start Time
+				input#appointmenttime-tf.disabled(type="time", value=udata.appointmentstart, name="appointmentstarttime", id='appointmentstarttime-tf').span4..disinput.required
+				label End Time
+				input#appointmenttime-tf.disabled(type="time", value=udata.appointmentend, name="appointmentendtime", id='appointmentendtime-tf').span4.disinput.required
 				Label Patient Names
-				input#patient1name-tf(type="text", name="patient1name", id='patient1name-tf').span4.required
-				input#patient2name-tf(type="text", name="patient2name", id='patient2name-tf').span4.required
-				input#patient3name-tf(type="text", name="patient3name", id='patient3name-tf').span4.required
-				input#patient4name-tf(type="text", name="patient4name", id='patient4name-tf').span4.required
+				input#patient1name-tf.disabled(type="text", value=udata.patient1name, name="patient1name", id='patient1name-tf').span4.disinput.required
+				input#patient2name-tf.disabled(type="text", value=udata.patient2name, name="patient2name", id='patient2name-tf').span4.disinput.required
+				input#patient3name-tf.disabled(type="text", value=udata.patient3name, name="patient3name", id='patient3name-tf').span4.disinput.required
+				input#patient4name-tf.disabled(type="text", value=udata.patient4name, name="patient4name", id='patient4name-tf').span4.disinput.required
 
 
-			#right-side.well.span4
+			#right-side(style = "text-align: center").well-dn.span4
+				h3 Doctor Details
 				hr
 				label Doctor Name 										
-				input#doctorname-tf(type="text", name="doctorname", id='doctorname-tf').span4.required
+				input#doctorname-tf.disabled(type="text", value=udata.doctoruser, name="doctorname", id='doctorname-tf').span4.disinput.required
 				label Doctor Photo
 				input#doctorphoto-tf(type="text", name="doctorphoto", id='doctorphoto-tf').span4.required
 
