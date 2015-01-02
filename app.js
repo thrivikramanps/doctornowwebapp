@@ -25,7 +25,7 @@ app.configure(function(){
 	app.use(express.static(__dirname + '/app/public'));
 	app.use(multer({
  
-          dest: “./uploads/”
+          dest: __dirname + '/uploads'
  
 	}));
 });
