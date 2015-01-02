@@ -2,7 +2,7 @@
 
 var express = require('express');
 var http = require('http');
-var multer = require('multer');
+//var multer = require('multer');
 
 
 
@@ -23,12 +23,14 @@ app.configure(function(){
 	app.use(express.methodOverride());
 	app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 	app.use(express.static(__dirname + '/app/public'));
-	app.use(multer({
+	/*app.use(multer({
  
           dest: __dirname + '/uploads'
  
-	}));
+	}));*/
 });
+
+console.log("main path is " + __dirname );
 
 app.configure('development', function(){
 	app.use(express.errorHandler());

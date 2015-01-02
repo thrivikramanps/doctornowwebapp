@@ -4,7 +4,7 @@ var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
-var util = require("util"); 
+//var util = require("util"); 
 var fs = require("fs");
 
 
@@ -129,12 +129,21 @@ module.exports = function(app) {
 	var fs =require('fs-extra');    //File System-needed for renaming file etc
 	app.use(bodyParser({defer: true}));*/
 
-	app.post('/upload', function(req, res, next) {
+	/*app.post('/upload', function(req, res, next) {
 		if (req.files) { 
 			console.log(util.inspect(req.files));
 			if (req.files.patientfile.size === 0) {
 			            return next(new Error("Hey, first would you select a file?"));
 			}
+
+			fs.readFile(req.files.displayImage.path, function (err, data) {
+  
+  			var newPath = __dirname + "/uploads/uploadedFileName";
+  			fs.writeFile(newPath, data, function (err) {
+    			res.redirect("back");
+  				});
+			});
+
 			fs.exists(req.files.patientfile.path, function(exists) { 
 				if(exists) { 
 					res.end("Got your file!"); 
@@ -143,7 +152,41 @@ module.exports = function(app) {
 				} 
 			}); 
 		}
+	});*/
+
+	/// Post files
+	app.post('/upload', function(req, res) {
+
+		fs.readFile(req.files.image.path, function (err, data) {
+			var imageName = req.files.patientfile.name
+			/// If there's an error
+			if(!imageName){
+
+				console.log("There was an error")
+				res.redirect("/");
+				res.end();
+
+			} else {
+
+			  var newPath = __dirname + "/uploads/fullsize/" + imageName;
+			  /// write file to uploads/fullsize folder
+			  fs.writeFile(newPath, data, function (err) {
+
+			  	/// let's see it
+			  //	res.redirect("/uploads/" + imageName);
+
+			  });
+			}
+		});
 	});
+
+	app.get('/uploads/:file', function (req, res){
+		file = req.params.file;
+		var img = fs.readFileSync(__dirname + "/uploads/" + file);
+		res.writeHead(200, {'Content-Type': 'application/pdf' });
+		res.end(img, 'binary');
+	});
+	
 
 	app.post('/booking', function(req,res) {
 		if (req.session.user == null) {
