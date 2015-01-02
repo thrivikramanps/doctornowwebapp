@@ -50,9 +50,9 @@ block content
 				#right-side(style = "text-align: center; float: right").well-dn.span3
 					#patientdetails
 						#patientdetailselector
-							input(type='submit', value='General', style= "margin-left: 20px; background-color: black; color: white")#generalselector
-							input(type='submit', value='History', style= "background-color: white; color: black")#historyselector
-						hr
+							input(type='submit', value='General', style= "width: 45%; background-color: black; color: white")#generalselector
+							input(type='submit', value='History', style= "width: 45%; background-color: white; color: black")#historyselector
+						hr(style="margin-top: 8px")
 						form( method="post", action="upload", enctype="multipart/form-data")#uploadform.well-dn
 							input(type="text", name="user", id='user-tf').span2.required
 							input(type="submit", name="pass", id='pass-tf').span2.required
