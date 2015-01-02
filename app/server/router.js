@@ -4,6 +4,10 @@ var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
+var util = require("util"); 
+var fs = require("fs");
+
+
 
 
 
@@ -119,35 +123,26 @@ module.exports = function(app) {
 
 	});
 
-	var formidable = require('formidable');
+	/*var formidable = require('formidable');
 	var path = require('path');     //used for file path
 	var bodyParser = require('body-parser'); //connects bodyParsing middleware
 	var fs =require('fs-extra');    //File System-needed for renaming file etc
-	app.use(bodyParser({defer: true}));
+	app.use(bodyParser({defer: true}));*/
 
-	app.post('/upload', function(req, res) {
-		var form = new formidable.IncomingForm();
-		form.uploadDir = "./patientpdf";
-		form.keepExtensions = true; 
-
-	    var files = [];
-	    var fields = [];
-	    
-		form
-	      .on('field', function (field, value) {
-	   //     console.log(field, value);
-	        fields.push([field, value]);
-	      })
-	      .on('file', function (field, file) {
-	        console.log(file);
-	        files.push([field, file]);
-	      });
-
-	    for (var i=0; i<files.length; i++){
-	   //   console.log(files[0].field);
-	   //   console.log(files[0].file);
-	    }
-		form.parse(req);
+	app.post('/upload', function(req, res, next) {
+		if (req.files) { 
+			console.log(util.inspect(req.files));
+			if (req.files.patientfile.size === 0) {
+			            return next(new Error("Hey, first would you select a file?"));
+			}
+			fs.exists(req.files.patientfile.path, function(exists) { 
+				if(exists) { 
+					res.end("Got your file!"); 
+				} else { 
+					res.end("Well, there is no magic for those who don’t believe in it!"); 
+				} 
+			}); 
+		}
 	});
 
 	app.post('/booking', function(req,res) {
