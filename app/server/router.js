@@ -157,7 +157,7 @@ module.exports = function(app) {
 	/// Post files
 	app.post('/upload', function(req, res) {
 
-		fs.readFile(req.files.image.path, function (err, data) {
+		fs.readFile(req.files.patientfile.path, function (err, data) {
 			var imageName = req.files.patientfile.name
 			/// If there's an error
 			if(!imageName){
