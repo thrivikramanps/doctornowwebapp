@@ -189,6 +189,27 @@ module.exports = function(app) {
 
 	app.post('/upload', function(req,res){
 		console.log(JSON.stringify(req.files));
+
+		var serverPath = '/patientpdf/' + req.files.patientfile.name;
+		console.log("server path is " + serverPath);
+
+		require('fs').rename(req.files.patientfile.path, __dirname + serverPath,
+			function(error) {
+            	if(error) {
+					res.send({
+                    	error: 'Something bad happened'
+					});
+                	return;
+            	}
+
+            	console.log("sending success from server");
+ 
+	            res.send({
+					path: serverPath
+	            });
+			}
+    	);
+
 	});
 	
 

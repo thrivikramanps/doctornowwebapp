@@ -56,6 +56,34 @@ function eVisitReviewController()
 		})
 	});
 
+	$('#uploadform').submit(function() {
+        console.log('uploading the file ...');
+ 
+        $(this).ajaxSubmit({                                                                                                                 
+ 
+            error: function(xhr) {
+				console.log('Error: ' + xhr.status);
+            },
+ 
+            success: function(response) {
+
+		//TODO: We will fill this in later
+				if(response.error) {
+            		console.log('Opps, something bad happened');
+            		return;
+        		}
+
+        		var pdfurlonServer = response.path;
+
+        		console.log("successful upload to" + pdfurlonServer);
+        		//$('<div/>').attr('src', imageUrlOnServer).appendTo($('body'));
+            }
+		});
+ 
+	// Have to stop the form from submitting and causing                                                                                                       
+	// a page refresh - don't forget this                                                                                                                      
+		return false;
+    });
 		
 	this.attemptLogout = function()
 	{
