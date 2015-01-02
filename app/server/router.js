@@ -121,7 +121,9 @@ module.exports = function(app) {
 
 	var formidable = require('formidable');
 	var path = require('path');     //used for file path
+	var bodyParser = require('body-parser'); //connects bodyParsing middleware
 	var fs =require('fs-extra');    //File System-needed for renaming file etc
+	app.use(bodyParser({defer: true}));
 
 	app.post('/upload', function(req, res) {
 		var form = new formidable.IncomingForm();
