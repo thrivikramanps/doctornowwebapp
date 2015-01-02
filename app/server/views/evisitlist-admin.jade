@@ -53,6 +53,9 @@ block content
 							input(type='submit', value='General', style= "width: 45%; background-color: black; color: white")#generalselector
 							input(type='submit', value='History', style= "width: 45%; background-color: white; color: black")#historyselector
 						hr(style="margin-top: 8px")
+						#pdfviewercontainer(style = " width: 100%; height: 200px; overflow-y: scroll")
+							#pdfviewerpatientgeneral
+							#pdfviewerpatienthistory
 						form( method="post", action="upload", enctype="multipart/form-data")#uploadform.well-dn
 							input(type="text", name="user", id='user-tf').span2.required
 							input(type="submit", name="pass", id='pass-tf').span2.required
