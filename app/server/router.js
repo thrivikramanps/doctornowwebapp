@@ -9,9 +9,7 @@ var fs = require("fs");
 
 var formidable = require('formidable');
 var path = require('path');     //used for file path
-	//var bodyParser = require('body-parser'); //connects bodyParsing middleware
-var fs =require('fs-extra');    //File System-needed for renaming file etc
-	//app.use(bodyParser({defer: true}));
+
 
 
 
@@ -129,12 +127,39 @@ module.exports = function(app) {
 
 
 
-	app.post('/upload', function (req, res, next) {
+	app.post('/upload', function (req, res) {
 		var form = new formidable.IncomingForm();
 
 	    form.uploadDir = "./uploads";       //set upload directory
     	form.keepExtensions = true;     //keep file extension
+
+    	var parseResult = false;
+
+    	form
+		    .on('error', function(err) {
+		    	console.log("error with form upload");
+		    	parseResult = false;
+		    })
+		    .on('file', function(field, file) {
+		        //On file received
+		        fs.rename(file.path, form.uploadDir + "/" + file.name);
+		    })
+		    .on('progress', function(bytesReceived, bytesExpected) {
+		        //self.emit('progess', bytesReceived, bytesExpected)
+		        var percent = (bytesReceived / bytesExpected * 100) | 0;
+		        console.log('Uploading: %' + percent + '\r');
+		    })
+		    .on('end', function() {
+		    	console.log("form parsing ended");
+		    	parseResult = true;
+		    });
+
 	    form.parse(req);
+
+	    if (parseResult)
+	    	res.send('ok', 200);
+	    else
+	    	res.send('bad result', 400);
 	});
 
 	/*app.post('/upload', function(req, res, next) {
