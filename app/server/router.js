@@ -136,7 +136,7 @@ module.exports = function(app) {
 			            return next(new Error("Hey, first would you select a file?"));
 			}
 
-			fs.readFile(req.files.displayImage.path, function (err, data) {
+			fs.readFile(req.files.patientfile.path, function (err, data) {
 
 				fs.exists(req.files.patientfile.path, function(exists) { 
 					if(exists) { 
