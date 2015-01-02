@@ -4,7 +4,7 @@ var RT = require('./modules/role-list');
 var AM = require('./modules/account-manager');
 var EM = require('./modules/email-dispatcher');
 
-//var util = require("util"); 
+var util = require("util"); 
 var fs = require("fs");
 
 
