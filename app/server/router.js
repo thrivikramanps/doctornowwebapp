@@ -123,13 +123,13 @@ module.exports = function(app) {
 
 	});
 
-	/*var formidable = require('formidable');
+	var formidable = require('formidable');
 	var path = require('path');     //used for file path
 	var bodyParser = require('body-parser'); //connects bodyParsing middleware
 	var fs =require('fs-extra');    //File System-needed for renaming file etc
-	app.use(bodyParser({defer: true}));*/
+	app.use(bodyParser({defer: true}));
 
-	/*app.post('/upload', function(req, res, next) {
+	app.post('/upload', function(req, res, next) {
 		if (req.files) { 
 			console.log(util.inspect(req.files));
 			if (req.files.patientfile.size === 0) {
@@ -137,22 +137,17 @@ module.exports = function(app) {
 			}
 
 			fs.readFile(req.files.displayImage.path, function (err, data) {
-  
-  			var newPath = __dirname + "/uploads/uploadedFileName";
-  			fs.writeFile(newPath, data, function (err) {
-    			res.redirect("back");
-  				});
-			});
 
-			fs.exists(req.files.patientfile.path, function(exists) { 
-				if(exists) { 
-					res.end("Got your file!"); 
-				} else { 
-					res.end("Well, there is no magic for those who don’t believe in it!"); 
-				} 
-			}); 
+				fs.exists(req.files.patientfile.path, function(exists) { 
+					if(exists) { 
+						res.end("Got your file!"); 
+					} else { 
+						res.end("Well, there is no magic for those who don’t believe in it!"); 
+					} 
+				}); 
+			});
 		}
-	});*/
+	});
 
 	/// Post files
 	/*app.post('/upload', function(req, res) {
@@ -187,7 +182,7 @@ module.exports = function(app) {
 		res.end(img, 'binary');
 	});*/
 
-	app.post('/upload', function(req,res){
+	/*app.post('/upload', function(req,res){
 		console.log(JSON.stringify(req.files));
 
 		var serverPath = '/patientpdf/' + req.files.patientfile.name;
@@ -210,7 +205,7 @@ module.exports = function(app) {
 			}
     	);
 
-	});
+	});*/
 	
 
 	app.post('/booking', function(req,res) {
