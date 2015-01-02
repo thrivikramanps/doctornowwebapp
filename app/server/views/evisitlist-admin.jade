@@ -56,9 +56,9 @@ block content
 						#pdfviewercontainer(style = " width: 87%; height: 200px; overflow-y: scroll").well-dn
 							#pdfviewerpatientgeneral
 							#pdfviewerpatienthistory
-						form( method="post", action="upload", enctype="multipart/form-data", style=" height: 58px; margin-bottom: 0px; margin-top: 20px")#uploadform.well-dn
-							input(type="file", name="user", id='user-tf')
-							input(type="submit", name="pass", id='pass-tf')
+						form( method="post", action="/upload", enctype="multipart/form-data", style=" height: 28px; margin-bottom: 0px; margin-top: 10px")#uploadform.well-dn
+							input(type="file", name="user", id='patient-file', style=" width: 70%")
+							input(type="submit", name="pass", id='submitupload')
 
 
 
