@@ -140,7 +140,7 @@ module.exports = function(app) {
 
 				fs.exists(req.files.patientfile.path, function(exists) { 
 					if(exists) { 
-						res.end("Got your file!"); 
+						res.send({path: "suck me"}); 
 					} else { 
 						res.end("Well, there is no magic for those who don’t believe in it!"); 
 					} 
