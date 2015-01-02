@@ -7,7 +7,11 @@ var EM = require('./modules/email-dispatcher');
 var util = require("util"); 
 var fs = require("fs");
 
-
+var formidable = require('formidable');
+var path = require('path');     //used for file path
+	//var bodyParser = require('body-parser'); //connects bodyParsing middleware
+var fs =require('fs-extra');    //File System-needed for renaming file etc
+	//app.use(bodyParser({defer: true}));
 
 
 
@@ -123,26 +127,18 @@ module.exports = function(app) {
 
 	});
 
-	var formidable = require('formidable');
-	var path = require('path');     //used for file path
-	//var bodyParser = require('body-parser'); //connects bodyParsing middleware
-	var fs =require('fs-extra');    //File System-needed for renaming file etc
-	//app.use(bodyParser({defer: true}));
+
 
 	app.post('/upload', function (req, res, next) {
-	  	//console.log(" file path is " + req.files.file.path);
-	  	var form = new formidable.IncomingForm();
+		var form = new formidable.IncomingForm();
 
-	  	//var serverPath = __dirname + "/patientpdf/";
-		//console.log("server path is " + serverPath);
-	    //Formidable uploads to operating systems tmp dir by default
 	    form.uploadDir = "./uploads";       //set upload directory
     	form.keepExtensions = true;     //keep file extension
 
     	var files = [];
-    	var fields = [];
+   		var fields = [];
 
-	    form
+    	form
 	      .on('field', function (field, value) {
 	   //     console.log(field, value);
 	        fields.push([field, value]);
@@ -151,11 +147,6 @@ module.exports = function(app) {
 	        console.log(file);
 	        files.push([field, file]);
 	      });
-
-	    for (var i=0; i<files.length; i++){
-	   //   console.log(files[0].field);
-	   //   console.log(files[0].file);
-	    }
 
 	    form.parse(req);
 	});

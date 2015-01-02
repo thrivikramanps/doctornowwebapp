@@ -17,7 +17,7 @@ app.configure(function(){
 	app.locals.pretty = true;
 //	app.use(express.favicon());
 //	app.use(express.logger('dev'));
-	app.use(express.bodyParser());
+	app.use(express.bodyParser({defer: true}));
 	app.use(express.cookieParser());
 	app.use(express.session({ secret: '59B93087-78BC-4EB9-993A-A61FC844F6C9' }));
 	app.use(express.methodOverride());
