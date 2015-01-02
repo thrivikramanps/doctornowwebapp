@@ -12,11 +12,9 @@ module.exports = function(app) {
 // main login page //
 
 	app.get('/', function(req, res){
-	// check if the user's credentials are saved in a cookie //
 		if (req.cookies.user == undefined || req.cookies.pass == undefined){
 			res.render('login', { title: 'Hello - Please Login To Your Account' });
 		}	else{
-	// attempt automatic login //
 			AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
 				if (o != null){
 				    req.session.user = o;
@@ -52,7 +50,6 @@ module.exports = function(app) {
 	
 	app.get('/home', function(req, res) {
 	    if (req.session.user == null){
-	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
 	    	
@@ -120,6 +117,17 @@ module.exports = function(app) {
 
 		}
 
+	});
+
+	var formidable = require('formidable');
+	var path = require('path');     //used for file path
+	var fs =require('fs-extra');    //File System-needed for renaming file etc
+
+	app.post('/upload', function(req, res) {
+		var form = new formidable.IncomingForm();
+		form.uploadDir = "./patientpdf";
+		form.keepExtensions = true; 
+		form.parse(req);
 	});
 
 	app.post('/booking', function(req,res) {
@@ -213,7 +221,6 @@ module.exports = function(app) {
 
 	app.get('/availability', function(req, res) {
 	    if (req.session.user == null){
-	// if user is not logged-in redirect back to login page //
 	        res.redirect('/');
 	    }   else{
 					res.render('availability', {
@@ -222,7 +229,6 @@ module.exports = function(app) {
 				}
 	});
 	
-
 	app.post('/availability', function(req,res) {
 		if (req.session.user == null){
 			res.redirect('/');
@@ -269,8 +275,6 @@ module.exports = function(app) {
 					udata : req.session.user
 			});
 		}
-
-
 	});
 
 	app.get('/evisitreview', function(req,res) {
@@ -347,32 +351,6 @@ module.exports = function(app) {
 		}
 
 	});
-
-/*	app.get('/upload', function(req,res, next) {
-		console.log("request requested is " + req);
-		UM.uploadget(req, function(e, o){
-			if (!o){
-				res.send(e, 400);
-			}	else{
-				res.send(o, 200);
-			}
-		});
-
-	});
-
-
-	app.post('/upload', function(req,res, next) {
-		console.log("request received is " + req);
-		UM.uploadpost(req, function(e, o){
-			if (!o){
-				res.send(e, 400);
-			}	else{
-				res.send(o, 200);
-			}
-		});
-
-	});*/
-// creating new accounts //
 	
 	app.get('/signup', function(req, res) {
 		res.render('signup', {  title: 'Signup', states : CT, roles: RT});
@@ -428,18 +406,17 @@ module.exports = function(app) {
 			if (e != 'ok'){
 				res.redirect('/');
 			} else{
-	// save the user's email in a session instead of sending to the client //
 				req.session.reset = { email:email, passHash:passH };
 				res.render('reset', { title : 'Reset Password' });
 			}
-		})
+		});
 	});
 	
-	app.post('/reset-password', function(req, res) {
+	app.post('/reset-password', function(req, res) 
+	{
 		var nPass = req.param('pass');
-	// retrieve the user's email from the session to lookup their account and reset password //
+	
 		var email = req.session.reset.email;
-	// destory the session immediately after retrieving the stored email //
 		req.session.destroy();
 		AM.updatePassword(email, nPass, function(e, o){
 			if (o){
@@ -447,7 +424,7 @@ module.exports = function(app) {
 			}	else{
 				res.send('unable to update password', 400);
 			}
-		})
+		});
 	});
 	
 // view & delete accounts //
