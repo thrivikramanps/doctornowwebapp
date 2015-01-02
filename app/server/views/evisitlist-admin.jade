@@ -56,10 +56,9 @@ block content
 						#pdfviewercontainer(style = " width: 100%; height: 200px; overflow-y: scroll")
 							#pdfviewerpatientgeneral
 							#pdfviewerpatienthistory
-						#uploaderformcontainer
-							form( method="post", action="upload", enctype="multipart/form-data")#uploadform.well-dn
-								input(type="file", name="fileUploaded" value="Select")
-								input(type="submit" value="Upload")
+						form( method="post", action="upload", enctype="multipart/form-data")#uploadform.well-dn
+							input(type="text", name="user", id='user-tf').span2.required
+							input(type="submit", name="pass", id='pass-tf').span2.required
 
 
 
