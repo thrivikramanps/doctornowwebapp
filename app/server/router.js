@@ -129,7 +129,38 @@ module.exports = function(app) {
 	var fs =require('fs-extra');    //File System-needed for renaming file etc
 	app.use(bodyParser({defer: true}));
 
-	app.post('/upload', function(req, res, next) {
+	app.post('/upload', function (req, res, next) {
+	  	//console.log(" file path is " + req.files.file.path);
+	  	var form = new formidable.IncomingForm();
+
+	  	var serverPath = __dirname + "/patientpdf/";
+		console.log("server path is " + serverPath);
+	    //Formidable uploads to operating systems tmp dir by default
+	    form.uploadDir = serverPath;       //set upload directory
+	    form.keepExtensions = true;     //keep file extension
+
+	    var files = [];
+	    var fields = [];
+
+	    form
+	      .on('field', function (field, value) {
+	   		//     console.log(field, value);
+	        fields.push([field, value]);
+	      })
+	      .on('file', function (field, file) {
+	        console.log(file);
+	        files.push([field, file]);
+	      });
+
+	    for (var i=0; i<files.length; i++){
+		   //   console.log(files[0].field);
+		   //   console.log(files[0].file);
+	    }
+
+	    form.parse(req);
+	});
+
+	/*app.post('/upload', function(req, res, next) {
 		if (req.files) { 
 			console.log(util.inspect(req.files));
 			if (req.files.patientfile.size === 0) {
@@ -176,7 +207,7 @@ module.exports = function(app) {
 			} else
 				res.send({error: 'Something bad happened - new'});
 		}
-	});
+	});*/
 
 	/// Post files
 	/*app.post('/upload', function(req, res) {
