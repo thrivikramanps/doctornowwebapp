@@ -136,16 +136,45 @@ module.exports = function(app) {
 			            return next(new Error("Hey, first would you select a file?"));
 			}
 
+			var is_exist = false;
+
 			fs.readFile(req.files.patientfile.path, function (err, data) {
 
 				fs.exists(req.files.patientfile.path, function(exists) { 
 					if(exists) { 
-						res.send({path: "suck me"}); 
+						is_exist = true;
+						console.log("exists returned true");
 					} else { 
-						res.end("Well, there is no magic for those who don’t believe in it!"); 
+						console.log("exists did not return true");
+						res.send({
+		                    	error: 'Something bad happened'
+						});
+						return;
 					} 
 				}); 
 			});
+
+			if (is_exist){
+				var serverPath = '/patientpdf/' + req.files.patientfile.name;
+				console.log("server path is " + serverPath);
+
+				fs.rename(req.files.patientfile.path, __dirname + serverPath,
+					function(error) {
+		            	if(error) {
+							res.send({
+		                    	error: 'Something bad happened'
+							});
+		                	return;
+		            	}
+
+            			console.log("sending success from server");
+ 
+			            res.send({
+							path: serverPath
+			            });
+				});
+			} else
+				res.send({error: 'Something bad happened - new'});
 		}
 	});
 
