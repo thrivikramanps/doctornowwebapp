@@ -155,7 +155,7 @@ module.exports = function(app) {
 	});*/
 
 	/// Post files
-	app.post('/upload', function(req, res) {
+	/*app.post('/upload', function(req, res) {
 
 		fs.readFile(req.files.patientfile.path, function (err, data) {
 			var imageName = req.files.patientfile.name
@@ -168,7 +168,7 @@ module.exports = function(app) {
 
 			} else {
 
-			  var newPath = __dirname + "/uploads/fullsize/" + imageName;
+			  var newPath = __dirname + "/uploads/" + imageName;
 			  /// write file to uploads/fullsize folder
 			  fs.writeFile(newPath, data, function (err) {
 
@@ -185,6 +185,10 @@ module.exports = function(app) {
 		var img = fs.readFileSync(__dirname + "/uploads/" + file);
 		res.writeHead(200, {'Content-Type': 'application/pdf' });
 		res.end(img, 'binary');
+	});*/
+
+	app.post('/upload', function(req,res){
+		console.log(JSON.stringify(req.files));
 	});
 	
 
