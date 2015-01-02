@@ -129,6 +129,10 @@ module.exports = function(app) {
 		var form = new formidable.IncomingForm();
 		form.uploadDir = "./patientpdf";
 		form.keepExtensions = true; 
+
+	    var files = [];
+	    var fields = [];
+	    
 		form
 	      .on('field', function (field, value) {
 	   //     console.log(field, value);
