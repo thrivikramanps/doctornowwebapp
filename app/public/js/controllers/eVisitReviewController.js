@@ -56,25 +56,7 @@ function eVisitReviewController()
 		})
 	});
 
-	$('#uploadform').submit(function() {
-
-		$.ajaxSubmit({
-
-			error: function(xhr) {
-					status('Error: ' + xhr.status);
-					that.showLockedAlert('Upload failed', false);
-			},
-
-			success: function(response) {
-					  console.log(response);
-					  that.showLockedAlert('Uploaded success', false);
-			}
-		});
-
-		return false;
-	}); 
-
-	
+		
 	this.attemptLogout = function()
 	{
 		var that = this;
