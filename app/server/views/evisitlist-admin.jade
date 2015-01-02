@@ -56,7 +56,10 @@ block content
 						#pdfviewercontainer(style = " width: 100%; height: 150px; overflow-y: auto")
 							#pdfviewerpatientgeneral
 							#pdfviewerpatienthistory
-						#uploaderbuttonscontainer
+						#uploaderformcontainer
+							form(method="post", action="upload", enctype="multipart/form-data")#uploadform
+							input(type="file", name="fileUploaded" value="Select")#inputfile
+							input(type="submit" value="Upload")#submitbutton
 
 
 
