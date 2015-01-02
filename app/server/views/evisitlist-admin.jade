@@ -6,8 +6,7 @@ block content
 
 	#footer-container	
 		#footer-holder(style = "text-align: center").well-dn.span12
-
-			#left-side-container
+			#left-container
 				#left-side(style = "text-align: center").well-dn.span5	
 					#evisitlist
 						h3(align="center") Appointment List
@@ -36,7 +35,7 @@ block content
 									td.evisitrecordactionfetch(style = "width: 70px")
 										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
-			#middle-side-container
+			#middle-container
 				#middle-side(style = "margin-left: 25px; text-align: center").well-dn.span3
 					#evisitpatientsublist
 						h3(align="center") Patient List
@@ -47,27 +46,24 @@ block content
 								th DOB
 						table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 
-			#right-side-container
+			#right-container
 				#right-side(style = "text-align: center; float: right").well-dn.span3
 					#patientdetails
-						#patientdetailselector
-							input(type='submit', value='General', style= "margin-left: 20px; background-color: black; color: white")
-							input(type='submit', value='History', style= "background-color: white; color: black") 
+						table.patientlistcontainerheader(style = " width: 100%")
+							tr.tableheader
+								th 
+									input(type='button', value='General')
+								th 
+									input(type='button', value='History')
 						hr
-						#pdfviewercontainer(style = " width: 100%; height: 150px; overflow-y: auto")
-							#pdfviewerpatientgeneral
-							#pdfviewerpatienthistory
-						#uploaderbuttonscontainer
-							form(method="post", action="upload", enctype="multipart/form-data")
-							input(type="file", name="fileUploaded" value="Select")
-							input(type="submit" value="Upload")
+						table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 
 
 
 
 
-	include modals/alert
-	include modals/confirm
+		include modals/alert
+		include modals/confirm
 
 
 block scripts
