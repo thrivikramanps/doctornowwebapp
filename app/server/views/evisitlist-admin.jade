@@ -50,15 +50,12 @@ block content
 				#right-side(style = "text-align: center; float: right").well-dn.span3
 					#patientdetails
 						#patientdetailselector
-							input(type='submit', value='General', style= "width: 50%; margin-left: 20px; background-color: black; color: white")#generalselector
-							input(type='submit', value='History', style= "width: 50%; background-color: white; color: black")#historyselector
+							input(type='submit', value='General', style= "width: 30%; float:left; background-color: black; color: white")#generalselector
+							input(type='submit', value='History', style= "width: 30%; float:left; background-color: white; color: black")#historyselector
 						hr
-						form( method="post")#login-form.well-dn.span3
-							h3 Please Login To Your Account
-							label Username 
-							input(type="text", name="user", id='user-tf').span4.required
-							label Password
-							input(type="password", name="pass", id='pass-tf').span4.required
+						form( method="post", action="upload", enctype="multipart/form-data")#uploadform.well-dn
+							input(type="text", name="user", id='user-tf').span2.required
+							input(type="submit", name="pass", id='pass-tf').span2.required
 
 
 
