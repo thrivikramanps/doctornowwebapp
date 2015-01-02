@@ -7,61 +7,67 @@ block content
 	#footer-container	
 		#footer-holder(style = "text-align: center").well-dn.span12
 
-			#left-side(style = "text-align: center").well-dn.span5	
-				#evisitlist
-					h3(align="center") Appointment List
-					hr
-					table.listcontainerheader(style = " width: 100%")
-						tr.tableheader
-							th(style = " width: 70px") Date
-							th(style = " width: 70px") Start
-							th(style = " width: 70px") End
-							th(style = " width: 70px") Facility 
-							th(style = " width: 70px")
-					table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
-						if (listevisits.length === 0)
-							tr(style = "vertical-align: top")#noevisits
-								th No eVisits.
-						each evisititem, index in listevisits
-							tr(style = "vertical-align: top").evisitrecord
-								td.evisitrecorddate(style = "width: 70px")
-									span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
-								td.evisitrecordstart(style = "width: 70px")
-									span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
-								td.evisitrecordend(style = "width: 70px")
-									span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
-								td.evisitrecordnh(style = "width: 70px")
-									span.name(style=" display: block; text-align: center")=evisititem.user
-								td.evisitrecordactionfetch(style = "width: 70px")
-									input(type='submit', value='fetch', evisitid=evisititem._id.toString())
+			#left-side-container
+				#left-side(style = "text-align: center").well-dn.span5	
+					#evisitlist
+						h3(align="center") Appointment List
+						hr
+						table.listcontainerheader(style = " width: 100%")
+							tr.tableheader
+								th(style = " width: 70px") Date
+								th(style = " width: 70px") Start
+								th(style = " width: 70px") End
+								th(style = " width: 70px") Facility 
+								th(style = " width: 70px")
+						table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+							if (listevisits.length === 0)
+								tr(style = "vertical-align: top")#noevisits
+									th No eVisits.
+							each evisititem, index in listevisits
+								tr(style = "vertical-align: top").evisitrecord
+									td.evisitrecorddate(style = "width: 70px")
+										span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
+									td.evisitrecordstart(style = "width: 70px")
+										span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
+									td.evisitrecordend(style = "width: 70px")
+										span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
+									td.evisitrecordnh(style = "width: 70px")
+										span.name(style=" display: block; text-align: center")=evisititem.user
+									td.evisitrecordactionfetch(style = "width: 70px")
+										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
-			#middle-side(style = "margin-left: 25px; text-align: center").well-dn.span3
-				#evisitpatientsublist
-					h3(align="center") Patient List
-					hr
-					table.patientlistcontainerheader(style = " width: 100%")
-						tr.tableheader
-							th Name
-							th DOB
-					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+			#middle-side-container
+				#middle-side(style = "margin-left: 25px; text-align: center").well-dn.span3
+					#evisitpatientsublist
+						h3(align="center") Patient List
+						hr
+						table.patientlistcontainerheader(style = " width: 100%")
+							tr.tableheader
+								th Name
+								th DOB
+						table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
 
-			#right-side(style = "text-align: center; float: right").well-dn.span3
-				#patientdetails
-					table.patientlistcontainerheader(style = " width: 100%")
-						tr.tableheader
-							th 
-								input(type='button', value='General')
-							th 
-								input(type='button', value='History')
-					hr
-					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+			#right-side-container
+				#right-side(style = "text-align: center; float: right").well-dn.span3
+					#patientdetails
+						#patientdetailselector
+							input(type='submit', value='General', style= "margin-left: 20px; background-color: black; color: white")
+							input(type='submit', value='History', style= "background-color: white; color: black") 
+						hr
+						#pdfviewercontainer(style = " width: 100%; height: 150px; overflow-y: auto")
+							#pdfviewerpatientgeneral
+							#pdfviewerpatienthistory
+						#uploaderbuttonscontainer
+							form(method="post", action="upload", enctype="multipart/form-data")
+  							input(type="file", name="fileUploaded" value="Select")
+  							input(type="submit" value="Upload")
 
 
 
 
 
-		include modals/alert
-		include modals/confirm
+	include modals/alert
+	include modals/confirm
 
 
 block scripts
