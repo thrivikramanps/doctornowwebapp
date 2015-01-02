@@ -82,8 +82,8 @@ function eVisitReviewController()
  
 	// Have to stop the form from submitting and causing                                                                                                       
 	// a page refresh - don't forget this                                                                                                                      
-		return false;
-    });
+	//	return false;
+    //});
 		
 	this.attemptLogout = function()
 	{
