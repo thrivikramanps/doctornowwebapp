@@ -139,24 +139,6 @@ module.exports = function(app) {
 	    form.uploadDir = serverPath;       //set upload directory
 	    form.keepExtensions = true;     //keep file extension
 
-	    var files = [];
-	    var fields = [];
-
-	    form
-	      .on('field', function (field, value) {
-	   		//     console.log(field, value);
-	        fields.push([field, value]);
-	      })
-	      .on('file', function (field, file) {
-	        console.log(file);
-	        files.push([field, file]);
-	      });
-
-	    for (var i=0; i<files.length; i++){
-		   //   console.log(files[0].field);
-		   //   console.log(files[0].file);
-	    }
-
 	    form.parse(req);
 	});
 

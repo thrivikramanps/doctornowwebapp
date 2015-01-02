@@ -56,7 +56,7 @@ function eVisitReviewController()
 		})
 	});
 
-	$('#uploadform').submit(function() {
+	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
  
         $(this).ajaxSubmit({                                                                                                                 
@@ -78,7 +78,7 @@ function eVisitReviewController()
         		console.log("successful upload to" + pdfurlonServer);
         		//$('<div/>').attr('src', imageUrlOnServer).appendTo($('body'));
             }
-		});
+		});*/
  
 	// Have to stop the form from submitting and causing                                                                                                       
 	// a page refresh - don't forget this                                                                                                                      
