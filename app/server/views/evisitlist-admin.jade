@@ -18,7 +18,7 @@ block content
 								th(style = " width: 70px") End
 								th(style = " width: 70px") Facility 
 								th(style = " width: 70px")
-						table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+						table#listcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
 							if (listevisits.length === 0)
 								tr(style = "vertical-align: top")#noevisits
 									th No eVisits.
@@ -44,7 +44,7 @@ block content
 							tr.tableheader
 								th Name
 								th DOB
-						table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+						table#patientlistcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
 
 			#right-side-container
 				#right-side(style = "text-align: center; float: right").well-dn.span3
@@ -53,10 +53,10 @@ block content
 							input(type='submit', value='General', style= "margin-left: 20px; background-color: black; color: white")
 							input(type='submit', value='History', style= "background-color: white; color: black")
 						hr
-						#pdfviewercontainer(style = " width: 100%; height: 150px; overflow-y: auto")
+						#pdfviewercontainer(style = " width: 100%; height: 200px; overflow-y: scroll")
 							#pdfviewerpatientgeneral
 							#pdfviewerpatienthistory
-						#uploaderformcontainer
+						#uploaderformcontainer(style = " width: 100%; height: 90px")
 
 
 
