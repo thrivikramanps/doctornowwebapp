@@ -74,32 +74,7 @@ function eVisitReviewController()
 		});
 	});
 
-	$('.pdffetchbutton').click(function(event){
-		$target = $(event.target)
-		var idevisit = $target.attr('id');
-		var general = document.getElementById('generalselector');
-		var tabselected = general.style.color === "white"? "general":"history";
-		console.log("passed values are " + idevisit + " " + tabselected);
-
-		$.ajax({
-			type: 'POST',
-			url: '/evisitreview',
-			data: {
-				action: 'fetchpdf',
-				type: tabselected,
-				identity: idevisit
-			},
-			success: function(response) {
-				console.log("patientpdf response is " + response);
-				that.displayPdfinTabSelected(tabselected);
-			},
-			error: function(jqXHR) {
-				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-			}
-		});
-	});
-
-
+	
 	$('#uploadform').submit(function() {
         console.log('uploading the file ...');
  
@@ -154,6 +129,32 @@ function eVisitReviewController()
 		setTimeout(function(){if (redirect) window.location.href = '/';}, 3000);
 	}
 
+	this.pdffetcher = function(event){
+		$target = $(event.target)
+		var idevisit = $target.attr('id');
+		var general = document.getElementById('generalselector');
+		var tabselected = general.style.color === "white"? "general":"history";
+		console.log("passed values are " + idevisit + " " + tabselected);
+
+		$.ajax({
+			type: 'POST',
+			url: '/evisitreview',
+			data: {
+				action: 'fetchpdf',
+				type: tabselected,
+				identity: idevisit
+			},
+			success: function(response) {
+				console.log("patientpdf response is " + response);
+				that.displayPdfinTabSelected(tabselected);
+			},
+			error: function(jqXHR) {
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
+	}
+
+
 	this.insertPatientRecords = function(patientRecords, evisit_id)
 	{
 
@@ -194,6 +195,7 @@ function eVisitReviewController()
 				button.id =inputsname[i]+":"+inputsdob[i];
 				button.value = "fetch";
 				button.className = "pdffetchbutton";
+				button.addEventListener("click", that.pdffetcher)
 			}
 			
 			var span1 = document.createElement('span');
