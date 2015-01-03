@@ -227,7 +227,7 @@ function eVisitReviewController()
 				tr.appendChild(td2);
 			}
 			
-			tr.id = inputsname[i] + ":" + inputsdob[i] + ":" + ;
+			tr.id = inputsname[i] + ":" + inputsdob[i];
 			tr.class = "patientrecord";
 
 			parent_element.appendChild(tr);
