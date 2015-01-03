@@ -192,7 +192,7 @@ function eVisitReviewController()
 			if (role === "Admin"){
 				var button = document.createElement('input');
 				button.type = "button";
-				button.id =inputsname[i]+":"+inputsdob[i];
+				button.id =inputsname[i]+"_"+inputsdob[i];
 				button.value = "fetch";
 				button.className = "pdffetchbutton";
 				button.addEventListener("click", that.pdffetcher)
