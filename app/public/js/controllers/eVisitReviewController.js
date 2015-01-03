@@ -165,9 +165,9 @@ function eVisitReviewController()
     		parent_element.removeChild(parent_element.firstChild);
 		}
 
-		var role_element = document.getElementById('user-role');
-		var role = role_element.attr('roletype');
-		
+		//var role_element = document.getElementById('user-role');
+		var role = $('#user-role').attr('roletype');
+
 		var elementWidth;
 
 		if (role === 'Doctor' || role === 'Admin')
