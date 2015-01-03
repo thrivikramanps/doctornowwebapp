@@ -487,6 +487,14 @@ module.exports = function(app) {
 						res.send(o, 200);
 					}
 				});
+			} else if (req.param('action') === 'fetchpdf'){
+				var type = req.param('type');
+				var identity = req.param('identity');
+
+				console.log(" we are looking for " + type + " " + identity);
+
+			//	var desired_filename = 
+				res.send("ouch", 400);
 			}
 		}
 

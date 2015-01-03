@@ -71,7 +71,32 @@ function eVisitReviewController()
 		  error: function(jqXHR) {
 			console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 		  }
-		})
+		});
+	});
+
+	$('.patientrecord').click(function(event){
+		$target = $(event.target)
+		var idevisit = $target.attr('id');
+		var general = document.getElementById('generalselector');
+		var tabselected = general.style.color === "white"? "general":"history";
+		console.log("passed values are " + idevisit + " " + tabselected);
+
+		$.ajax({
+			type: 'POST',
+			url: '/evisitreview',
+			data: {
+				action: 'fetchpdf',
+				type: tabselected,
+				identity: idevisit
+			},
+			success: function(response) {
+				console.log("patientpdf response is " + response);
+				that.displayPdfinTabSelected(tabselected);
+			},
+			error: function(jqXHR) {
+				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+		});
 	});
 
 
@@ -129,7 +154,8 @@ function eVisitReviewController()
 		setTimeout(function(){if (redirect) window.location.href = '/';}, 3000);
 	}
 
-	this.insertPatientRecords = function(patientRecords, evisit_id){
+	this.insertPatientRecords = function(patientRecords, evisit_id)
+	{
 
 		var inputsname = [patientRecords[0].patient1name, patientRecords[0].patient2name, patientRecords[0].patient3name, patientRecords[0].patient4name];
 		var inputsdob =  [patientRecords[0].patient1dob, patientRecords[0].patient2dob, patientRecords[0].patient3dob, patientRecords[0].patient4dob];
@@ -201,15 +227,15 @@ function eVisitReviewController()
 				tr.appendChild(td2);
 			}
 			
-			tr.id = inputsname[i] + ":" + inputsdob[i];
+			tr.id = inputsname[i] + ":" + inputsdob[i] + ":" + ;
+			tr.class = "patientrecord";
 
 			parent_element.appendChild(tr);
 
 		}
-		
-		
+	}
 
-		
+	this.displayPdfinTabSelected = function(selectedtab){
 
 	}
 }
