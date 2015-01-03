@@ -181,29 +181,6 @@ function eVisitReviewController()
 			var td1 = document.createElement('td');
 			td1.style.width = elementWidth;
 			
-			if (role === 'Admin'){
-				var td2 = document.createElement('td');
-				td2.style.width = "100px";
-				var uploadform = document.createElement('form');
-				uploadform.name = 'uploadform';
-				uploadform.method = 'post';
-				uploadform.action = '/upload';
-				uploadform.id = 'uploadform';
-				uploadform.id = 'multipart/form-data';
-				uploadform.multiple ="";
-
-				var input1 = document.createElement('input');
-				input1.setAttribute('type', 'file');
-				input1.setAttribute('name', 'patientfile');
-				input1.setAttribute('accept', 'image/*');
-				uploadform.appendChild(input1);
-
-				/*var input3 = document.createElement('input');
-				input3.setAttribute('type', 'submit');
-				input3.setAttribute('value', 'Submit');
-				uploadform.appendChild(input3);*/
-			}
-
 			var span1 = document.createElement('span');
 			var span2 = document.createElement('span');
 
@@ -216,20 +193,13 @@ function eVisitReviewController()
 
 			td0.appendChild(span1);
 			td1.appendChild(span2);
-			if (role === 'Admin'){
-				td2.appendChild(uploadform);
-			}	
 
 			tr.appendChild(td0);
 			if (role !== 'Doctor')
 				tr.appendChild(td1);
-			if (role === 'Admin'){
-				tr.appendChild(td2);
-			}
 			
 			tr.id = inputsname[i] + ":" + inputsdob[i];
 			tr.class = "patientrecord";
-			tr.href = "";
 
 			parent_element.appendChild(tr);
 
