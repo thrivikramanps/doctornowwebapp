@@ -14,6 +14,20 @@ function eVisitReviewController()
 // handle user logout //
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
+	$('#generalselector').click(function(){
+		$('#generalselector').style.backgroundColor = "black";
+		$('#generalselector').style.color = "white";
+		$('#historyselector').style.backgroundColor = "black";
+		$('#historyselector').style.color = "white";
+	});
+
+	$('#historyselector').click(function(){
+		$('#historyselector').style.backgroundColor = "black";
+		$('#historyselector').style.color = "white";
+		$('#generalselector').style.backgroundColor = "black";
+		$('#generalselector').style.color = "white";
+	});
+
 
 	$('.evisitrecordactiondelete').click(function(event) {
 		$target = $(event.target)
