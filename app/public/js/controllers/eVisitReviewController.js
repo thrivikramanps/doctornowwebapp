@@ -74,9 +74,9 @@ function eVisitReviewController()
 		});
 	});
 
-	$("#patientlistcontainer tr").on("click", function() {
-		//$target = $(event.target)
-		var idevisit = $(this).attr('id');
+	$('.patientrecordfetch').click(function(event){
+		$target = $(event.target)
+		var idevisit = $target.attr('id');
 		var general = document.getElementById('generalselector');
 		var tabselected = general.style.color === "white"? "general":"history";
 		console.log("passed values are " + idevisit + " " + tabselected);

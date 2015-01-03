@@ -18,22 +18,23 @@ block content
 								th(style = " width: 70px") End
 								th(style = " width: 70px") Facility 
 								th(style = " width: 70px")
-						table#listcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
-							if (listevisits.length === 0)
-								tr(style = "vertical-align: top")#noevisits
-									th No eVisits.
-							each evisititem, index in listevisits
-								tr(style = "vertical-align: top").evisitrecord
-									td.evisitrecorddate(style = "width: 70px")
-										span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
-									td.evisitrecordstart(style = "width: 70px")
-										span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
-									td.evisitrecordend(style = "width: 70px")
-										span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
-									td.evisitrecordnh(style = "width: 70px")
-										span.name(style=" display: block; text-align: center")=evisititem.user
-									td.evisitrecordactionfetch(style = "width: 70px")
-										input(type='submit', value='fetch', evisitid=evisititem._id.toString())
+						#divlistcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
+							table#listcontainer
+								if (listevisits.length === 0)
+									tr(style = "vertical-align: top")#noevisits
+										th No eVisits.
+								each evisititem, index in listevisits
+									tr(style = "vertical-align: top").evisitrecord
+										td.evisitrecorddate(style = "width: 70px")
+											span.name(style=" display: block; text-align: center")=evisititem.appointmentdate
+										td.evisitrecordstart(style = "width: 70px")
+											span.name(style=" display: block; text-align: center")=evisititem.appointmentstarttime
+										td.evisitrecordend(style = "width: 70px")
+											span.name(style=" display: block; text-align: center")=evisititem.appointmentendtime
+										td.evisitrecordnh(style = "width: 70px")
+											span.name(style=" display: block; text-align: center")=evisititem.user
+										td.evisitrecordactionfetch(style = "width: 70px")
+											input(type='submit', value='fetch', evisitid=evisititem._id.toString())
 
 			#middle-side-container
 				#middle-side(style = "margin-left: 10px; text-align: center; width: 180px").well-dn.span2
@@ -44,7 +45,8 @@ block content
 							tr.tableheader
 								th Name
 								th DOB
-						table#patientlistcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
+						#divpatientlistcontainer(style = " width: 100%; height: 300px; overflow-y: scroll")
+							table#patientlistcontainer
 
 			#right-side-container
 				#right-side(style = "text-align: center; float: right").well-dn.span4
