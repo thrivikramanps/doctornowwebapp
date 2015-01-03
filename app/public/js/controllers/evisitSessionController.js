@@ -87,6 +87,7 @@ function eVisitSessionController()
 		var general = document.getElementById('generalselector');
 		var history = document.getElementById('historyselector');
 		var notes = document.getElementById('notesselector');
+		var list = document.getElementById('listselector');
 		list.style.backgroundColor = "black";
 		list.style.color = "white";
 		notes.style.backgroundColor = "white";
