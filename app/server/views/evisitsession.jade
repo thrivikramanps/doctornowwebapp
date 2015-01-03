@@ -3,21 +3,23 @@ extends homehead
 block content
 	include homebodyheader
 	include homebodymiddle
-	#left-container(style="margin-left: 175px")
+	#left-container(style="align: center; margin-left:182px; margin-right: 5px").well-dn.span4
 		#left-side-holder
-			#patient-details-container(style="align: center; margin-right: 5px").well-dn.span4
-				input(type='submit', value='Patient List', style= "margin-left: 20px; background-color: black; color: white")
-				input(type='submit', value='Patient Data', style= "background-color: white; color: black")
-				input(type='submit', value='Patient History', style= "background-color: white; color: black")      
+			#patientdetailselector
+							input(type='button', value='List', style= "width: 22.5%; background-color: black; color: white")#listselector
+							input(type='button', value='General', style= "width: 22.5%; background-color: white; color: black")#generalselector
+							input(type='button', value='History', style= "width: 22.5%; background-color: white; color: black")#historyselector
+							input(type='button', value='Notes', style= "width: 22.5%; background-color: white; color: black")#notesselector
+			hr(style="margin-top: 8px")
+			#pdfviewercontainer(style = " width: 87%; height: 200px; overflow-y: scroll").well-dn
+							#pdfviewerpatientlist
+							#pdfviewerpatientgeneral
+							#pdfviewerpatienthistory
+							#pdfviewerpatientnotes      
 
 	video#localVideo(autoplay="", muted="").well-dn.wellspecial2
 	video#remoteVideo(autoplay="").well-dn.wellspecial2
 
-	#footer-container
-		#button-holder.well-dn.span4(style="text-align: center; margin-left: 345px")
-			button#startButton Start
-			button#callButton Call
-			button#hangupButton End
 block scripts	
 	script(src='/vendor/jquery.min.js')
 	script(src='/vendor/jquery.form.js')
