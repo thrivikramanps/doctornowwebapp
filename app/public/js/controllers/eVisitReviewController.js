@@ -165,7 +165,9 @@ function eVisitReviewController()
     		parent_element.removeChild(parent_element.firstChild);
 		}
 
-		var role = patientRecords.role;
+		var role_element = document.getElementById('user-role');
+		var role = role_element.attr('roletype');
+		
 		var elementWidth;
 
 		if (role === 'Doctor' || role === 'Admin')
