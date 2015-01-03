@@ -15,8 +15,8 @@ function eVisitReviewController()
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
 	$('#generalselector').click(function(){
-		var general = document.getElementById(generalselector);
-		var history = document.getElementById(historyselector);
+		var general = document.getElementById('generalselector');
+		var history = document.getElementById('historyselector');
 		general.style.backgroundColor = "black";
 		general.style.color = "white";
 		history.style.backgroundColor = "black";
@@ -24,6 +24,8 @@ function eVisitReviewController()
 	});
 
 	$('#historyselector').click(function(){
+		var general = document.getElementById('generalselector');
+		var history = document.getElementById('historyselector');
 		history.style.backgroundColor = "black";
 		history.style.color = "white";
 		general.style.backgroundColor = "black";
