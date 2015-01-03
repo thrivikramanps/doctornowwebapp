@@ -497,7 +497,15 @@ module.exports = function(app) {
 
 				console.log("desired file is at path " + desired_filename);
 
-				res.send("ouch", 400);
+				fs.readFile(desired_filename, function(err, file){
+					if(err)
+						res.send("ouch", 400);
+					else {
+						res.writeHead(200, {"Content-Type" : "application/pdf" });
+	     			    res.write(file, "binary");
+	      				res.end();
+      				}
+				});
 			}
 		}
 
