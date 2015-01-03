@@ -493,7 +493,10 @@ module.exports = function(app) {
 
 				console.log(" we are looking for " + type + " " + identity);
 
-			//	var desired_filename = 
+				var desired_filename = './uploads/' + identity.toString() + '.pdf';
+
+				console.log("desired file is at path" + desired_filename);
+
 				res.send("ouch", 400);
 			}
 		}
