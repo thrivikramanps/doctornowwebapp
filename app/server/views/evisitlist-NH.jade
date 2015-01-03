@@ -19,7 +19,8 @@ block content
 							th(style = " width: 90px") End
 							th(style = " width: 90px") Doctor
 							th(style = " width: 90px")
-					table#listcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+					#divlistcontainer(style = " width: 100%; height: 200px; overflow-y: scroll")
+						table#listcontainer
 						if (listevisits.length === 0)
 							tr(style = "vertical-align: top")#noevisits
 								th No eVisits.
@@ -46,7 +47,8 @@ block content
 						tr.tableheader
 							th Name
 							th DOB
-					table#patientlistcontainer(style = " width: 100%; height: 200px; overflow-y: auto")
+					#divpatientlistcontainer(style = " width: 100%; height: 200px; overflow-y: scroll")
+						table#patientlistcontainer
 
 
 
