@@ -201,7 +201,7 @@ function eVisitReviewController()
 				tr.appendChild(td2);
 			}
 			
-			tr.id = toString(inputsname[i]) + ":" + toString(inputsdob[i]);
+			tr.id = inputsname[i] + ":" + inputsdob[i];
 
 			parent_element.appendChild(tr);
 
