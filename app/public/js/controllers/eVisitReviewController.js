@@ -74,7 +74,7 @@ function eVisitReviewController()
 		});
 	});
 
-	$('.patientrecordfetch').click(function(event){
+	$('.pdffetchbutton').click(function(event){
 		$target = $(event.target)
 		var idevisit = $target.attr('id');
 		var general = document.getElementById('generalselector');
@@ -193,6 +193,7 @@ function eVisitReviewController()
 				button.type = "button";
 				button.id =inputsname[i]+":"+inputsdob[i];
 				button.value = "fetch";
+				button.class = "pdffetchbutton";
 			}
 			
 			var span1 = document.createElement('span');
