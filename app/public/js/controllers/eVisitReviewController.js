@@ -229,6 +229,7 @@ function eVisitReviewController()
 			
 			tr.id = inputsname[i] + ":" + inputsdob[i];
 			tr.class = "patientrecord";
+			tr.href = "";
 
 			parent_element.appendChild(tr);
 
