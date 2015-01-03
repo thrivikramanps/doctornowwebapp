@@ -137,7 +137,7 @@ function eVisitReviewController()
 		console.log("passed values are " + idevisit + " " + tabselected);
 
 		$.ajax({
-			type: 'GET',
+			type: 'POST',
 			url: '/evisitreview',
 			data: {
 				action: 'fetchpdf',
