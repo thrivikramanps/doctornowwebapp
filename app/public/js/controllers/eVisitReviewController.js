@@ -74,6 +74,7 @@ function eVisitReviewController()
 		})
 	});
 
+
 	$('#uploadform').submit(function() {
         console.log('uploading the file ...');
  
@@ -200,6 +201,8 @@ function eVisitReviewController()
 				tr.appendChild(td2);
 			}
 			
+			tr.id = toString(inputsname[i]) + ":" + toString(inputsdob[i]);
+
 			parent_element.appendChild(tr);
 
 		}
