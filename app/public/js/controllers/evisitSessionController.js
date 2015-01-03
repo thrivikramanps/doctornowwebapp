@@ -51,6 +51,7 @@ function eVisitSessionController()
 		var general = document.getElementById('generalselector');
 		var history = document.getElementById('historyselector');
 		var notes = document.getElementById('notesselector');
+		var list = document.getElementById('listselector');
 		history.style.backgroundColor = "black";
 		history.style.color = "white";
 		general.style.backgroundColor = "white";
@@ -69,6 +70,7 @@ function eVisitSessionController()
 		var general = document.getElementById('generalselector');
 		var history = document.getElementById('historyselector');
 		var notes = document.getElementById('notesselector');
+		var list = document.getElementById('listselector');
 		notes.style.backgroundColor = "black";
 		notes.style.color = "white";
 		general.style.backgroundColor = "white";
