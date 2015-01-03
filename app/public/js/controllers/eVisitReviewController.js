@@ -19,8 +19,8 @@ function eVisitReviewController()
 		var history = document.getElementById('historyselector');
 		general.style.backgroundColor = "black";
 		general.style.color = "white";
-		history.style.backgroundColor = "black";
-		history.style.color = "white";
+		history.style.backgroundColor = "white";
+		history.style.color = "black";
 	});
 
 	$('#historyselector').click(function(){
@@ -28,8 +28,8 @@ function eVisitReviewController()
 		var history = document.getElementById('historyselector');
 		history.style.backgroundColor = "black";
 		history.style.color = "white";
-		general.style.backgroundColor = "black";
-		general.style.color = "white";
+		general.style.backgroundColor = "white";
+		general.style.color = "black";
 	});
 
 
