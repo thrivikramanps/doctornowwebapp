@@ -15,17 +15,19 @@ function eVisitReviewController()
 	$('#btn-logout-user').click(function(){ that.attemptLogout(); });
 
 	$('#generalselector').click(function(){
-		$('#generalselector').style.backgroundColor = "black";
-		$('#generalselector').style.color = "white";
-		$('#historyselector').style.backgroundColor = "black";
-		$('#historyselector').style.color = "white";
+		var general = document.getElementById(generalselector);
+		var history = document.getElementById(historyselector);
+		general.style.backgroundColor = "black";
+		general.style.color = "white";
+		history.style.backgroundColor = "black";
+		history.style.color = "white";
 	});
 
 	$('#historyselector').click(function(){
-		$('#historyselector').style.backgroundColor = "black";
-		$('#historyselector').style.color = "white";
-		$('#generalselector').style.backgroundColor = "black";
-		$('#generalselector').style.color = "white";
+		history.style.backgroundColor = "black";
+		history.style.color = "white";
+		general.style.backgroundColor = "black";
+		general.style.color = "white";
 	});
 
 
