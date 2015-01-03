@@ -17,19 +17,41 @@ function eVisitReviewController()
 	$('#generalselector').click(function(){
 		var general = document.getElementById('generalselector');
 		var history = document.getElementById('historyselector');
+		var notes = document.getElementById('notesselector');
 		general.style.backgroundColor = "black";
 		general.style.color = "white";
 		history.style.backgroundColor = "white";
 		history.style.color = "black";
+		if (notes){
+			notes.style.backgroundColor = "white";
+			notes.style.color = "black";
+		}
 	});
 
 	$('#historyselector').click(function(){
 		var general = document.getElementById('generalselector');
 		var history = document.getElementById('historyselector');
+		var notes = document.getElementById('notesselector');
 		history.style.backgroundColor = "black";
 		history.style.color = "white";
 		general.style.backgroundColor = "white";
 		general.style.color = "black";
+		if (notes){
+			notes.style.backgroundColor = "white";
+			notes.style.color = "black";
+		}
+	});
+
+	$('#notesselector').click(function(){
+		var general = document.getElementById('generalselector');
+		var history = document.getElementById('historyselector');
+		var notes = document.getElementById('notesselector');
+		notes.style.backgroundColor = "black";
+		notes.style.color = "white";
+		general.style.backgroundColor = "white";
+		general.style.color = "black";
+		history.style.backgroundColor = "white";
+		history.style.color = "black";
 	});
 
 
