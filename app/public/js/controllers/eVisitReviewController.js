@@ -168,7 +168,7 @@ function eVisitReviewController()
 		var role = patientRecords.role;
 		var elementWidth;
 
-		if (role === 'Doctor')
+		if (role === 'Doctor' || role === 'Admin')
 			elementWidth = "70px";
 		else
 			elementWidth = "75px";
@@ -180,6 +180,18 @@ function eVisitReviewController()
 			td0.style.width = elementWidth;
 			var td1 = document.createElement('td');
 			td1.style.width = elementWidth;
+			if (role === "Admin"){
+				var td2 = document.createElement('td');
+				td2.style.width = elementWidth;
+			}
+
+
+			if (role === "Admin"){
+				var button = document.createElement('input');
+				button.type = "button";
+				button.id =inputsname[i]+":"+inputsdob[i];
+				button.value = "fetch";
+			}
 			
 			var span1 = document.createElement('span');
 			var span2 = document.createElement('span');
@@ -194,11 +206,18 @@ function eVisitReviewController()
 			td0.appendChild(span1);
 			td1.appendChild(span2);
 
+			if (role === 'Admin')
+				td2.appendChild(button);
+
 			tr.appendChild(td0);
+
 			if (role !== 'Doctor')
 				tr.appendChild(td1);
+
+			if (role === 'Admin')
+				tr.appendChild(td2);
 			
-			tr.id = inputsname[i] + ":" + inputsdob[i];
+			//tr.id = inputsname[i] + ":" + inputsdob[i];
 			tr.class = "patientrecord";
 
 			parent_element.appendChild(tr);
