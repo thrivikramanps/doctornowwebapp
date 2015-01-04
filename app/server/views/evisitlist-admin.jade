@@ -57,7 +57,9 @@ block content
 						hr(style="margin-top: 8px")
 						#pdfviewercontainer(style = " width: 87%; height: 200px; overflow-y: scroll").well-dn
 							#pdfviewerpatientgeneral
+								iframe#upload_target_general(name="upload_target", style="border:2px;opacity:0;filter:alpha(opacity=0)")
 							#pdfviewerpatienthistory
+								iframe#upload_target_history(name="upload_target", style="border:2px;opacity:0;filter:alpha(opacity=0)")
 						form( method="post", action="/upload", enctype="multipart/form-data", style=" height: 28px; margin-bottom: 0px; margin-top: 10px")#uploadform.well-dn
 							input(type="file", name="patientfile", id='patient-file', style=" width: 70%")
 							input(type="submit", name="submitupload", id='submitupload')
