@@ -181,6 +181,10 @@ function eVisitReviewController()
 		
 				var form_element = document.createElement('form');
 				form_element.method = "POST";
+				if (tabselected === "general")
+					form_element.target ="upload_target_general";
+				else if (tabselected === "history")
+					form_element.target = "upload_target_history";
 				form_element.action = "/evisitreview";
 				form_element.name = "pdffetchform";
 				form_element.className = "pdffetchform";
