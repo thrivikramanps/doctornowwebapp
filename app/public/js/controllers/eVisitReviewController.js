@@ -172,28 +172,9 @@ function eVisitReviewController()
 
 
 	this.pdffetcher = function(event){
-		$target = $(event.target)
-		var idevisit = $target.attr('id');
-		var general = document.getElementById('generalselector');
-		var tabselected = general.style.color === "white"? "general":"history";
-		console.log("passed values are " + idevisit + " " + tabselected);
-
-		$.ajax({
-			type: 'POST',
-			url: '/evisitreview',
-			data: {
-				action: 'fetchpdf',
-				type: tabselected,
-				identity: idevisit
-			},
-			success: function(response) {
-				console.log("patientpdf response is " + response);
-				that.displayPdfinTabSelected(response, tabselected);
-			},
-			error: function(jqXHR) {
-				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
-			}
-		});
+		console.log("reached the pdffetcher function");
+		$target = $(event.target);
+		$target.form.submit();
 	}
 
 
@@ -249,7 +230,7 @@ function eVisitReviewController()
 				button.name = "submit";
 				button.className = "pdffetchsubmit";
 				form_element.appendChild(button);
-				button.addEventListener("click", that.form.submit());
+				button.addEventListener("click", that.pdffetcher);
 			}
 			
 			var span1 = document.createElement('span');
