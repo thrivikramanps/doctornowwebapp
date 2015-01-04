@@ -168,7 +168,7 @@ function eVisitReviewController()
 			},
 			success: function(response) {
 				console.log("patientpdf response is " + response);
-				that.displayPdfinTabSelected(tabselected);
+				that.displayPdfinTabSelected(response, tabselected);
 			},
 			error: function(jqXHR) {
 				console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
@@ -252,8 +252,13 @@ function eVisitReviewController()
 		}
 	}
 
-	this.displayPdfinTabSelected = function(selectedtab){
+	this.displayPdfinTabSelected = function(response, selectedtab){
 
+		if (selectedtab === 'general')
+			document.getElementById("upload_target_general").contentWindow.document.body.innerHTML=response;
+		else if (selectedtab === 'history')
+			document.getElementById("upload_target_history").contentWindow.document.body.innerHTML=response;
+		
 	}
 }
 
