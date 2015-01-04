@@ -200,10 +200,10 @@ function eVisitReviewController()
 				var button = document.createElement('input');
 				button.type = "submit";
 				button.value = "submit";
-				button.name = "submit";
-				button.className = "submit";
+				button.name = "formsubmit";
+				button.className = "formsubmit";
 				form_element.appendChild(button);
-				document.pdffetchform.submit();
+				form_element.submit();
 	}
 
 
