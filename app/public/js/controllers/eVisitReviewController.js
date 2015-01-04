@@ -193,25 +193,25 @@ function eVisitReviewController()
 				form_element.name = "pdffetchform";
 				form_element.className = "pdffetchform";
 
-				var input_element = iframeselecteddocument.createElement('input');
+				var input_element = document.createElement('input');
 				input_element.type = "hidden";
 				input_element.name = "identity";
 				input_element.value = filename;
 				form_element.appendChild(input_element);
 
-				var input_element2 = iframeselecteddocument.createElement('input');
+				var input_element2 = document.createElement('input');
 				input_element2.type = "hidden";
 				input_element2.name = "type";
 				input_element2.value = tabselected;
 				form_element.appendChild(input_element2);
 
-				var input_element3 = iframeselecteddocument.createElement('input');
+				var input_element3 = document.createElement('input');
 				input_element3.type = "hidden";
 				input_element3.name = "action";
 				input_element3.value = "fetchpdf";
 				form_element.appendChild(input_element3);
 
-				var button = iframeselecteddocument.createElement('input');
+				var button = document.createElement('input');
 				button.type = "submit";
 				button.value = "submit";
 				button.name = "formsubmit";
