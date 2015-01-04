@@ -103,6 +103,7 @@ function eVisitReviewController()
 		//console.log("passed values are " + idevisit + " " + tabselected);	
 			beforeSubmit : function(formData, jqForm, options){
 				// append 'remember-me' option to formData to write local cookie //
+					console.log("entered before submit region");
 					formData.push({name:'action', value: 'fetchpdf'}, {name:'type', value: tabselected});
 					return true;
 			},
