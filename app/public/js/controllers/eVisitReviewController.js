@@ -178,10 +178,13 @@ function eVisitReviewController()
 		var tabselected = general.style.color === "white"? "general":"history";
 
 		console.log("inside pdffetcher " + filename + " " + tabselected);
-		
-				var form_element = document.createElement('form');
+
+		var iframeselectedId = (tabselected === "general")? "upload_target_general":"upload_target_history";
+		var iframeselecteddocument = document.getElementById(iframeselectedId).contentWindow.document;
+
+				var form_element = iframeselecteddocument.createElement('form');
 				form_element.method = "POST";
-				form_element.target = "_blank";
+				//form_element.target = "_blank";
 				/*if (tabselected === "general")
 					form_element.target ="upload_target_general";
 				else if (tabselected === "history")
@@ -190,25 +193,25 @@ function eVisitReviewController()
 				form_element.name = "pdffetchform";
 				form_element.className = "pdffetchform";
 
-				var input_element = document.createElement('input');
+				var input_element = iframeselecteddocument.createElement('input');
 				input_element.type = "hidden";
 				input_element.name = "identity";
 				input_element.value = filename;
 				form_element.appendChild(input_element);
 
-				var input_element2 = document.createElement('input');
+				var input_element2 = iframeselecteddocument.createElement('input');
 				input_element2.type = "hidden";
 				input_element2.name = "type";
 				input_element2.value = tabselected;
 				form_element.appendChild(input_element2);
 
-				var input_element3 = document.createElement('input');
+				var input_element3 = iframeselecteddocument.createElement('input');
 				input_element3.type = "hidden";
 				input_element3.name = "action";
 				input_element3.value = "fetchpdf";
 				form_element.appendChild(input_element3);
 
-				var button = document.createElement('input');
+				var button = iframeselecteddocument.createElement('input');
 				button.type = "submit";
 				button.value = "submit";
 				button.name = "formsubmit";
@@ -258,7 +261,7 @@ function eVisitReviewController()
 
 				var button = document.createElement('input');
 				button.type = "button";
-				button.value = "fetch";
+				button.value = "View";
 				button.className = "pdffetchsubmit";
 				button.name = inputsname[i]+"_"+inputsdob[i];
 				button.addEventListener("click", that.pdffetcher);
