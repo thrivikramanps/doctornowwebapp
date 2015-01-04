@@ -181,10 +181,10 @@ function eVisitReviewController()
 		
 				var form_element = document.createElement('form');
 				form_element.method = "POST";
-				if (tabselected === "general")
+				/*if (tabselected === "general")
 					form_element.target ="upload_target_general";
 				else if (tabselected === "history")
-					form_element.target = "upload_target_history";
+					form_element.target = "upload_target_history";*/
 				form_element.action = "/evisitreview";
 				form_element.name = "pdffetchform";
 				form_element.className = "pdffetchform";
@@ -213,7 +213,10 @@ function eVisitReviewController()
 				button.name = "formsubmit";
 				button.className = "formsubmit";
 				form_element.appendChild(button);
-				form_element.submit();
+				form_element.submit(function(e){
+					window.open('', 'popupform', 'width=400,height=400,resizeable,scrollbars');
+					this.target = "popupform";
+				});
 	}
 
 
