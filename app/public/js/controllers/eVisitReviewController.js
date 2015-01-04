@@ -197,6 +197,12 @@ function eVisitReviewController()
 				input_element2.value = tabselected;
 				form_element.appendChild(input_element2);
 
+				var input_element3 = document.createElement('input');
+				input_element3.type = "hidden";
+				input_element3.name = "action";
+				input_element3.value = "fetchpdf";
+				form_element.appendChild(input_element3);
+
 				var button = document.createElement('input');
 				button.type = "submit";
 				button.value = "submit";
