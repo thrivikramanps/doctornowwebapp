@@ -493,7 +493,7 @@ module.exports = function(app) {
 
 				console.log("desired file is at path " + desired_filename);
 
-				/*fs.readFile(desired_filename, function(err, file){
+				fs.readFile(desired_filename, function(err, file){
 					if(err)
 						res.send("ouch", 400);
 					else {
@@ -501,7 +501,7 @@ module.exports = function(app) {
 	     			    res.write(file, "binary");
 	      				res.end();
       				}
-				});*/
+				});
 			}
 		}
 
