@@ -136,7 +136,7 @@ module.exports = function(app) {
     	form
 		    .on('error', function(err) {
 		    	console.log("error with form upload");
-		    	res.send('bad result', 400);
+		    //	res.send('bad result', 400);
 		    })
 		    .on('file', function(field, file) {
 		        //On file received
@@ -149,7 +149,7 @@ module.exports = function(app) {
 		    })
 		    .on('end', function() {
 		    	console.log("form parsing ended");
-		    	res.send('ok', 200);
+		    	//res.send('ok', 200);
 		    });
 
 	    form.parse(req);
