@@ -96,10 +96,9 @@ function eVisitReviewController()
 		});
 	});
 
-	var general = document.getElementById('generalselector');
-	var tabselected = general.style.color === "white"? "general":"history";
+	
 
-	$('.pdffetchform').ajaxForm({
+	/*$('.pdffetchform').ajaxForm({
 		//console.log("passed values are " + idevisit + " " + tabselected);	
 			beforeSubmit : function(formData, jqForm, options){
 				// append 'remember-me' option to formData to write local cookie //
@@ -114,7 +113,7 @@ function eVisitReviewController()
 			error: function(jqXHR) {
 					console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
 			}
-	});
+	});*/
 
 	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
@@ -174,7 +173,33 @@ function eVisitReviewController()
 	this.pdffetcher = function(event){
 		console.log("reached the pdffetcher function");
 		$target = $(event.target);
-		$target.form.submit();
+		var filename= $target.attr('name');
+		var general = document.getElementById('generalselector');
+		var tabselected = general.style.color === "white"? "general":"history";
+		
+				var form_element = document.createElement('form');
+				form_element.method = "POST";
+				form_element.action = "/evisitreview";
+				form_element.className = "pdffetchform";
+
+				var input_element = document.createElement('input');
+				input_element.type = "hidden";
+				input_element.name = "identity";
+				input_element.value = filename;
+				form_element.appendChild(input_element);
+
+				var input_element2 = document.createElement('input');
+				input_element2.type = "hidden";
+				input_element2.name = "type";
+				input_element2.value = tabselected;
+				form_element.appendChild(input_element2);
+
+				var button = document.createElement('input');
+				button.type = "submit";
+				button.value = "submit";
+				button.name = "submit";
+				button.className = "submit";
+				form_element.appendChild(button);
 	}
 
 
@@ -213,24 +238,13 @@ function eVisitReviewController()
 
 			if (role === "Admin"){
 
-				var form_element = document.createElement('form');
-				form_element.method = "POST";
-				form_element.action = "/evisitreview";
-				form_element.className = "pdffetchform";
-
-				var input_element = document.createElement('input');
-				input_element.type = "hidden";
-				input_element.name = "identity";
-				input_element.value = inputsname[i]+"_"+inputsdob[i];
-				form_element.appendChild(input_element);
-
 				var button = document.createElement('input');
 				button.type = "button";
 				button.value = "fetch";
-				button.name = "submit";
 				button.className = "pdffetchsubmit";
-				form_element.appendChild(button);
+				button.name = inputsname[i]+"_"+inputsdob[i];
 				button.addEventListener("click", that.pdffetcher);
+
 			}
 			
 			var span1 = document.createElement('span');
@@ -247,7 +261,7 @@ function eVisitReviewController()
 			td1.appendChild(span2);
 
 			if (role === 'Admin')
-				td2.appendChild(form_element);
+				td2.appendChild(button);
 
 			tr.appendChild(td0);
 
