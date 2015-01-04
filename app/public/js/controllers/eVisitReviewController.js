@@ -96,6 +96,24 @@ function eVisitReviewController()
 		});
 	});
 
+	$('.pdffetchform').ajaxForm({
+		var general = document.getElementById('generalselector');
+		var tabselected = general.style.color === "white"? "general":"history";
+		//console.log("passed values are " + idevisit + " " + tabselected);	
+			beforeSubmit : function(formData, jqForm, options){
+				// append 'remember-me' option to formData to write local cookie //
+					formData.push({name:'action', value: 'fetchpdf'}, {name:'type', value: tabselected});
+					return true;
+			},
+			success: function(response) {
+					console.log("patientpdf response is " + response);
+					//that.displayPdfinTabSelected(response, tabselected);
+			},
+			error: function(jqXHR) {
+					console.log(jqXHR.responseText+' :: '+jqXHR.statusText);
+			}
+	});
+
 	
 	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
@@ -150,6 +168,7 @@ function eVisitReviewController()
 		$('.modal-alert button').click(function(){if (redirect) window.location.href = '/';});
 		setTimeout(function(){if (redirect) window.location.href = '/';}, 3000);
 	}
+
 
 	this.pdffetcher = function(event){
 		$target = $(event.target)
@@ -210,14 +229,24 @@ function eVisitReviewController()
 				td2.style.width = elementWidth;
 			}
 
-
 			if (role === "Admin"){
+
+				var form_element = document.createElement('form');
+				form_element.method = "POST";
+				form_element.action = "/evisitreview";
+				form_element.className = "pdffetchform";
+
+				var input_element = document.createElement('input');
+				input_element.type = "hidden";
+				input_element.name = "identity";
+				input_element.value = inputsname[i]+"_"+inputsdob[i];
+				form_element.appendChild(input_element);
+
 				var button = document.createElement('input');
-				button.type = "button";
-				button.id =inputsname[i]+"_"+inputsdob[i];
+				button.type = "submit";
 				button.value = "fetch";
-				button.className = "pdffetchbutton";
-				button.addEventListener("click", that.pdffetcher)
+				button.name = "submit";
+				form_element.appendChild(button);
 			}
 			
 			var span1 = document.createElement('span');
@@ -234,7 +263,7 @@ function eVisitReviewController()
 			td1.appendChild(span2);
 
 			if (role === 'Admin')
-				td2.appendChild(button);
+				td2.appendChild(form_element);
 
 			tr.appendChild(td0);
 
@@ -258,7 +287,7 @@ function eVisitReviewController()
 			document.getElementById("upload_target_general").contentWindow.document.body.innerHTML=response;
 		else if (selectedtab === 'history')
 			document.getElementById("upload_target_history").contentWindow.document.body.innerHTML=response;
-		
+
 	}
 }
 
