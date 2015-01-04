@@ -248,7 +248,7 @@ function eVisitReviewController()
 				button.value = "fetch";
 				button.name = "submit";
 				button.className = "pdffetchsubmit";
-				//button.addEventListener("click", that.parentNode.submit());
+				button.addEventListener("click", that.form.submit());
 				form_element.appendChild(button);
 			}
 			
