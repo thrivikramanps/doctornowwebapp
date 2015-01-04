@@ -97,7 +97,7 @@ function eVisitReviewController()
 	});
 
 	
-	$('#uploadform').submit(function() {
+	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
  
         $(this).ajaxSubmit({                                                                                                                 
@@ -123,7 +123,7 @@ function eVisitReviewController()
 	// Have to stop the form from submitting and causing                                                                                                       
 	// a page refresh - don't forget this                                                                                                                      
 		return false;
-    });
+    });*/
 		
 	this.attemptLogout = function()
 	{
