@@ -96,9 +96,10 @@ function eVisitReviewController()
 		});
 	});
 
+	var general = document.getElementById('generalselector');
+	var tabselected = general.style.color === "white"? "general":"history";
+
 	$('.pdffetchform').ajaxForm({
-		var general = document.getElementById('generalselector');
-		var tabselected = general.style.color === "white"? "general":"history";
 		//console.log("passed values are " + idevisit + " " + tabselected);	
 			beforeSubmit : function(formData, jqForm, options){
 				// append 'remember-me' option to formData to write local cookie //
