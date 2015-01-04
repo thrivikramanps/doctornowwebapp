@@ -149,6 +149,7 @@ module.exports = function(app) {
 		    })
 		    .on('end', function() {
 		    	console.log("form parsing ended");
+		    	res.end();
 		    	//res.send('ok', 200);
 		    });
 
