@@ -116,11 +116,6 @@ function eVisitReviewController()
 			}
 	});
 
-	$('.pdffetchsubmit').click(function(){
-		console.log("pdffetchsubmit button clicked");
-	});
-
-	
 	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
  
@@ -249,10 +244,11 @@ function eVisitReviewController()
 				form_element.appendChild(input_element);
 
 				var button = document.createElement('input');
-				button.type = "submit";
+				button.type = "button";
 				button.value = "fetch";
 				button.name = "submit";
 				button.className = "pdffetchsubmit";
+				button.addEventListener("click", that.parentNode.submit());
 				form_element.appendChild(button);
 			}
 			
