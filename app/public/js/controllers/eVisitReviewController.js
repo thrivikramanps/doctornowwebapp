@@ -179,12 +179,12 @@ function eVisitReviewController()
 
 		console.log("inside pdffetcher " + filename + " " + tabselected);
 
-		var iframeselectedId = (tabselected === "general")? "upload_target_general":"upload_target_history";
-		var iframeselecteddocument = document.getElementById(iframeselectedId).contentWindow.document;
+		/*var iframeselectedId = (tabselected === "general")? "upload_target_general":"upload_target_history";
+		var iframeselecteddocument = document.getElementById(iframeselectedId).contentWindow.document;*/
 
-				var form_element = iframeselecteddocument.createElement('form');
+				var form_element = document.createElement('form');
 				form_element.method = "POST";
-				//form_element.target = "_blank";
+				form_element.target = "_blank";
 				/*if (tabselected === "general")
 					form_element.target ="upload_target_general";
 				else if (tabselected === "history")

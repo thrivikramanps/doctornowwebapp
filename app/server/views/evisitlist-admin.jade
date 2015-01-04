@@ -49,7 +49,7 @@ block content
 							table#patientlistcontainer
 
 			#right-side-container
-				#right-side(style = "text-align: center; float: right").well-dn.span4
+				#right-side(style = "text-align: center; float: right").well-dn.span3
 					#patientdetails
 						#patientdetailselector
 							input(type='button', value='General', style= "width: 45%; background-color: black; color: white")#generalselector
@@ -57,9 +57,9 @@ block content
 						hr(style="margin-top: 8px")
 						#pdfviewercontainer(style = " width: 87%; height: 200px").well-dn
 							#pdfviewerpatientgeneral
-								iframe#upload_target_general(name="upload_target_general", style="width: 244px; height: 155px; overflow: scroll; border:2px;opacity:0;filter:alpha(opacity=0)")
+								iframe#upload_target_general(name="upload_target_general", style="width: 170px; height: 155px; overflow: scroll; border:2px;opacity:0;filter:alpha(opacity=0)")
 							#pdfviewerpatienthistory
-								iframe#upload_target_history(name="upload_target_history", style="width: 244px; height: 155px; overflow: scroll; border:2px;opacity:0;filter:alpha(opacity=0)")
+								iframe#upload_target_history(name="upload_target_history", style="width: 170px; height: 155px; overflow: scroll; border:2px;opacity:0;filter:alpha(opacity=0)")
 						form( method="post", action="/upload", enctype="multipart/form-data", style=" height: 28px; margin-bottom: 0px; margin-top: 10px")#uploadform.well-dn
 							input(type="file", name="patientfile", id='patient-file', style=" width: 70%")
 							input(type="submit", name="submitupload", id='submitupload')
