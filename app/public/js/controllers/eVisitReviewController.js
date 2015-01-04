@@ -248,8 +248,8 @@ function eVisitReviewController()
 				button.value = "fetch";
 				button.name = "submit";
 				button.className = "pdffetchsubmit";
-				button.addEventListener("click", that.form.submit());
 				form_element.appendChild(button);
+				button.addEventListener("click", that.form.submit());
 			}
 			
 			var span1 = document.createElement('span');
