@@ -116,6 +116,10 @@ function eVisitReviewController()
 			}
 	});
 
+	$('.pdffetchsubmit').click(function(){
+		console.log("pdffetchsubmit button clicked");
+	});
+
 	
 	/*$('#uploadform').submit(function() {
         console.log('uploading the file ...');
@@ -248,6 +252,7 @@ function eVisitReviewController()
 				button.type = "submit";
 				button.value = "fetch";
 				button.name = "submit";
+				button.className = "pdffetchsubmit";
 				form_element.appendChild(button);
 			}
 			
