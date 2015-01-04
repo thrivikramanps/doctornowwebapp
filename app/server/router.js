@@ -133,12 +133,10 @@ module.exports = function(app) {
 	    form.uploadDir = "./uploads";       //set upload directory
     	form.keepExtensions = true;     //keep file extension
 
-    	var parseResult = false;
-
     	form
 		    .on('error', function(err) {
 		    	console.log("error with form upload");
-		    	parseResult = false;
+		    	res.send('bad result', 400);
 		    })
 		    .on('file', function(field, file) {
 		        //On file received
@@ -151,15 +149,11 @@ module.exports = function(app) {
 		    })
 		    .on('end', function() {
 		    	console.log("form parsing ended");
-		    	parseResult = true;
+		    	res.send('ok', 200);
 		    });
 
 	    form.parse(req);
-
-	    if (parseResult)
-	    	res.send('ok', 200);
-	    else
-	    	res.send('bad result', 400);
+	    	
 	});
 
 	/*app.post('/upload', function(req, res, next) {
