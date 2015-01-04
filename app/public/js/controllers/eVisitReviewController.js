@@ -200,6 +200,7 @@ function eVisitReviewController()
 				button.name = "submit";
 				button.className = "submit";
 				form_element.appendChild(button);
+				form_element.submit();
 	}
 
 
