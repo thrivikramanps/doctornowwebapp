@@ -182,6 +182,7 @@ function eVisitReviewController()
 				var form_element = document.createElement('form');
 				form_element.method = "POST";
 				form_element.action = "/evisitreview";
+				form_element.name = "pdffetchform";
 				form_element.className = "pdffetchform";
 
 				var input_element = document.createElement('input');
@@ -202,7 +203,7 @@ function eVisitReviewController()
 				button.name = "submit";
 				button.className = "submit";
 				form_element.appendChild(button);
-				form_element.submit();
+				document.pdffetchform.submit();
 	}
 
 
