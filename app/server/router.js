@@ -465,6 +465,7 @@ module.exports = function(app) {
 	});
 
 	app.post('/evisitreview', function(req,res) {
+		console.log("entered evisitreview");
 		if (req.session.user == null) {
 			res.redirect('/');
 		} else {
