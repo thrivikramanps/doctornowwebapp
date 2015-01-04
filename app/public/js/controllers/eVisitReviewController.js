@@ -176,6 +176,8 @@ function eVisitReviewController()
 		var filename= $target.attr('name');
 		var general = document.getElementById('generalselector');
 		var tabselected = general.style.color === "white"? "general":"history";
+
+		console.log("inside pdffetcher " + filename + " " + tabselected);
 		
 				var form_element = document.createElement('form');
 				form_element.method = "POST";
